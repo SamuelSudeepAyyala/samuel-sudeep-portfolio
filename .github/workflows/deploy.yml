@@ -64,4 +64,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir=./ --repo=https://github.com/${{ github.repository }}.git
+          npx angular-cli-ghpages --dir=./ --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git --branch=gh-pages

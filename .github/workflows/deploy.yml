@@ -69,6 +69,8 @@ jobs:
         run: |
           npx angular-cli-ghpages --dir=./ --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git --branch=gh-pages --no-silent
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Trigger GitHub Pages Deployment
+        run: |
+          gh api -X POST /repos/${{ github.repository }}/pages/builds
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

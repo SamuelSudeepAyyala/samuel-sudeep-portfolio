@@ -28,15 +28,15 @@ jobs:
     - name: Remove unnecessary files from dist folder
       run: |
         # For example, delete specific files or folders that aren't needed
-        rm -rf ./dist/*.map  # Removes map files, if you don't need them
-        rm -rf ./dist/*.log  # Removes log files, if they are present
-        find ./dist -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
+        rm -rf ./dist/samuel-sudeep-portfolio/*.map  # Removes map files, if you don't need them
+        rm -rf ./dist/samuel-sudeep-portfolio/*.log  # Removes log files, if they are present
+        find ./dist/samuel-sudeep-portfolio -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
 
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
       with:
-        name: build-artifact
-        path: ./dist  # Path to your build folder
+        name: github-pages
+        path: ./dist/samuel-sudeep-portfolio  # Path to your build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,6 +55,5 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-         branch: main  # Push to the main branch
-         folder: dist/samuel-sudeep-portfolio  # Make sure to replace this with the correct build output folder
-         token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages  # Target GitHub Pages branch
+        folder: ./dist  # Path to the build folder for deployment

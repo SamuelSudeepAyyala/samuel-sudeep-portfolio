@@ -62,7 +62,6 @@ jobs:
         run: |
           echo "Listing the contents of the dist folder:"
           ls -alh ./src  # List the contents of dist
-          vi ./src/index.html
 
       - name: Deploy to GitHub Pages
         run: |

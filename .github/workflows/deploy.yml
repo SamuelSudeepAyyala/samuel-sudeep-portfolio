@@ -25,6 +25,9 @@ jobs:
     - name: Build the project
       run: npm run build
 
+    - name: List files in the dist folder
+      run: ls -alh ./dist/samuel-sudeep-portfolio  # Ensure that the dist folder has files
+
     - name: Remove unnecessary files from dist folder
       run: |
         # For example, delete specific files or folders that aren't needed
@@ -55,6 +58,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: github-pages  # Must match the name of the artifact uploaded
+
+    - name: List files after downloading artifact
+      run: ls -alh # Ensure that the files are extracted correctly
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4

@@ -23,16 +23,11 @@ jobs:
       - name: Build the Angular project
         run: npm run build -- --configuration production  # Build for production
 
-      - name: Create Artifact for GitHub Pages
-        run: |
-          mkdir -p dist
-          cp -r dist/samuel-sudeep-portfolio/* dist/
-
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: dist/  # Upload dist folder as an artifact
+          path: ./dist  # Upload dist folder as an artifact
 
   deploy:
     runs-on: ubuntu-latest

@@ -69,6 +69,13 @@ jobs:
         run: |
           npx angular-cli-ghpages --dir=./ --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git --branch=gh-pages --no-silent
 
+      - name: Enable GitHub Pages (First Time Only)
+        run: |
+          gh api --method POST /repos/${{ github.repository }}/pages --field source.branch=gh-pages --field source.path="/"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true  # Ignore error if already enabled
+
       - name: Trigger GitHub Pages Deployment
         run: |
           gh api -X POST /repos/${{ github.repository }}/pages/builds

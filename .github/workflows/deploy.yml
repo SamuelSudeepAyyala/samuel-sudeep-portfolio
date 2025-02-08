@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./dist  # Upload dist folder as an artifact
+          path: ./dist/samuel-sudeep-portfolio  # Upload dist folder as an artifact
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,6 +41,15 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+
+      - name: List contents of dist folder
+        run: |
+          echo "Listing the contents of the dist folder:"
+          ls -alh
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -53,10 +62,11 @@ jobs:
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
 
-      - name: List contents of dist folder
+      - name: Unzip the downloaded artifact (if it's zipped)
         run: |
-          echo "Listing the contents of the dist folder:"
-          ls -alh
+          if [ -f github-pages.zip ]; then
+            unzip github-pages.zip -d ./dist/samuel-sudeep-portfolio
+          fi
 
       - name: Deploy to GitHub Pages
         run: |

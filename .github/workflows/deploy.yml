@@ -58,7 +58,11 @@ jobs:
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
 
+      - name: List contents of dist folder
+        run: |
+          echo "Listing the contents of the dist folder:"
+          ls -la dist/samuel-sudeep-portfolio/  # List the contents of dist
+
       - name: Deploy to GitHub Pages
         run: |
           npx angular-cli-ghpages --dir=dist/samuel-sudeep-portfolio/browser --repo=https://github.com/${{ github.repository }}.git
-          # Deploy the app to GitHub Pages using the correct dist folder

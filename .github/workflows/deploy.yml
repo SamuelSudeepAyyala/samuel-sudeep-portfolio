@@ -63,9 +63,9 @@ jobs:
         name: github-pages  # Must match the name of the artifact uploaded
 
     - name: List files after downloading artifact
-      run: ls -alh ./dist # Ensure that the files are extracted correctly
+      run: ls -alh # Ensure that the files are extracted correctly
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-        folder: ./dist/samuel-sudeep-portfolio
+        artifact_name: github-pages

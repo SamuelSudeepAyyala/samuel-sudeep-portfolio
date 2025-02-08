@@ -55,5 +55,5 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-        artifact_name: github-pages  # Target GitHub Pages branch
+        branch: gh-pages  # Target GitHub Pages branch
         folder: ./dist  # Path to the build folder for deployment

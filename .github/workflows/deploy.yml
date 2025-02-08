@@ -35,7 +35,7 @@ jobs:
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
       with:
-        name: github-pages
+        name: build-artifact
         path: ./dist  # Path to your build folder
 
   deploy:
@@ -55,5 +55,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-        branch: gh-pages  # Target GitHub Pages branch
-        folder: ./dist  # Path to the build folder for deployment
+         branch: main  # Push to the main branch
+         folder: dist/samuel-sudeep-portfolio  # Make sure to replace this with the correct build output folder
+         token: ${{ secrets.GITHUB_TOKEN }}

@@ -56,7 +56,9 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install rimraf
 
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages

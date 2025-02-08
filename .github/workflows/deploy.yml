@@ -3,7 +3,7 @@ name: CI/CD for Angular App
 on:
   push:
     branches:
-      - main  # Trigger the workflow when code is pushed to the main branch
+      - master  # Trigger the workflow when code is pushed to the main branch
 
 jobs:
   build:

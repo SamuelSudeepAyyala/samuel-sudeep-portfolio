@@ -22,8 +22,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build the project
-      run: npm run build
+    - name: Build the Angular app
+      run: npm run build -- --prod --output-path=./dist/samuel-sudeep-portfolio
 
     - name: List files in the dist folder
       run: ls -alh  # Ensure that the dist folder has files
@@ -33,13 +33,16 @@ jobs:
         # For example, delete specific files or folders that aren't needed
         rm -rf ./dist/samuel-sudeep-portfolio/*.map  # Removes map files, if you don't need them
         rm -rf ./dist/samuel-sudeep-portfolio/*.log  # Removes log files, if they are present
-        find ./ -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
+        find ./dist/samuel-sudeep-portfolio -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
+
+    - name: List files in the dist folder
+      run: ls -alh  # Ensure that the dist folder has files
 
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
       with:
         name: github-pages
-        path: ./  # Path to your build folder
+        path: ./dist/samuel-sudeep-portfolio  # Path to your build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,4 +68,4 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
       with:
-        artifact_name: github-pages
+        folder: ./dist/samuel-sudeep-portfolio

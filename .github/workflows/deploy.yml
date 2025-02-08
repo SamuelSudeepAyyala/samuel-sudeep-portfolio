@@ -58,7 +58,9 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-          npm install -g rimraf@6.0.1
+
+      - name: Install rimraf
+        run: npm install rimraf --save-dev
 
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
@@ -73,15 +75,11 @@ jobs:
           echo "Listing the contents of the dist folder:"
           ls -alh ./dist/samuel-sudeep-portfolio
 
-      - name: Checkout gh-pages branch
-        run: |
-          git fetch origin gh-pages || git checkout --orphan gh-pages
-          git reset --hard origin/gh-pages
+      - name: Set permissions for dist folder
+        run: chmod -R 777 dist/
 
       - name: Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir= dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git
+          npx angular-cli-ghpages --dir= dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git --no-clean
 
-      - name: Check Git status
-        run: git status
 

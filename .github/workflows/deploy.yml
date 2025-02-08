@@ -67,5 +67,5 @@ jobs:
 
       - name: Deploy to gh-pages
         run: |
-          npx angular-cli-ghpages --dir= dist/samuel-sudeep-portfolio --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git --branch=gh-pages --no-silent
+          npx angular-cli-ghpages --dir= dist/samuel-sudeep-portfolio --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 

@@ -16,9 +16,22 @@
 }
   .hero-text h1 {
     font-size: 4rem;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:Franklin Gothic Medium;
     font-size: bold;
   }
+  .hero-text h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+.summary {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #bbb;
+}
+.highlight-name {
+  color: #ff9800; /* Unique color for the name */
+  font-family: 'Poppins', sans-serif;
+}
 
 
 .hero-image {

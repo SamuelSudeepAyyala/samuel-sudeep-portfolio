@@ -62,12 +62,6 @@ jobs:
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
 
-      - name: Unzip the downloaded artifact (if it's zipped)
-        run: |
-          if [ -f github-pages.zip ]; then
-            unzip github-pages.zip -d ./dist/samuel-sudeep-portfolio
-          fi
-
       - name: Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir=./dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git
+          npx angular-cli-ghpages --dir=./ --repo=https://github.com/${{ github.repository }}.git

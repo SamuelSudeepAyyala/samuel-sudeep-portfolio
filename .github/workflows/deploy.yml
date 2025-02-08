@@ -80,7 +80,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npx angular-cli-ghpages --dir=./dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git
+          npx angular-cli-ghpages --dir= dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git
 
       - name: Check Git status
         run: git status

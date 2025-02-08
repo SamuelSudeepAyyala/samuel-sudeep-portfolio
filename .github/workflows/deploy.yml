@@ -26,7 +26,7 @@ jobs:
       run: npm run build
 
     - name: List files in the dist folder
-      run: ls -alh ./dist  # Ensure that the dist folder has files
+      run: ls -alh  # Ensure that the dist folder has files
 
     - name: Remove unnecessary files from dist folder
       run: |
@@ -38,8 +38,7 @@ jobs:
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
       with:
-        name: github-pages
-        path: ./dist/samuel-sudeep-portfolio  # Path to your build folder
+        name: github-pages  # Path to your build folder
 
   deploy:
     runs-on: ubuntu-latest

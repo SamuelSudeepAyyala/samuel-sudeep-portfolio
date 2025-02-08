@@ -35,7 +35,7 @@ jobs:
       - name: Upload the build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifact
+          name: github-pages
           path: ./dist
 
       - name: Check out the repository

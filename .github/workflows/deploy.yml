@@ -1,71 +1,58 @@
-name: Deploy to GitHub Pages
+name: CI/CD for Angular App
 
 on:
   push:
     branches:
-      - master  # Trigger on push to the main branch (or your default branch)
-  workflow_dispatch:  # Allows manual triggering from the Actions tab
+      - main  # Trigger the workflow when code is pushed to the main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v3
+      - name: Checkout the repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'  # Specify the Node.js version you want to use
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # You can change the Node.js version as needed
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build the Angular app
-      run: npm run build -- --configuration production
+      - name: Build the Angular project
+        run: npm run build -- --prod  # Build for production
 
-    - name: List files in the dist folder
-      run: ls -alh  # Ensure that the dist folder has files
+      - name: Create Artifact for GitHub Pages
+        run: |
+          mkdir -p dist
+          cp -r dist/samuel-sudeep-portfolio/* dist/
 
-    - name: Remove unnecessary files from dist folder
-      run: |
-        # For example, delete specific files or folders that aren't needed
-        rm -rf ./dist/samuel-sudeep-portfolio/*.map  # Removes map files, if you don't need them
-        rm -rf ./dist/samuel-sudeep-portfolio/*.log  # Removes log files, if they are present
-        find ./dist/samuel-sudeep-portfolio -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
-
-    - name: List files in the dist folder
-      run: ls -alh  # Ensure that the dist folder has files
-
-    - name: Upload the build artifact
-      uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
-      with:
-        name: github-pages
-        path: ./dist/samuel-sudeep-portfolio  # Path to your build folder
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: dist/  # Upload dist folder as an artifact
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Ensure that the build step has completed before deploying
-
-    permissions:
-      contents: write  # Required for GitHub Pages deployment
-      id-token: write  # Required for ID token authentication
-      pages: write  # Required for deploying to GitHub Pages
-
+    needs: build  # Ensure that the build job is successful before deploying
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v4
+      - name: Checkout the repository
+        uses: actions/checkout@v3
 
-    - name: Download build artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: github-pages  # Must match the name of the artifact uploaded
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-    - name: List files after downloading artifact
-      run: ls -alh # Ensure that the files are extracted correctly
+      - name: Install dependencies
+        run: npm install
 
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-      with:
-        folder: ./server
+      - name: Install angular-cli-ghpages
+        run: npm install -g angular-cli-ghpages
+
+      - name: Deploy to GitHub Pages
+        run: |
+          npx angular-cli-ghpages --dir=dist/samuel-sudeep-portfolio --repo=https://github.com/${{ github.repository }}.git
+          # Deploy the app to GitHub Pages using the correct dist folder

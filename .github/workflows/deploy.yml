@@ -34,11 +34,11 @@ jobs:
           path: ./dist
 
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages
         with:
           branch: main  # Push to the main branch
           folder: dist/samuel-sudeep-portfolio  # Make sure to replace this with the correct build output folder

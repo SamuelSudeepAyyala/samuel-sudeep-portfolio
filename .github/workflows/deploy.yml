@@ -23,7 +23,7 @@ jobs:
       run: npm install
 
     - name: Build the Angular app
-      run: npm run build -- --prod
+      run: npm run build -- --configuration production
 
     - name: List files in the dist folder
       run: ls -alh  # Ensure that the dist folder has files

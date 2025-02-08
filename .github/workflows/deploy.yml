@@ -29,8 +29,9 @@ jobs:
         run: npm run build --prod
 
       - name: Upload the build artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
+          name: build-artifact
           path: ./dist
 
       - name: Check out the repository

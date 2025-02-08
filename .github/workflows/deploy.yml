@@ -1,33 +1,36 @@
-name: Deploy Angular to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - main # Trigger the workflow when changes are pushed to the main branch
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚀 Checkout repository
-        uses: actions/checkout@v4
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: ⚙️ Set up Node.js
-        uses: actions/setup-node@v4
+      # Set up Node.js and install dependencies
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '14'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🏗️ Build Angular App
-        run: |
-          npm run build -- --output-path=dist --base-href "/samuel-sudeep-portfolio/"
+      # Build the Angular project
+      - name: Build the project
+        run: npm run build --prod
 
-      - name: 🚀 Deploy to GitHub Pages
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: dist  # Make sure this matches your build output path
-          clean: true
+          branch: main  # Push to the main branch
+          folder: dist/samuel-sudeep-portfolio  # Make sure to replace this with the correct build output folder
+          token: ${{ secrets.GITHUB_TOKEN }}

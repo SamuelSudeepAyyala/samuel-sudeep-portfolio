@@ -26,7 +26,7 @@ jobs:
       run: npm run build
 
     - name: List files in the dist folder
-      run: ls -alh ./dist/samuel-sudeep-portfolio  # Ensure that the dist folder has files
+      run: ls -alh ./dist  # Ensure that the dist folder has files
 
     - name: Remove unnecessary files from dist folder
       run: |

@@ -61,7 +61,7 @@ jobs:
       - name: List contents of dist folder
         run: |
           echo "Listing the contents of the dist folder:"
-          ls -alh ./dist/samuel-sudeep-portfolio # List the contents of dist
+          ls -alh
 
       - name: Deploy to GitHub Pages
         run: |

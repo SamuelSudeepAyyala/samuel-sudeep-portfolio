@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build the Angular project
-        run: npm run build -- --configuration-production  # Build for production
+        run: npm run build -- --configuration production  # Build for production
 
       - name: Create Artifact for GitHub Pages
         run: |

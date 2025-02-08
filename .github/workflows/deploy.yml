@@ -40,7 +40,11 @@ jobs:
           path: ./dist
 
       - name: Clean up build directory
-        run: rm -rf ./dist/*
+        run: |
+          rm -rf ./dist/*.map
+          rm -rf ./dist/*.log
+          rm -rf .dist/node_modules
+          find ./dist -type l -exec rm -f {} \;
 
       - name: Check out the repository
         uses: actions/checkout@v4

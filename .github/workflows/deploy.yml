@@ -33,7 +33,7 @@ jobs:
         # For example, delete specific files or folders that aren't needed
         rm -rf ./dist/samuel-sudeep-portfolio/*.map  # Removes map files, if you don't need them
         rm -rf ./dist/samuel-sudeep-portfolio/*.log  # Removes log files, if they are present
-        find ./dist/samuel-sudeep-portfolio -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
+        find ./ -type l -exec rm -f {} \;  # Removes symlinks in the dist folder
 
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
@@ -60,7 +60,7 @@ jobs:
         name: github-pages  # Must match the name of the artifact uploaded
 
     - name: List files after downloading artifact
-      run: ls -alh # Ensure that the files are extracted correctly
+      run: ls -alh ./dist # Ensure that the files are extracted correctly
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4

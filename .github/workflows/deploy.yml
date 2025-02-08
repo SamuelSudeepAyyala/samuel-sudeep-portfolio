@@ -65,6 +65,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions Bot"
 
+      - name: List contents of dist directory
+        run: |
+          echo "Listing the contents of the dist folder:"
+          ls -alh ./dist/samuel-sudeep-portfolio
+
       - name: Checkout gh-pages branch
         run: |
           git fetch origin gh-pages || git checkout --orphan gh-pages

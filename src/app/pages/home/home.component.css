@@ -1,0 +1,74 @@
+.hero {
+  display: flex;
+  background-color: #004264;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  height: 80vh;
+}
+.hero-text {
+  width: 50%;
+  color: aliceblue;
+  flex: 1;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: fadeInLeft 1s ease-in-out forwards;
+}
+  .hero-text h1 {
+    font-size: 4rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: bold;
+  }
+
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+img
+{
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    animation: fadeInUp 1s ease-in-out forwards;
+  }
+
+  .hero-image {
+    order: 1;
+    margin-bottom: 20px;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

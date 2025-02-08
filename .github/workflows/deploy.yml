@@ -38,7 +38,8 @@ jobs:
     - name: Upload the build artifact
       uses: actions/upload-artifact@v4  # Using the stable version of the artifact action
       with:
-        name: github-pages  # Path to your build folder
+        name: github-pages
+        path: ./  # Path to your build folder
 
   deploy:
     runs-on: ubuntu-latest

@@ -23,7 +23,7 @@ jobs:
       run: npm install
 
     - name: Build the Angular app
-      run: npm run build -- --prod --output-path=./dist/samuel-sudeep-portfolio
+      run: npm run build -- --prod
 
     - name: List files in the dist folder
       run: ls -alh  # Ensure that the dist folder has files

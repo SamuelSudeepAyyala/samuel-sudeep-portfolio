@@ -69,7 +69,7 @@ jobs:
       - name: List contents of dist directory
         run: |
           echo "Listing the contents of the dist folder:"
-          ls -alh ./
+          ls -alh ./dist/samuel-sudeep-portfolio
 
       - name: Checkout gh-pages branch
         run: |

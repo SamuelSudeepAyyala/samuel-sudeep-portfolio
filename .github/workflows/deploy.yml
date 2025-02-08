@@ -33,6 +33,9 @@ jobs:
       - name: Build the project
         run: npm run build --prod
 
+      - name: Clean up build directory
+        run: rm -rf ./dist/*
+
       - name: Upload the build artifact
         uses: actions/upload-artifact@v4
         with:

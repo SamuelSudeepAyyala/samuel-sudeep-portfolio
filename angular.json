@@ -19,7 +19,7 @@
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js",
-              "src/polyfills.ts"
+              "polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [

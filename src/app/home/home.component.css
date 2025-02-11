@@ -33,7 +33,7 @@
 .navbar-logo {
   font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'Helmet Neue';
+  font-family: 'Work Sans';
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -42,7 +42,7 @@
 
 .navbar-menu {
   list-style: none;
-  font-family: 'Helmet Neue', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Work Sans', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   gap: 20px;
 }
@@ -88,7 +88,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif,medium;
+  font-family: 'Work Sans', sans-serif,medium;
   overflow-x: hidden;
 }
 
@@ -104,27 +104,27 @@ body {
 
   .hero-text h1 {
     font-size: 4rem;
-    font-family: 'Poppins', sans-serif,medium;
+    font-family: 'Work Sans', sans-serif,medium;
     font-weight: bold;
   }
 
   .hero-text h3 {
     font-size: 1.4rem;
     margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
 
 .hero-summary {
   font-size: 1.2rem;
   margin-top: 10px;
   line-height: 1.5;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #bbb;
 }
 
 .highlight-name {
   color: #ff9800;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* Hero image */
@@ -213,7 +213,7 @@ img {
   border: none;
   padding: 12px 24px;
   font-size: 1.2rem;
-  font-family: 'Poppins', sans-serif,medium;
+  font-family: 'Work Sans', sans-serif,medium;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
@@ -236,7 +236,7 @@ img {
 /* Experience Section Styling */
 .experience-section {
   padding: 60px 10%;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   background-color: #002a42;
   color: aliceblue;
 }
@@ -252,8 +252,6 @@ img {
   padding: 20px;
   margin: 20px 0;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease-in-out;
 }
 
 .section-title {
@@ -264,13 +262,9 @@ img {
 
 .company {
   color: #ff9800;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
-
-  .experience-card:hover {
-    transform: translateY(-5px);
-  }
 
   .experience-card h3 {
     font-size: 1.8rem;
@@ -298,7 +292,7 @@ img {
 }
 
 .experience-card li {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 .skills-container {
@@ -312,6 +306,121 @@ img {
   color: white;
   padding: 5px 12px;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 0.97rem;
   display: inline-block;
+}
+/******Project Styles Sections********/
+.projects-section {
+  padding: 50px 20px;
+  background-color: #004264;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Work Sans', sans-serif;
+  color: aliceblue;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.project {
+  background: #002a42;
+  border-radius: 10px;
+  width:1440px;
+  padding: 20px;
+  align-items:center;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
+  padding:10px;
+}
+
+  .project-description ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  .project-description li {
+    margin-bottom: 8px;
+  }
+
+  .project-description strong {
+    font-weight: bold;
+  }
+
+.project-key-insights {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
+  padding: 10px;
+}
+
+  .project-key-insights ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  .project-key-insights li {
+    margin-bottom: 8px;
+  }
+
+  .project-key-insights strong {
+    font-weight: bold;
+  }
+
+
+.project-tools-used {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
+  padding: 10px;
+}
+
+  .project-tools-used ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  .project-tools-used li {
+    margin-bottom: 8px;
+  }
+
+  .project-tools-used strong {
+    font-weight: bold;
+  }
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 30px 15px;
+  }
+
+  .project-title {
+    font-size: 1.6rem;
+  }
+
+  .project-description {
+    font-size: 1rem;
+  }
+  .project-key-insights {
+    font-size: 1rem;
+  }
+  .project-tools-used {
+    font-size: 1rem;
+  }
 }

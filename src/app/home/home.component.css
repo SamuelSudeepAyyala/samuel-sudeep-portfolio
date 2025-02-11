@@ -33,6 +33,7 @@
 .navbar-logo {
   font-size: 1.8rem;
   font-weight: bold;
+  font-family: 'Helmet Neue';
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -41,7 +42,7 @@
 
 .navbar-menu {
   list-style: none;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Helmet Neue', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   gap: 20px;
 }
@@ -206,6 +207,7 @@ img {
   border: none;
   padding: 12px 24px;
   font-size: 1.2rem;
+  font-family: 'Helmet Neue';
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;

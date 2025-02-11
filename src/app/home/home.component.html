@@ -338,7 +338,8 @@
 <section id="contact" class="contact-section">
   <div class="contact-container">
     <h2>Contact Me</h2>
-    <form action="mailto:ayyalasamuelsudeep@gmail.com" method="POST" enctype="multipart/form-data">
+    <!-- Regular form with submit event binding -->
+    <form (submit)="onSubmit($event)">
       <div class="input-container">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -355,4 +356,8 @@
     </form>
   </div>
 </section>
+
+
+
+
 <!----End Contact Section---->

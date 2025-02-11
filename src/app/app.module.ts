@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component'; // Import the HomeModule
-import { ExperienceComponent } from './experience/experience.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';   // <-- ReactiveFormsModule import
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent,ExperienceComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
-    HomeComponent,
-    ExperienceComponent
+    FormsModule,  // <-- Import ReactiveFormsModule here
   ],
   providers: [],
-  bootstrap: [AppComponent, HomeComponent, ExperienceComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

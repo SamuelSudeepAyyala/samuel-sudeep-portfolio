@@ -424,3 +424,71 @@ img {
     font-size: 1rem;
   }
 }
+/*****Contact Section Styles*****/
+.contact-section {
+  padding: 50px;
+  background-color: #002a42;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  color: aliceblue;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #004264;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+  .contact-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color:aliceblue;
+  }
+
+.input-container {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+  .input-container label {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .input-container input,
+  .input-container textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .input-container textarea {
+    height: 150px;
+    resize: none;
+    
+  }
+
+    .input-container input::placeholder,
+    .input-container textarea::placeholder {
+      font-family: 'Courier New', Courier, monospace;
+      font-style: italic;
+      color: #888;
+    }
+
+.submit-button {
+  background-color: #ff9800;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css'],
   standalone: true
 })
-export class HomeComponent { }
+export class HomeComponent {
+
+  openWhatsApp() {
+    window.open('https://wa.link/bk4p2s', '_blank');
+  }
+
+
+}

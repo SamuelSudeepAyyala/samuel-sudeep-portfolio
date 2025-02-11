@@ -88,7 +88,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif,medium;
   overflow-x: hidden;
 }
 
@@ -102,20 +102,23 @@ body {
   animation: fadeInLeft 1s ease-in-out forwards;
 }
 
-.hero-text h1 {
-  font-size: 4rem;
-  font-family: Franklin Gothic Medium;
-  font-weight: bold;
-}
+  .hero-text h1 {
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif,medium;
+    font-weight: bold;
+  }
 
-.hero-text h2 {
-  font-size: 2rem;
-  margin-top: 10px;
-}
+  .hero-text h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif,medium;
+  }
 
-.summary {
+.hero-summary {
   font-size: 1.2rem;
+  margin-top: 10px;
   line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
   color: #bbb;
 }
 
@@ -201,13 +204,13 @@ img {
 /* Styled button */
 .cta-button {
   background-color: #ff9800;
-  align-content:center;
-  align-items:center;
+  align-content: center;
+  align-items: center;
   color: white;
   border: none;
   padding: 12px 24px;
   font-size: 1.2rem;
-  font-family: 'Helmet Neue';
+  font-family: 'Poppins', sans-serif,medium;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;

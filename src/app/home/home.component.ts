@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { EmailService } from '../../services/email.service';
 
 @Component({
@@ -19,6 +19,16 @@ export class HomeComponent implements OnInit {
 
   }
 
+  showAlert() {
+    const alert = document.getElementById('custom-alert');
+    if (alert) {
+      alert.style.display = 'block';
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
+    }
+  }
+
   onSubmit(event: any): void {
     event.preventDefault();
 
@@ -37,16 +47,16 @@ export class HomeComponent implements OnInit {
     this.emailService.sendEmail(formData)
       .then(response => {
         console.log('Email sent successfully:', response);
-        // Optionally, reset the form after submission
+        this.showAlert();
         document.querySelector('form')?.reset();
       })
       .catch(error => {
         console.error('Error sending email:', error);
+        alert('Sorry, something went wrong. Please try using the Lets Talk Button.');
       });
 
     form.reset();
   }
-
 
   // Toggle the menu for mobile view
   toggleMenu(): void {

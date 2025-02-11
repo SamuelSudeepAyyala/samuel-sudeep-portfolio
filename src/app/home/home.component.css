@@ -108,10 +108,10 @@ body {
     font-weight: bold;
   }
 
-  .hero-text h2 {
-    font-size: 2rem;
+  .hero-text h3 {
+    font-size: 1.4rem;
     margin-top: 10px;
-    font-family: 'Poppins', sans-serif,medium;
+    font-family: 'Poppins', sans-serif;
   }
 
 .hero-summary {
@@ -159,6 +159,9 @@ img {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
   .hero {
     flex-direction: column;
     text-align: center;
@@ -235,7 +238,7 @@ img {
   padding: 60px 10%;
   font-family: 'Poppins', sans-serif;
   background-color: #002a42;
-  color: #ffffff;
+  color: aliceblue;
 }
 
   .experience-section h2 {
@@ -251,6 +254,18 @@ img {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease-in-out;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.company {
+  color: #ff9800;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
   .experience-card:hover {
@@ -271,15 +286,32 @@ img {
 
 .date {
   font-size: 1rem;
-  color: #bbb;
-  margin-bottom: 10px;
+  color: #ccc;
+  margin: 8px;
 }
 
 .experience-card ul {
   padding-left: 20px;
+  list-style-type: disc;
+  margin-left: 25px;
+  margin:5px;
 }
 
 .experience-card li {
   font-size: 1rem;
   line-height: 1.6;
+}
+.skills-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill {
+  background: #ff9800;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: inline-block;
 }

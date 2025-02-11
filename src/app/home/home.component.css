@@ -6,12 +6,26 @@
   box-sizing: border-box;
 }
 
+.warning-marquee {
+  background-color: #ff9800; /* Yellowish background color */
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  top: 0px;
+  left: 0;
+  width: 98.3vw;
+  text-align: center;
+  z-index: 1000;
+}
+
 /* Full-width Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top:0px;
+
   left: 0;
-  width: 100vw; /* Ensure it spans the full width */
+  width: 98.3vw; /* Ensure it spans the full width */
   background-color: #004264;
   padding: 15px 20px;
   display: flex;
@@ -23,6 +37,7 @@
 /* Container for navbar content */
 .navbar-container {
   display: flex;
+  position:sticky;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

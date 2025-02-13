@@ -10,6 +10,7 @@ import { EmailService } from '../../services/email.service';
 export class HomeComponent implements OnInit {
   version: string = "1.0.0";
   menuOpen: boolean = false;
+  to_name: string = "Samuel Sudeep Ayyala";
 
   constructor(private emailService: EmailService) { } 
 
@@ -42,14 +43,15 @@ export class HomeComponent implements OnInit {
     event.preventDefault();
 
     const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
+    const from_name = form.name.value;
+    const from_email = form.email.value;
     const message = form.message.value;
 
-    console.log('Form submitted!', { name, email, message });
+    console.log('Form submitted!', { from_name, from_email, message });
     const formData = {
-      name: name,
-      email: email,
+      to_name: this.to_name,
+      from_name: from_name,
+      from_email: from_email,
       message: message
     };
 

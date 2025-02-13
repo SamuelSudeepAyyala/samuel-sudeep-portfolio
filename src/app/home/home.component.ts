@@ -8,6 +8,7 @@ import { EmailService } from '../../services/email.service';
   standalone: true
 })
 export class HomeComponent implements OnInit {
+  version: string = "1.0.0";
 
   constructor(private emailService: EmailService) { } 
 

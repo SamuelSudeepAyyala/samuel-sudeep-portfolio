@@ -14,7 +14,7 @@
   font-weight: bold;
   top: 0px;
   left: 0;
-  width: 98.3vw;
+  width: auto;
   text-align: center;
   z-index: 1000;
 }
@@ -25,7 +25,7 @@
   top: 0px;
   display: flex;
   left: 0;
-  width: 98.3vw; /* Ensure it spans the full width */
+  width: auto; /* Ensure it spans the full width */
   background-color: #004264;
   padding: 10px 20px;
   color: white;
@@ -504,7 +504,7 @@ img {
 
     .input-container input::placeholder,
     .input-container textarea::placeholder {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Poppins', Courier, monospace;
       font-style: italic;
       color: #888;
     }

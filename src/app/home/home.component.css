@@ -92,7 +92,7 @@
 /* Hero Section */
 
 .hero {
-  height: 100vh; 
+  height: 650px; 
   display: flex;
   background-color: #004264;
   align-items: center;
@@ -125,7 +125,7 @@ body {
   font-weight: bold;
   }
 
-  .hero-text h3 {
+  .hero-text .hero-roles {
     font-size: 1.4rem;
     margin-top: 10px;
     font-family: 'Work Sans', sans-serif;
@@ -670,6 +670,7 @@ img {
   .footer {
     font-size: 0.9rem;
     text-align: center;
+    width:518px;
     padding: 10px;
   }
 }

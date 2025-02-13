@@ -569,6 +569,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar {
+    width: auto;
+  }
   .navbar-menu {
     display: none;
     flex-direction: column;
@@ -598,7 +601,7 @@ img {
     flex-direction: column;
     text-align: left;
     padding: 20px;
-    height:650px;
+    height: auto;
   }
 
   .hero-text {
@@ -625,7 +628,7 @@ img {
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size:inherit;
     padding: 0 10px;
     
   }

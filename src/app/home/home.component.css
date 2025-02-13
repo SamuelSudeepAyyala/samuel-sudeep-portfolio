@@ -7,7 +7,7 @@
 }
 
 .warning-marquee {
-  background-color: #ff9800; /* Yellowish background color */
+  background-color: #ff5722; /* Yellowish background color */
   color: white;
   padding: 10px;
   font-size: 1.2rem;
@@ -22,13 +22,13 @@
 /* Full-width Navbar */
 .navbar {
   position: sticky;
-  top:0px;
-
+  top: 0px;
+  display: flex;
   left: 0;
   width: 98.3vw; /* Ensure it spans the full width */
   background-color: #004264;
-  padding: 15px 20px;
-  display: flex;
+  padding: 10px 20px;
+  color: white;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
@@ -59,6 +59,7 @@
   list-style: none;
   font-family: 'Work Sans', 'Arial Narrow', Arial, sans-serif;
   display: flex;
+  padding:0;
   gap: 20px;
 }
 .navbar-logo:hover {
@@ -105,6 +106,7 @@ body {
   padding: 0;
   font-family: 'Work Sans', sans-serif,medium;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Hero text section */
@@ -117,10 +119,10 @@ body {
   animation: fadeInLeft 1s ease-in-out forwards;
 }
 
-  .hero-text h1 {
-    font-size: 4rem;
-    font-family: 'Work Sans', sans-serif,medium;
-    font-weight: bold;
+  .hero-text .highlight-name{
+  font-size: 4rem;
+  font-family: 'Work Sans', sans-serif, medium;
+  font-weight: bold;
   }
 
   .hero-text h3 {
@@ -139,6 +141,7 @@ body {
 
 .highlight-name {
   color: #ff9800;
+  
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -146,6 +149,10 @@ body {
 .hero-image {
   flex: 1;
   text-align: center;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 img {
@@ -204,7 +211,10 @@ img {
     padding: 10px 0;
     align-items: center;
   }
-   .navbar-menu.active {
+  .navbar-menu li {
+      margin: 0 15px;
+  }
+    .navbar-menu.active {
       display: flex;
     }
   .navbar-item {
@@ -345,7 +355,7 @@ img {
 .project {
   background: #002a42;
   border-radius: 10px;
-  width:1440px;
+  width:100%;
   padding: 20px;
   align-items:center;
   margin-bottom: 30px;
@@ -546,7 +556,7 @@ img {
       background-color: #ff5722;
     }
 .footer {
-  background-color: #ff5722;
+  background-color: #ff9800;
   color: white;
   text-align: center;
   padding: 10px;
@@ -555,4 +565,111 @@ img {
   position: fixed;
   bottom: 0;
   font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    background-color: #004264;
+    opacity: 0;
+    text-align: center;
+  }
+
+    .navbar-menu.active {
+      display: flex;
+      left:0;
+      opacity:1;
+    }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: left;
+    padding: 20px;
+    height:650px;
+  }
+
+  .hero-text {
+    width: 100%;
+    text-align: left;
+    margin-top:50px;
+    padding: 15px;
+  }
+
+
+  .hero-text .highlight-name {
+    font-size: 2rem;
+    font-family: 'Work Sans', sans-serif, medium;
+    font-weight: bold;
+  }
+  .hero-text .hero-roles {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-family: 'Work Sans', sans-serif, medium;
+    font-weight: bold;
+  }
+  .hero-title {
+    font-size: small;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 10px;
+    
+  }
+
+  .hero-image {
+    max-height: 250px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-summary {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .experience-container, .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card, .experience-block {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  input, textarea {
+    font-size: 1rem;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+  }
 }

@@ -9,6 +9,7 @@ import { EmailService } from '../../services/email.service';
 })
 export class HomeComponent implements OnInit {
   version: string = "1.0.0";
+  menuOpen: boolean = false;
 
   constructor(private emailService: EmailService) { } 
 
@@ -29,6 +30,13 @@ export class HomeComponent implements OnInit {
       }, 3000);
     }
   }
+
+  
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
 
   onSubmit(event: any): void {
     event.preventDefault();
@@ -57,14 +65,6 @@ export class HomeComponent implements OnInit {
       });
 
     form.reset();
-  }
-
-  // Toggle the menu for mobile view
-  toggleMenu(): void {
-    const menu = document.getElementById("navbar-menu");
-    if (menu) {
-      menu.classList.toggle("active");
-    }
   }
 
   // Close the menu when clicking a link

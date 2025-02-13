@@ -3,10 +3,8 @@
 </div>
 <nav class="navbar">
   <div class="navbar-container">
-    <div class="hamburger" onclick="toggleMenu()">
-      ☰
-    </div>
-    <ul class="navbar-menu">
+    <div class="hamburger" (click)="toggleMenu()">☰</div>
+    <ul class="navbar-menu" [class.active]="menuOpen">
       <li class="navbar-item"><a href=".hero" class="navbar-link">HOME</a></li>
       <li class="navbar-item"><a href="#experience" class="navbar-link">EXPERIENCE</a></li>
       <li class="navbar-item"><a href="#projects" class="navbar-link">PROJECTS</a></li>
@@ -19,10 +17,11 @@
 
   </div>
 </nav>
+<section>
 <div class="hero">
   <div class="hero-text">
-    <h1><span class="highlight-name">SAMUEL SUDEEP AYYALA</span></h1>
-    <h3>DevOps Engineer | Security Analyst | Full-Stack Application Developer</h3>
+    <p class="highlight-name">SAMUEL SUDEEP AYYALA</p>
+    <p class="hero-roles">DevOps Engineer | Security Analyst | Full-Stack Application Developer</p>
     <p class="hero-summary">
       Results-oriented DevOps Engineer with three years of experience in Build, Test, and Release
       management, specializing in security testing and penetration testing with Burp Suite. I focus on
@@ -33,6 +32,7 @@
     <img src="./assets/profile.jpg" alt="Samuel Sudeep Ayyala profile pic">
   </div>
 </div>
+</section>
 <!---Experience Section--->
 <section id="experience" class="experience-section">
   <h2 class="section-title">Experience</h2>

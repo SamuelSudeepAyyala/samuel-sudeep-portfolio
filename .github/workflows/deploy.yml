@@ -42,7 +42,18 @@ jobs:
           test -f dist/samuel-sudeep-portfolio/robots.txt
           test -f dist/samuel-sudeep-portfolio/sitemap.xml
           test -f dist/samuel-sudeep-portfolio/site.webmanifest
+          test -f dist/samuel-sudeep-portfolio/theme.css
+          test -f dist/samuel-sudeep-portfolio/theme-polish.css
+          test -f dist/samuel-sudeep-portfolio/audit-polish.css
+          test -f dist/samuel-sudeep-portfolio/theme.js
           test -f dist/samuel-sudeep-portfolio/assets/profile.jpg
+          test -f dist/samuel-sudeep-portfolio/assets/Samuel_Sudeep_Ayyala_Resume.pdf
+          test -f dist/samuel-sudeep-portfolio/assets/tech/dotnet.svg
+          grep -q 'theme.css' dist/samuel-sudeep-portfolio/index.html
+          grep -q 'theme-polish.css' dist/samuel-sudeep-portfolio/index.html
+          grep -q 'audit-polish.css' dist/samuel-sudeep-portfolio/index.html
+          grep -q 'theme.js' dist/samuel-sudeep-portfolio/index.html
+          grep -q 'site.webmanifest' dist/samuel-sudeep-portfolio/index.html
 
       - name: Upload production build
         uses: actions/upload-artifact@v4

@@ -52,6 +52,8 @@
   gap: 24px;
   align-items: start;
   border-bottom: 1px solid var(--line);
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .now-grid > div:first-child {
@@ -136,6 +138,8 @@ html[data-theme="light"] app-home .now-grid {
 }
 
 html[data-theme="light"] app-home .now-grid > div {
+  background: transparent !important;
+  box-shadow: none !important;
   border-color: rgba(28,44,68,.10);
 }
 

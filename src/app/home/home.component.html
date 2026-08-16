@@ -16,7 +16,7 @@
 
     <nav id="primary-navigation" class="nav" [class.nav-open]="menuOpen" aria-label="Primary navigation">
       <a href="#about" (click)="closeMenu()">About</a>
-      <a href="#work" (click)="closeMenu()">Work</a>
+      <a href="#work" (click)="closeMenu()">Projects</a>
       <a href="#experience" (click)="closeMenu()">Experience</a>
       <a href="#stack" (click)="closeMenu()">Stack</a>
       <a href="#contact" (click)="closeMenu()">Contact</a>
@@ -33,7 +33,7 @@
         <h1>I build software that works across <span>application and platform boundaries.</span></h1>
         <p class="hero-lede">My experience spans .NET application development, web products, CI/CD, Kubernetes-based delivery, observability and production troubleshooting. I like work where the problem does not stop at one repository or one layer of the stack.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#work">Explore selected work</a>
+          <a class="button button-primary" href="#work">Explore projects</a>
           <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
           <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a class="button button-secondary" href="https://www.linkedin.com/in/samuelsudeepayyala/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
@@ -66,13 +66,13 @@
         <div class="tech-marquee-track">
           @for (tech of techLogos; track tech.name) {
             <div class="tech-logo-pill">
-              <span class="tech-logo-shell"><img [src]="tech.icon" [alt]="tech.name + ' logo'" loading="lazy" /></span>
+              <span class="tech-brand-mark" [style.--brand-color]="tech.color">{{ tech.mark }}</span>
               <span>{{ tech.name }}</span>
             </div>
           }
           @for (tech of techLogos; track tech.name + '-duplicate') {
             <div class="tech-logo-pill" aria-hidden="true">
-              <span class="tech-logo-shell"><img [src]="tech.icon" alt="" loading="lazy" /></span>
+              <span class="tech-brand-mark" [style.--brand-color]="tech.color">{{ tech.mark }}</span>
               <span>{{ tech.name }}</span>
             </div>
           }
@@ -103,8 +103,8 @@
 
     <section class="selected-work section-pad" id="work">
       <div class="section-heading section-heading-wide compact-heading" data-reveal>
-        <div><p class="eyebrow">Selected work</p><h2>Recent engineering work and projects.</h2></div>
-        <p>Employer work is intentionally generalized. The emphasis here is on the kinds of problems I worked on, the layers involved, and the engineering habits that carried across them.</p>
+        <div><p class="eyebrow">Projects & engineering work</p><h2>Systems, products and tooling I have worked on.</h2></div>
+        <p>The employer work below is intentionally generalized. The focus is on the engineering problem, my contribution and the tools involved—not private implementation details.</p>
       </div>
 
       <div class="work-snapshot" data-reveal>
@@ -120,6 +120,33 @@
       <div class="project-list project-grid">
         @for (project of projects; track project.title; let i = $index) {
           <article class="project-card dense-project advanced-card" data-reveal>
+            <div class="project-visual" [class]="'project-visual visual-' + project.visual" aria-hidden="true">
+              @switch (project.visual) {
+                @case ('platform') {
+                  <div class="pipeline-visual">
+                    <span class="pipeline-node">PR</span><i></i><span class="pipeline-node">CI</span><i></i><span class="pipeline-node">ENV</span><i></i><span class="pipeline-node">✓</span>
+                  </div>
+                  <div class="visual-caption"><strong>Change → Build → Environment → Validation</strong><span>Generalized delivery flow</span></div>
+                }
+                @case ('assistant') {
+                  <div class="assistant-window">
+                    <div class="window-bar"><span></span><span></span><span></span></div>
+                    <div class="assistant-layout"><div class="mini-sidebar"><b></b><b></b><b></b></div><div class="mini-content"><span class="mini-title"></span><span></span><span></span><div class="review-chip">Review → Approve</div></div></div>
+                  </div>
+                  <div class="visual-caption"><strong>Authenticated workflow workspace</strong><span>Evidence, review and user control</span></div>
+                }
+                @case ('observability') {
+                  <div class="chart-visual"><span style="--h:38%"></span><span style="--h:62%"></span><span style="--h:45%"></span><span style="--h:78%"></span><span style="--h:55%"></span><span style="--h:88%"></span></div>
+                  <div class="chart-line"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="visual-caption"><strong>Metrics + logs + alerts</strong><span>Operational signals brought into one view</span></div>
+                }
+                @case ('faq') {
+                  <div class="chat-visual"><div class="bubble bubble-left">How do I find this?</div><div class="bubble bubble-right">Matched from curated knowledge ✓</div><div class="search-line"><span>⌕</span><i></i></div></div>
+                  <div class="visual-caption"><strong>Search-first conversational UX</strong><span>Simple retrieval, predictable behavior</span></div>
+                }
+              }
+            </div>
+
             <div class="project-topline">
               <span class="project-number mono">0{{ i + 1 }}</span>
               <span class="project-label mono">{{ project.label }}</span>
@@ -179,14 +206,14 @@
 
     <section class="stack section-pad" id="stack">
       <div class="stack-heading compact-heading" data-reveal>
-        <div><p class="eyebrow">Technical stack</p><h2>Tools I have actually used across work and projects.</h2></div>
-        <p>I do not treat this as a keyword wall. Each group below shows where the tools fit into the kind of engineering work I have been doing.</p>
+        <div><p class="eyebrow">Technical stack</p><h2>Tools I use across application, platform and product work.</h2></div>
+        <p>Grouped by how I use them so the section reads like experience rather than a keyword wall.</p>
       </div>
       <div class="stack-grid rich-stack-grid">
         @for (group of skillGroups; track group.title) {
           <article class="stack-group rich-stack-card advanced-card" data-reveal>
             <div class="stack-card-head">
-              <span class="stack-icon-wrap"><img [src]="group.icon" [alt]="group.title + ' technology icon'" loading="lazy" /></span>
+              <span class="stack-brand-mark" [style.--brand-color]="group.color">{{ group.mark }}</span>
               <span class="stack-context mono">{{ group.context }}</span>
             </div>
             <h3>{{ group.title }}</h3>

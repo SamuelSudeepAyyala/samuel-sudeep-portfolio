@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth;
-  background: #07090d;
+  background: #0c1220;
 }
 
 html,
@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  background: #07090d;
+  background: #0c1220;
   color: #f5f7fb;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
@@ -26,4 +26,17 @@ a {
 ::selection {
   background: rgba(124, 156, 255, 0.32);
   color: #ffffff;
+}
+
+/*
+ * Content visibility is never allowed to depend on IntersectionObserver.
+ * Earlier scroll-reveal styles set repeated Angular @for cards to opacity: 0
+ * before every generated card was registered with the observer. That could
+ * leave whole project/stack grids invisible while still occupying layout space.
+ * Keep structural content visible by default; the portfolio still uses its
+ * ambient, marquee, pipeline, chart, hover and micro-interaction animations.
+ */
+[data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
 }

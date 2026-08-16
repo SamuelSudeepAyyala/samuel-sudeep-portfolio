@@ -1,7 +1,6 @@
 /* Project-card action alignment ------------------------------------------------
- * Keep each card in a grid row the same height and anchor the context action to
- * the card bottom. Project details now open in a top-layer modal, so equal card
- * heights no longer cause the old inline-expansion problem.
+ * Keep cards in each desktop grid row the same height and reserve one shared
+ * footer zone for optional repository links plus the project-context trigger.
  */
 
 .project-list.project-grid {
@@ -22,14 +21,33 @@
   flex-direction: column;
 }
 
+/* Reserve the same action row in every card, including projects without a
+ * public repository. This keeps More context on one horizontal line across
+ * the entire row instead of letting repository cards sit higher/lower. */
 .project-card.dense-project .project-buttons {
-  flex: 0 0 auto;
+  min-height: 38px;
+  margin-top: auto !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.project-card.dense-project .project-buttons .button {
+  min-height: 38px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .project-card.dense-project .case-study-trigger {
   width: 100%;
   min-height: 52px;
-  margin-top: auto !important;
+  margin-top: 10px !important;
   padding: 10px 12px !important;
   display: flex;
   align-items: center;
@@ -52,6 +70,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 28px;
+  line-height: 1;
 }
 
 .project-card.dense-project .case-study-trigger > span:last-child {
@@ -60,6 +79,8 @@
   flex: 0 0 28px;
   display: grid;
   place-items: center;
+  margin: 0;
+  padding: 0;
   border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
   border-radius: 8px;
   color: var(--accent);
@@ -109,8 +130,18 @@ html[data-theme="light"] app-home .project-card.dense-project .case-study-trigge
     height: auto !important;
   }
 
+  .project-card.dense-project .project-buttons {
+    min-height: 0;
+    margin-top: 18px !important;
+  }
+
+  .project-card.dense-project .project-buttons:empty {
+    display: none;
+    margin-top: 0 !important;
+  }
+
   .project-card.dense-project .case-study-trigger {
     min-height: 50px;
-    margin-top: 20px !important;
+    margin-top: 10px !important;
   }
 }

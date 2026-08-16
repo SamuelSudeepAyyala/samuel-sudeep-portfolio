@@ -113,17 +113,189 @@ a {
   background-image: url('./assets/tech/python.svg') !important;
 }
 
-/* Project cards should size independently. Opening "More context" on one card
- * must not stretch the neighboring card to the same grid-row height. */
+/* Project cards size independently; expanded content must never stretch the
+ * neighboring grid card. */
 .project-grid {
   align-items: start !important;
 }
 
-.project-card.dense-project,
 .dense-project {
   height: auto !important;
-  min-height: 0;
-  align-self: start;
+  align-self: start !important;
+}
+
+/* Project context modal ---------------------------------------------------
+ * Keep the existing semantic <details> trigger, but when it opens, move it
+ * out of the project-card layout and present it as a focused modal overlay.
+ */
+body:has(.case-study-details[open]) {
+  overflow: hidden;
+}
+
+.case-study-details[open] {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  padding: clamp(22px, 5vw, 56px) !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow-y: auto !important;
+  border: 0 !important;
+  background: rgba(3, 8, 18, 0.76) !important;
+  backdrop-filter: blur(14px) saturate(0.8);
+  -webkit-backdrop-filter: blur(14px) saturate(0.8);
+}
+
+.case-study-details[open]::before {
+  content: "Project context";
+  position: absolute;
+  top: max(38px, 6vh);
+  left: 50%;
+  z-index: 2;
+  width: min(calc(100% - 80px), 930px);
+  transform: translateX(-50%);
+  color: #f7f9ff;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+}
+
+.case-study-details[open]::after {
+  content: "Context, contribution and takeaway";
+  position: absolute;
+  top: calc(max(38px, 6vh) + 52px);
+  left: 50%;
+  z-index: 2;
+  width: min(calc(100% - 80px), 930px);
+  transform: translateX(-50%);
+  color: #93a0b6;
+  font-size: 0.82rem;
+  pointer-events: none;
+}
+
+.case-study-details[open] > summary {
+  position: fixed !important;
+  top: max(28px, 4vh) !important;
+  right: max(28px, 4vw) !important;
+  z-index: 4 !important;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 14px !important;
+  background: rgba(17, 27, 47, 0.94) !important;
+  color: transparent !important;
+  cursor: pointer !important;
+  list-style: none !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28) !important;
+}
+
+.case-study-details[open] > summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-study-details[open] > summary::after {
+  content: "×";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f5f7fb;
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.case-study-details[open] > summary:hover,
+.case-study-details[open] > summary:focus-visible {
+  border-color: rgba(141, 168, 255, 0.55) !important;
+  background: rgba(30, 45, 74, 0.98) !important;
+}
+
+.case-study-details[open] .case-study-grid {
+  position: relative !important;
+  z-index: 3 !important;
+  width: min(100%, 980px) !important;
+  margin: clamp(90px, 13vh, 130px) auto 24px !important;
+  padding: clamp(18px, 3vw, 30px) !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(124, 156, 255, 0.12), transparent 34%),
+    linear-gradient(150deg, rgba(20, 32, 55, 0.99), rgba(10, 18, 32, 0.99)) !important;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.52) !important;
+}
+
+.case-study-details[open] .case-study-grid > div {
+  min-height: 220px !important;
+  padding: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 17px !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+.case-study-details[open] .case-study-grid .mono {
+  margin-bottom: 18px !important;
+  color: #67e8c7 !important;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.15em !important;
+}
+
+.case-study-details[open] .case-study-grid p {
+  margin: 0 !important;
+  color: #c0cad9 !important;
+  font-size: clamp(0.9rem, 1.35vw, 1rem) !important;
+  line-height: 1.75 !important;
+}
+
+@media (max-width: 760px) {
+  .case-study-details[open] {
+    padding: 20px !important;
+    align-items: start !important;
+  }
+
+  .case-study-details[open]::before,
+  .case-study-details[open]::after {
+    left: 24px;
+    width: calc(100% - 94px);
+    transform: none;
+  }
+
+  .case-study-details[open]::before {
+    top: 30px;
+    font-size: 1.45rem;
+  }
+
+  .case-study-details[open]::after {
+    top: 72px;
+  }
+
+  .case-study-details[open] > summary {
+    top: 22px !important;
+    right: 20px !important;
+  }
+
+  .case-study-details[open] .case-study-grid {
+    margin-top: 106px !important;
+    padding: 14px !important;
+    grid-template-columns: 1fr !important;
+    border-radius: 20px !important;
+  }
+
+  .case-study-details[open] .case-study-grid > div {
+    min-height: 0 !important;
+    padding: 20px !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

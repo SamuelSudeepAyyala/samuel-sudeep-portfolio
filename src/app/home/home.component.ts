@@ -16,6 +16,7 @@ interface Project {
   link?: string;
   linkLabel?: string;
   mediaLabel: string;
+  visual: 'platform' | 'assistant' | 'observability' | 'faq';
   caseStudy: {
     context: string;
     contribution: string;
@@ -27,19 +28,21 @@ interface SkillGroup {
   title: string;
   description: string;
   context: string;
-  icon: string;
+  mark: string;
+  color: string;
   items: string[];
 }
 
 interface TechLogo {
   name: string;
-  icon: string;
+  mark: string;
+  color: string;
 }
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', './home.extras.css'],
+  styleUrls: ['./home.component.css', './home.extras.css', './home.final.css'],
   standalone: true
 })
 export class HomeComponent implements OnInit, OnDestroy {
@@ -95,6 +98,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ],
       tools: ['.NET', 'Kubernetes', 'GitOps', 'Argo CD', 'Docker', 'Cypress', 'GitHub Actions'],
       mediaLabel: 'Platform delivery',
+      visual: 'platform',
       caseStudy: {
         context: 'The work involved improving how engineering changes could be validated in isolated environments before broader rollout.',
         contribution: 'I worked across application code, deployment configuration and test automation, with an emphasis on repeatable patterns and practical troubleshooting.',
@@ -113,6 +117,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ],
       tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3'],
       mediaLabel: 'Full-stack product',
+      visual: 'assistant',
       caseStudy: {
         context: 'The goal is to reduce repetitive job-search work without turning applications into an unsupervised automation problem.',
         contribution: 'I designed the product around authenticated user data, explicit review steps, private evidence storage and clear phase boundaries between tracking, resume support and browser-assisted workflows.',
@@ -133,6 +138,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://github.com/SamuelSudeepAyyala/AiOps',
       linkLabel: 'View repository',
       mediaLabel: 'Observability systems',
+      visual: 'observability',
       caseStudy: {
         context: 'Monitoring stacks often produce more signals than a person can reasonably interpret at once.',
         contribution: 'I built a local environment that combines metrics, logs and alerts, then used it to experiment with correlation and anomaly-oriented workflows.',
@@ -151,6 +157,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       ],
       tools: ['Angular', 'TypeScript', 'Search', 'JSON', 'UX'],
       mediaLabel: 'Applied product UX',
+      visual: 'faq',
       caseStudy: {
         context: 'The product needed a faster way for users to find answers to common questions without forcing every interaction through a full support flow.',
         contribution: 'I focused on a small, maintainable assistant using curated content, search-oriented matching and straightforward UI behavior rather than an opaque autonomous system.',
@@ -160,30 +167,33 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   readonly techLogos: TechLogo[] = [
-    { name: 'C#', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg' },
-    { name: '.NET', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg' },
-    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-    { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg' },
-    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-    { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
-    { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-    { name: 'Redis', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
-    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-    { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg' },
-    { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg' },
-    { name: 'Prometheus', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg' },
-    { name: 'Grafana', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg' },
-    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' }
+    { name: 'C#', mark: 'C#', color: '#9B4F96' },
+    { name: '.NET', mark: '.N', color: '#6D429C' },
+    { name: 'Python', mark: 'Py', color: '#3776AB' },
+    { name: 'TypeScript', mark: 'TS', color: '#3178C6' },
+    { name: 'Angular', mark: 'A', color: '#DD0031' },
+    { name: 'React', mark: '⚛', color: '#61DAFB' },
+    { name: 'Next.js', mark: 'N', color: '#111111' },
+    { name: 'PostgreSQL', mark: 'Pg', color: '#336791' },
+    { name: 'Redis', mark: 'R', color: '#DC382D' },
+    { name: 'Docker', mark: 'D', color: '#2496ED' },
+    { name: 'Kubernetes', mark: 'K8', color: '#326CE5' },
+    { name: 'GitHub Actions', mark: 'GH', color: '#2088FF' },
+    { name: 'Prometheus', mark: 'P', color: '#E6522C' },
+    { name: 'Grafana', mark: 'G', color: '#F46800' },
+    { name: 'Linux', mark: 'Lx', color: '#FCC624' },
+    { name: 'FastAPI', mark: 'FA', color: '#009688' },
+    { name: 'Argo CD', mark: 'Ar', color: '#EF7B4D' },
+    { name: 'Vault', mark: 'V', color: '#FFD814' }
   ];
 
   readonly skillGroups: SkillGroup[] = [
-    { title: 'Platform & cloud-native delivery', description: 'The layer I have been spending the most time in recently: deployment automation, environment configuration and release validation.', context: 'Used in professional and hands-on platform work', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg', items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'HashiCorp Vault', 'GitHub Actions', 'Azure DevOps', 'Linux'] },
-    { title: 'Backend & APIs', description: 'Application services, REST integrations, data access and debugging across both .NET and Python-based stacks.', context: 'Professional experience + current product work', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg', items: ['C#', '.NET', 'ASP.NET Core', 'Python', 'FastAPI', 'REST APIs', 'Entity Framework', 'PostgreSQL', 'SQL Server', 'Redis'] },
-    { title: 'Frontend & product UI', description: 'Building and supporting web interfaces with a focus on practical workflows rather than purely visual frontend work.', context: 'Enterprise applications + personal products', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg', items: ['Angular', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI'] },
-    { title: 'Observability & reliability', description: 'Tools I use to understand what a system is doing after deployment and to reduce time spent guessing during failures.', context: 'Platform work + observability labs', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg', items: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Splunk', 'Health checks', 'Smoke tests', 'Cypress'] },
-    { title: 'Security & application quality', description: 'Application-security testing and quality controls that complement development and release engineering.', context: 'Professional application support and testing', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg', items: ['Burp Suite', 'Fortify', 'Web security testing', 'Vulnerability analysis', 'Authentication debugging', 'Automated tests'] },
-    { title: 'AI-assisted engineering', description: 'Using modern coding agents and AI workflows for repository analysis, implementation support and repetitive engineering tasks while retaining human review.', context: 'Current development workflow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', items: ['Claude Code', 'Claude Skills', 'Codex', 'MCP', 'Repository analysis', 'Workflow automation', 'Human-in-the-loop review'] }
+    { title: 'Platform & cloud-native delivery', description: 'Deployment automation, environment configuration, release validation and infrastructure-adjacent troubleshooting.', context: 'Professional + hands-on platform work', mark: 'K8', color: '#326CE5', items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'HashiCorp Vault', 'GitHub Actions', 'Azure DevOps', 'Linux'] },
+    { title: 'Backend & APIs', description: 'Application services, REST integrations, data access and debugging across .NET and Python-based stacks.', context: 'Professional experience + current product work', mark: '.N', color: '#6D429C', items: ['C#', '.NET', 'ASP.NET Core', 'Python', 'FastAPI', 'REST APIs', 'Entity Framework', 'PostgreSQL', 'SQL Server', 'Redis'] },
+    { title: 'Frontend & product UI', description: 'Web interfaces built around useful workflows, responsive behavior and maintainable component structure.', context: 'Enterprise applications + personal products', mark: 'A', color: '#DD0031', items: ['Angular', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI'] },
+    { title: 'Observability & reliability', description: 'Metrics, logs, dashboards, alerting and validation tools used to understand deployed systems and shorten debugging loops.', context: 'Platform work + observability labs', mark: 'G', color: '#F46800', items: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Splunk', 'Health checks', 'Smoke tests', 'Cypress'] },
+    { title: 'Security & application quality', description: 'Application-security testing and quality controls that complement development, release engineering and production support.', context: 'Professional application support + testing', mark: 'S', color: '#66DBC3', items: ['Burp Suite', 'Fortify', 'Web security testing', 'Vulnerability analysis', 'Authentication debugging', 'Automated tests'] },
+    { title: 'AI-assisted engineering', description: 'Coding agents and AI workflows used for repository analysis, implementation support and repetitive engineering tasks with human review.', context: 'Current development workflow', mark: 'AI', color: '#8DA8FF', items: ['Claude Code', 'Claude Skills', 'Codex', 'MCP', 'Repository analysis', 'Workflow automation', 'Human-in-the-loop review'] }
   ];
 
   constructor(private readonly host: ElementRef<HTMLElement>) {}

@@ -15,6 +15,7 @@ interface Project {
   tools: string[];
   link?: string;
   linkLabel?: string;
+  mediaLabel: string;
 }
 
 @Component({
@@ -29,79 +30,83 @@ export class HomeComponent implements OnInit, OnDestroy {
   private observer?: IntersectionObserver;
 
   readonly metrics = [
-    { value: '86', label: 'Azure DevOps work items closed' },
-    { value: '182', label: 'Pull requests authored' },
-    { value: '160+', label: 'Self-authored PRs merged' },
-    { value: '25', label: 'Backend modules modernized' }
+    { value: 'App → Platform', label: 'Comfortable working across product code and delivery systems' },
+    { value: 'PR → Environment', label: 'Experience with automated, repeatable test and deployment workflows' },
+    { value: 'Signals → Action', label: 'Observability and troubleshooting with practical operational context' },
+    { value: 'AI + Review', label: 'Automation designed with human control and clear boundaries' }
   ];
 
   readonly capabilities: Capability[] = [
     {
       eyebrow: '01 / Platform engineering',
-      title: 'Ship repeatable environments, not one-off deployments.',
-      description: 'I build delivery systems that turn pull requests into testable environments with consistent configuration, observability, health checks and deployment automation.',
+      title: 'Make delivery repeatable instead of fragile.',
+      description: 'I work on deployment automation, test environments, configuration, health checks and observability so engineering teams can ship with fewer manual steps.',
       tools: ['Kubernetes', 'Argo CD', 'GitOps', 'Docker', 'Vault', 'GitHub Actions', 'Azure DevOps']
     },
     {
       eyebrow: '02 / Software engineering',
-      title: 'Work across the stack when the problem requires it.',
-      description: 'My background spans .NET services, APIs, data layers and modern web applications, so I can trace failures across application and platform boundaries instead of treating infrastructure in isolation.',
+      title: 'Trace problems across the stack.',
+      description: 'My background spans .NET services, APIs, data layers and modern web applications, which helps when a production issue crosses application and infrastructure boundaries.',
       tools: ['.NET', 'C#', 'FastAPI', 'Python', 'Angular', 'Next.js', 'PostgreSQL']
     },
     {
       eyebrow: '03 / Automation + AI',
-      title: 'Use AI where it removes real operational friction.',
-      description: 'I prototype workflow automation and AI-assisted tools with an emphasis on explainability, human control, testability and production boundaries rather than novelty for its own sake.',
-      tools: ['AI workflows', 'Anomaly detection', 'Clerk', 'Browser extensions', 'Prometheus', 'Grafana']
+      title: 'Automate useful work, not judgment.',
+      description: 'I use AI-assisted workflows where they can reduce repetitive engineering effort while keeping approvals, traceability and testing in the loop.',
+      tools: ['AI workflows', 'Repository analysis', 'Browser extensions', 'Prometheus', 'Grafana']
     }
   ];
 
   readonly projects: Project[] = [
     {
-      label: 'Platform modernization / 2026',
-      title: 'Ephemeral environments at Incident IQ',
-      description: 'Helped convert a large backend surface to isolated pull-request environments across a Kubernetes and GitOps delivery platform. The work crossed service repositories, deployment overlays, developer-platform configuration and end-to-end validation.',
+      label: 'Platform engineering / 2026',
+      title: 'Developer-platform environment automation',
+      description: 'Contributed to a platform modernization effort that made isolated pull-request environments more repeatable for backend services. Public details are intentionally generalized to avoid exposing employer-specific architecture or internal systems.',
       highlights: [
-        '25 backend modules converted for ephemeral environments',
-        'Health, smoke and E2E validation integrated into the workflow',
-        'Cross-repository fixes spanning application, GitOps and platform layers'
+        'Coordinated application, deployment and test changes across multiple repositories',
+        'Added health, smoke and end-to-end validation into delivery workflows',
+        'Troubleshot build, configuration, deployment and authentication failures across layers'
       ],
-      tools: ['.NET', 'Kubernetes', 'Kustomize', 'Argo CD', 'Vault', 'Cypress', 'GitHub Actions']
+      tools: ['.NET', 'Kubernetes', 'GitOps', 'Argo CD', 'Docker', 'Cypress', 'GitHub Actions'],
+      mediaLabel: 'Architecture visual slot'
     },
     {
       label: 'Product engineering / 2026',
       title: 'Job Application Assistant',
-      description: 'A privacy-conscious application workspace designed around user-approved automation: authenticated candidate profiles, versioned APIs, isolated persistence, resume evidence workflows and a browser-extension path for supported ATS systems.',
+      description: 'A personal application workspace built around user-approved automation, authenticated profiles, isolated persistence, resume-evidence workflows and a browser-extension path.',
       highlights: [
         'Next.js dashboard + FastAPI API + PostgreSQL',
-        'Clerk authentication and user-isolation tests',
-        'Shared contracts and a phased production roadmap'
+        'Authentication and user-isolation tests',
+        'Shared contracts and phased implementation boundaries'
       ],
-      tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3']
+      tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3'],
+      mediaLabel: 'Product screenshot slot'
     },
     {
       label: 'Observability / AIOps',
       title: 'Intelligent observability lab',
-      description: 'A hands-on observability project combining metrics, logs, alerting and anomaly-detection experiments to explore how AI can improve signal quality without replacing operational judgment.',
+      description: 'A personal observability project combining metrics, logs, alerting and anomaly-detection experiments to explore how automation can improve signal quality without replacing operational judgment.',
       highlights: [
-        'Prometheus, Grafana and Loki monitoring stack',
-        'Alertmanager-based incident detection',
-        'Containerized path toward anomaly detection and response automation'
+        'Metrics, dashboards, logs and alerting in a containerized environment',
+        'Incident-detection and notification experiments',
+        'Foundation for anomaly detection and response automation'
       ],
       tools: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Docker', 'Python'],
       link: 'https://github.com/SamuelSudeepAyyala/AiOps',
-      linkLabel: 'View repository'
+      linkLabel: 'View repository',
+      mediaLabel: 'Dashboard screenshot slot'
     },
     {
       label: 'Applied AI / product UX',
-      title: 'DreamStream real-estate assistant',
-      description: 'A conversational support experience for a real-estate platform, using curated domain knowledge and fuzzy retrieval to answer common product and property questions with a lightweight, maintainable architecture.',
+      title: 'Domain FAQ assistant',
+      description: 'Built a lightweight conversational experience for a web product using curated knowledge, search and maintainable response logic. Employer and domain-specific implementation details are intentionally omitted.',
       highlights: [
-        '50+ curated FAQ entries',
-        'Fuse.js fuzzy matching for typos and rephrasings',
+        'Curated FAQ and search-oriented response flow',
+        'Fuzzy matching for common wording variations and typos',
         'Responsive in-product conversation experience'
       ],
-      tools: ['Angular', 'TypeScript', 'Fuse.js', 'JSON', 'UX']
+      tools: ['Angular', 'TypeScript', 'Search', 'JSON', 'UX'],
+      mediaLabel: 'Product visual slot'
     }
   ];
 
@@ -109,7 +114,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     { title: 'Platform', items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'Vault', 'GitHub Actions', 'Azure DevOps', 'Linux'] },
     { title: 'Backend', items: ['C#', '.NET', 'Python', 'FastAPI', 'REST APIs', 'PostgreSQL', 'SQL Server', 'Redis'] },
     { title: 'Frontend', items: ['Angular', 'Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-    { title: 'Observability + security', items: ['Prometheus', 'Grafana', 'Loki', 'Datadog', 'Splunk', 'Burp Suite', 'Fortify'] }
+    { title: 'Observability + security', items: ['Prometheus', 'Grafana', 'Loki', 'Splunk', 'Burp Suite', 'Fortify'] }
   ];
 
   constructor(private readonly host: ElementRef<HTMLElement>) {}

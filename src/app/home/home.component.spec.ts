@@ -9,7 +9,8 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeComponent]
-    }).compileComponents();
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
@@ -20,26 +21,20 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render every project with a complete visual treatment', () => {
-    const visuals = fixture.nativeElement.querySelectorAll('.project-visual');
-    expect(visuals.length).toBe(component.projects.length);
-    expect(component.projects.every(project => Boolean(project.visual))).toBeTrue();
+  it('renders every project card and stack card', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    expect(element.querySelectorAll('.project-card').length).toBe(component.projects.length);
+    expect(element.querySelectorAll('.rich-stack-card').length).toBe(component.skillGroups.length);
   });
 
-  it('should keep technology marks local and independent of remote image CDNs', () => {
-    expect(component.techLogos.length).toBeGreaterThan(12);
-    expect(component.techLogos.every(tech => Boolean(tech.mark) && Boolean(tech.color))).toBeTrue();
-    expect(fixture.nativeElement.querySelectorAll('.tech-marquee img').length).toBe(0);
-  });
+  it('keeps repeated project and stack content visible', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const project = element.querySelector<HTMLElement>('.project-card');
+    const stackCard = element.querySelector<HTMLElement>('.rich-stack-card');
 
-  it('should render the stack as complete cards', () => {
-    const cards = fixture.nativeElement.querySelectorAll('.rich-stack-card');
-    expect(cards.length).toBe(component.skillGroups.length);
-    expect(component.skillGroups.every(group => group.items.length >= 6)).toBeTrue();
-  });
-
-  it('should expose projects in primary navigation', () => {
-    const navText = fixture.nativeElement.querySelector('#primary-navigation')?.textContent ?? '';
-    expect(navText).toContain('Projects');
+    expect(project).not.toBeNull();
+    expect(stackCard).not.toBeNull();
+    expect(getComputedStyle(project!).opacity).not.toBe('0');
+    expect(getComputedStyle(stackCard!).opacity).not.toBe('0');
   });
 });

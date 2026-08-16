@@ -1,11 +1,11 @@
-/* Focused refinement for the Now section. */
+/* Focused refinement for the Now + Education sections. */
 
 .now.section-pad {
   margin-top: 56px;
-  padding: clamp(36px, 4.8vw, 58px);
+  padding: clamp(30px, 3.7vw, 44px);
   display: grid;
   grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-  gap: clamp(38px, 5.5vw, 72px);
+  gap: clamp(30px, 4.5vw, 56px);
   align-items: center;
   border: 1px solid var(--line);
   border-radius: 26px;
@@ -20,14 +20,14 @@
 }
 
 .now.section-pad .eyebrow {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .now.section-pad h2 {
-  max-width: 610px;
+  max-width: 590px;
   margin: 0;
-  font-size: clamp(2.3rem, 3.7vw, 3.85rem);
-  line-height: 1.03;
+  font-size: clamp(2.2rem, 3.45vw, 3.55rem);
+  line-height: 1.04;
   letter-spacing: -.05em;
   text-wrap: balance;
 }
@@ -37,17 +37,17 @@
   overflow: hidden;
   display: grid;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 17px;
   background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
-  box-shadow: 0 16px 36px rgba(2, 8, 20, .09);
+  box-shadow: 0 14px 32px rgba(2, 8, 20, .08);
 }
 
 .now-grid > div {
   min-width: 0;
-  padding: 21px 23px;
+  padding: 17px 20px;
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
   align-items: start;
   border-bottom: 1px solid var(--line);
 }
@@ -59,7 +59,7 @@
 .now-grid .mono {
   margin: 3px 0 0;
   color: var(--accent-2);
-  font-size: .57rem;
+  font-size: .56rem;
   line-height: 1.45;
   letter-spacing: .13em;
 }
@@ -67,9 +67,79 @@
 .now-grid p {
   margin: 0;
   color: var(--muted-strong);
-  font-size: .89rem;
-  line-height: 1.66;
+  font-size: .86rem;
+  line-height: 1.62;
   text-wrap: pretty;
+}
+
+/* Keep Education visually separate from Now. */
+.education.section-pad {
+  margin-top: 28px !important;
+  padding: clamp(30px, 3.8vw, 46px) !important;
+  gap: clamp(28px, 4vw, 54px) !important;
+}
+
+.education-main {
+  min-width: 0;
+}
+
+.education-main > .eyebrow {
+  margin-bottom: 16px;
+}
+
+.education-list {
+  display: grid;
+  gap: 12px;
+}
+
+.education-entry {
+  min-width: 0;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr);
+  gap: 22px;
+  align-items: end;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-strong) 66%, transparent);
+}
+
+.education-entry h2,
+.education-entry h3 {
+  margin: 0;
+  letter-spacing: -.035em;
+}
+
+.education-entry h2 {
+  font-size: clamp(1.65rem, 2.7vw, 2.55rem) !important;
+  line-height: 1.08 !important;
+}
+
+.education-entry h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.education-entry .degree-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.education-entry .education-detail {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.education-entry .mono {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent-2);
+  font-size: .56rem;
 }
 
 html[data-theme="light"] app-home .now.section-pad {
@@ -94,29 +164,43 @@ html[data-theme="light"] app-home .now-grid p {
   color: #56657a;
 }
 
+html[data-theme="light"] app-home .education-entry {
+  background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(246,249,253,.92));
+  border-color: rgba(28,44,68,.10);
+  box-shadow: 0 10px 26px rgba(53,71,99,.045);
+}
+
 @media (max-width: 1180px) {
   .now.section-pad {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
     align-items: stretch;
   }
 
   .now.section-pad h2 {
     max-width: 760px;
-    font-size: clamp(2.35rem, 5.4vw, 3.7rem);
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+  }
+}
+
+@media (max-width: 820px) {
+  .education-entry {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: start;
   }
 }
 
 @media (max-width: 700px) {
   .now.section-pad {
     margin-top: 28px;
-    padding: 26px 20px;
-    gap: 22px;
+    padding: 24px 18px;
+    gap: 20px;
     border-radius: 21px;
   }
 
   .now.section-pad h2 {
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
   }
 
   .now-grid {
@@ -125,11 +209,21 @@ html[data-theme="light"] app-home .now-grid p {
 
   .now-grid > div {
     grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 18px;
+    gap: 7px;
+    padding: 16px;
   }
 
   .now-grid .mono {
     margin: 0;
+  }
+
+  .education.section-pad {
+    margin-top: 20px !important;
+    padding: 24px 18px !important;
+  }
+
+  .education-entry {
+    padding: 16px;
+    border-radius: 14px;
   }
 }

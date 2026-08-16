@@ -1,34 +1,33 @@
 /* Focused refinement for the Now + Education sections. */
 
 .now.section-pad {
-  margin-top: 68px;
-  padding: 52px 26px 54px !important;
+  margin-top: 72px;
+  padding: clamp(42px, 4.8vw, 58px) clamp(34px, 4vw, 52px) !important;
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: clamp(42px, 5vw, 70px);
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(38px, 5vw, 68px);
   align-items: center;
-  border: 0 !important;
-  border-top: 1px solid var(--line) !important;
-  border-bottom: 1px solid var(--line) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 28px !important;
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 34%),
+    color-mix(in srgb, var(--surface) 90%, transparent) !important;
+  box-shadow: 0 20px 52px rgba(2, 8, 20, .08) !important;
   box-sizing: border-box;
 }
 
 .now.section-pad > div:first-child {
   min-width: 0;
-  padding-left: 2px;
 }
 
 .now.section-pad .eyebrow {
-  margin-bottom: 14px;
+  margin: 0 0 14px;
 }
 
 .now.section-pad h2 {
-  max-width: 560px;
+  max-width: 570px;
   margin: 0;
-  font-size: clamp(2.1rem, 3.2vw, 3.3rem) !important;
+  font-size: clamp(2.15rem, 3.25vw, 3.35rem) !important;
   line-height: 1.06 !important;
   letter-spacing: -.045em;
   text-wrap: balance;
@@ -39,17 +38,17 @@
   overflow: hidden;
   display: grid;
   border: 1px solid var(--line);
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
-  box-shadow: 0 14px 34px rgba(2, 8, 20, .08);
+  border-radius: 19px;
+  background: color-mix(in srgb, var(--surface-strong) 70%, transparent);
+  box-shadow: 0 12px 28px rgba(2, 8, 20, .06);
 }
 
 .now-grid > div {
   min-width: 0;
-  padding: 19px 22px;
+  padding: 20px 22px;
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: 94px minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
   border-bottom: 1px solid var(--line);
 }
@@ -61,7 +60,7 @@
 .now-grid .mono {
   margin: 3px 0 0;
   color: var(--accent-2);
-  font-size: .55rem;
+  font-size: .56rem;
   line-height: 1.45;
   letter-spacing: .13em;
 }
@@ -69,21 +68,24 @@
 .now-grid p {
   margin: 0;
   color: var(--muted-strong);
-  font-size: .86rem;
-  line-height: 1.62;
+  font-size: .87rem;
+  line-height: 1.64;
   text-wrap: pretty;
 }
 
-/* Education uses a normal section rhythm with an inner gutter. */
+/* Education becomes its own rounded section with clear separation. */
 .education.section-pad {
-  margin-top: 72px !important;
-  padding: 0 26px 34px !important;
+  margin-top: 44px !important;
+  padding: clamp(32px, 3.8vw, 46px) clamp(30px, 3.8vw, 48px) clamp(34px, 4vw, 48px) !important;
   display: block !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 28px !important;
+  background:
+    radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 38%),
+    color-mix(in srgb, var(--surface) 88%, transparent) !important;
+  box-shadow: 0 18px 46px rgba(2, 8, 20, .065) !important;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .education-main {
@@ -101,17 +103,17 @@
 
 .education-entry {
   min-width: 0;
-  padding: 25px 28px;
+  padding: 26px 28px;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
   gap: 34px;
   align-items: center;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   background:
-    radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 38%),
-    color-mix(in srgb, var(--surface) 78%, transparent);
-  box-shadow: 0 12px 30px rgba(2, 8, 20, .06);
+    radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 40%),
+    color-mix(in srgb, var(--surface-strong) 70%, transparent);
+  box-shadow: 0 10px 26px rgba(2, 8, 20, .045);
 }
 
 .education-entry h2,
@@ -152,10 +154,18 @@
   font-size: .55rem;
 }
 
+html[data-theme="light"] app-home .now.section-pad {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(81,110,232,.07), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(247,249,253,.96)) !important;
+  border-color: rgba(28,44,68,.10) !important;
+  box-shadow: 0 18px 46px rgba(53,71,99,.065) !important;
+}
+
 html[data-theme="light"] app-home .now-grid {
-  background: rgba(255,255,255,.84);
+  background: rgba(255,255,255,.94);
   border-color: rgba(28,44,68,.10);
-  box-shadow: 0 12px 30px rgba(53,71,99,.05);
+  box-shadow: 0 10px 24px rgba(53,71,99,.045);
 }
 
 html[data-theme="light"] app-home .now-grid > div {
@@ -166,19 +176,27 @@ html[data-theme="light"] app-home .now-grid p {
   color: #56657a;
 }
 
+html[data-theme="light"] app-home .education.section-pad {
+  background:
+    radial-gradient(circle at 88% 0%, rgba(81,110,232,.055), transparent 40%),
+    linear-gradient(145deg, rgba(255,255,255,.985), rgba(246,249,253,.97)) !important;
+  border-color: rgba(28,44,68,.10) !important;
+  box-shadow: 0 18px 46px rgba(53,71,99,.06) !important;
+}
+
 html[data-theme="light"] app-home .education-entry {
   background:
-    radial-gradient(circle at 92% 0%, rgba(81,110,232,.07), transparent 38%),
-    linear-gradient(145deg, rgba(255,255,255,.96), rgba(246,249,253,.94));
+    radial-gradient(circle at 92% 0%, rgba(81,110,232,.055), transparent 40%),
+    rgba(255,255,255,.92);
   border-color: rgba(28,44,68,.10);
-  box-shadow: 0 10px 26px rgba(53,71,99,.045);
+  box-shadow: 0 9px 22px rgba(53,71,99,.04);
 }
 
 @media (max-width: 1180px) {
   .now.section-pad {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 44px 24px 46px !important;
+    gap: 30px;
+    padding: 42px 32px 44px !important;
   }
 
   .now.section-pad h2 {
@@ -197,9 +215,10 @@ html[data-theme="light"] app-home .education-entry {
 
 @media (max-width: 700px) {
   .now.section-pad {
-    margin-top: 38px;
-    padding: 34px 16px 36px !important;
+    margin-top: 42px;
+    padding: 30px 20px 32px !important;
     gap: 22px;
+    border-radius: 22px !important;
   }
 
   .now.section-pad h2 {
@@ -207,13 +226,13 @@ html[data-theme="light"] app-home .education-entry {
   }
 
   .now-grid {
-    border-radius: 15px;
+    border-radius: 16px;
   }
 
   .now-grid > div {
     grid-template-columns: 1fr;
     gap: 8px;
-    padding: 17px 18px;
+    padding: 18px;
   }
 
   .now-grid .mono {
@@ -221,8 +240,9 @@ html[data-theme="light"] app-home .education-entry {
   }
 
   .education.section-pad {
-    margin-top: 48px !important;
-    padding: 0 16px 26px !important;
+    margin-top: 30px !important;
+    padding: 26px 20px 28px !important;
+    border-radius: 22px !important;
   }
 
   .education-main > .eyebrow {
@@ -234,7 +254,7 @@ html[data-theme="light"] app-home .education-entry {
   }
 
   .education-entry {
-    padding: 19px 18px;
-    border-radius: 15px;
+    padding: 20px 18px;
+    border-radius: 16px;
   }
 }

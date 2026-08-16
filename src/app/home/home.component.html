@@ -53,6 +53,31 @@
       }
     </section>
 
+    <section class="tech-rail" aria-labelledby="tech-rail-title" data-reveal>
+      <div class="tech-rail-heading section-pad">
+        <span id="tech-rail-title" class="mono">Core technologies</span>
+        <span class="tech-rail-note">Real tools I work with across product and platform engineering.</span>
+      </div>
+      <div class="tech-marquee" role="region" aria-label="Technology logos">
+        <div class="tech-marquee-track">
+          @for (tech of techLogos; track tech.name) {
+            <div class="tech-logo-pill">
+              <span class="tech-brand-icon-wrap"><img class="tech-brand-icon" [src]="tech.iconPath" [alt]="tech.name + ' logo'" loading="lazy" decoding="async" /></span>
+              <span>{{ tech.name }}</span>
+            </div>
+          }
+          <div class="tech-marquee-copy" aria-hidden="true">
+            @for (tech of techLogos; track tech.name) {
+              <div class="tech-logo-pill">
+                <span class="tech-brand-icon-wrap"><img class="tech-brand-icon" [src]="tech.iconPath" alt="" loading="lazy" decoding="async" /></span>
+                <span>{{ tech.name }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="about section-pad" id="about" data-reveal>
       <div><p class="eyebrow">About</p><h2>Application engineering first. Platform thinking after.</h2></div>
       <div class="about-copy">

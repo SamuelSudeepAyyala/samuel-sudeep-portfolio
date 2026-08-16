@@ -51,100 +51,28 @@
     }
   };
 
-  applyTheme(getPreferredTheme());
+  const bindToggle = () => {
+    const button = document.querySelector('.theme-toggle');
+    if (!button) return false;
 
-  const mountToggle = () => {
-    const header = document.querySelector('.site-header');
-    if (!header || header.querySelector('.theme-toggle')) return Boolean(header);
-
-    const cta = header.querySelector('.header-cta');
-    const actions = document.createElement('div');
-    actions.className = 'header-actions';
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'theme-toggle';
-    button.innerHTML = `
-      <span class="theme-toggle-track" aria-hidden="true">
-        <span class="theme-icon theme-icon-sun">☀</span>
-        <span class="theme-icon theme-icon-moon">☾</span>
-        <span class="theme-toggle-thumb"></span>
-      </span>
-      <span class="sr-only theme-toggle-label">Toggle color theme</span>
-    `;
-
-    button.addEventListener('click', () => {
-      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-      safeStorage.set(next);
-      applyTheme(next, true);
-    });
-
-    if (cta) {
-      cta.replaceWith(actions);
-      actions.append(button, cta);
-    } else {
-      header.append(actions);
-      actions.append(button);
+    if (button.dataset.themeBound !== 'true') {
+      button.addEventListener('click', () => {
+        const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+        safeStorage.set(next);
+        applyTheme(next, true);
+      });
+      button.dataset.themeBound = 'true';
     }
 
     applyTheme(root.dataset.theme || getPreferredTheme());
     return true;
   };
 
-  const mountEducationHistory = () => {
-    const education = document.querySelector('.education');
-    if (!education) return false;
-    if (education.querySelector('.education-list')) return true;
+  applyTheme(getPreferredTheme());
 
-    education.innerHTML = `
-      <div class="education-main">
-        <p class="eyebrow">Education</p>
-        <div class="education-list">
-          <article class="education-entry">
-            <div>
-              <span class="mono">Graduate study</span>
-              <h2>New Jersey Institute of Technology</h2>
-              <p class="degree-meta">Master of Science in Computer Science · 2025</p>
-            </div>
-            <p class="education-detail">Computer science fundamentals, software systems and applied engineering work supporting software and platform-focused engineering.</p>
-          </article>
-          <article class="education-entry">
-            <div>
-              <span class="mono">Undergraduate study</span>
-              <h3>Karunya Institute of Technology and Sciences</h3>
-              <p class="degree-meta">Bachelor of Technology in Computer Science &amp; Engineering · 2020</p>
-            </div>
-            <p class="education-detail">Coimbatore, India · Foundation in computer science, software development, data structures, systems and engineering fundamentals.</p>
-          </article>
-        </div>
-      </div>
-    `;
-
-    return true;
-  };
-
-  const syncCurrentExperience = () => {
-    const titles = document.querySelectorAll('.timeline-title-row h3');
-    for (const title of titles) {
-      if (title.textContent?.trim() !== 'Incident IQ') continue;
-      const row = title.closest('.timeline-title-row');
-      const date = row?.querySelector(':scope > span:last-child');
-      if (date) date.textContent = 'Jun 2026 — Present';
-      return true;
-    }
-    return false;
-  };
-
-  const mountEnhancements = () => {
-    const toggleReady = mountToggle();
-    const educationReady = mountEducationHistory();
-    const experienceReady = syncCurrentExperience();
-    return toggleReady && educationReady && experienceReady;
-  };
-
-  if (!mountEnhancements()) {
+  if (!bindToggle()) {
     const observer = new MutationObserver(() => {
-      if (mountEnhancements()) observer.disconnect();
+      if (bindToggle()) observer.disconnect();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }

@@ -26,53 +26,36 @@
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">Software engineer · Platform / DevOps · Applied AI</p>
         <h1>I build software that survives contact with <span>production.</span></h1>
-        <p class="hero-lede">
-          I work across application code, cloud-native delivery systems and developer tooling—turning complex engineering workflows into reliable, observable and repeatable systems.
-        </p>
+        <p class="hero-lede">I work across application code, cloud-native delivery systems and developer tooling—turning complex engineering workflows into reliable, observable and repeatable systems.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore selected work</a>
-          <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
+          <span class="button button-secondary button-disabled" aria-disabled="true" title="Add Samuel_Sudeep_Ayyala_Resume.pdf to src/assets to enable">Resume ↓</span>
           <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a class="button button-secondary" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">WhatsApp ↗</a>
           <span class="button button-secondary button-disabled" aria-disabled="true" title="Add verified LinkedIn URL later">LinkedIn ↗</span>
         </div>
-        <p class="asset-note">Resume and LinkedIn controls are wired; add the final file/URL when ready.</p>
-        <div class="availability">
-          <span class="availability-dot"></span>
-          <span>Based in the United States · Open to software, platform and DevOps engineering roles</span>
-        </div>
+        <p class="asset-note">Resume and LinkedIn controls are ready; they stay disabled until the final public file/URL is added.</p>
+        <div class="availability"><span class="availability-dot"></span><span>Based in the United States · Open to software, platform and DevOps engineering roles</span></div>
       </div>
 
       <div class="hero-visual" data-reveal>
         <div class="portrait-frame">
           <div class="portrait-glow"></div>
           <img src="./assets/profile.jpg" alt="Samuel Sudeep Ayyala" />
-          <div class="floating-card floating-card-top">
-            <span class="mono">currently building</span>
-            <strong>Automation with guardrails.</strong>
-          </div>
-          <div class="floating-card floating-card-bottom">
-            <span class="mono">focus</span>
-            <strong>Platforms · Reliability · Product engineering</strong>
-          </div>
+          <div class="floating-card floating-card-top"><span class="mono">currently building</span><strong>Automation with guardrails.</strong></div>
+          <div class="floating-card floating-card-bottom"><span class="mono">focus</span><strong>Platforms · Reliability · Product engineering</strong></div>
         </div>
       </div>
     </section>
 
     <section class="metrics section-pad" aria-label="Engineering focus" data-reveal>
       @for (metric of metrics; track metric.label) {
-        <article class="metric">
-          <strong>{{ metric.value }}</strong>
-          <span>{{ metric.label }}</span>
-        </article>
+        <article class="metric"><strong>{{ metric.value }}</strong><span>{{ metric.label }}</span></article>
       }
     </section>
 
     <section class="about section-pad" id="about" data-reveal>
-      <div>
-        <p class="eyebrow">About</p>
-        <h2>Application engineering first. Platform thinking after.</h2>
-      </div>
+      <div><p class="eyebrow">About</p><h2>Application engineering first. Platform thinking after.</h2></div>
       <div class="about-copy">
         <p>I started with enterprise application development and gradually moved closer to the systems that build, deploy, observe and support software in production.</p>
         <p>That path made me most comfortable on problems that cross boundaries: a failing deployment that starts in application code, a test environment that needs better automation, or a product workflow that benefits from practical AI without removing human review.</p>
@@ -80,21 +63,12 @@
     </section>
 
     <section class="capabilities section-pad" id="capabilities">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">How I work</p>
-        <h2>Engineering across boundaries.</h2>
-        <p>I’m strongest where software, infrastructure and operations meet. That makes me useful on problems that don’t stay neatly inside one repository.</p>
-      </div>
-
+      <div class="section-heading" data-reveal><p class="eyebrow">How I work</p><h2>Engineering across boundaries.</h2><p>I’m strongest where software, infrastructure and operations meet. That makes me useful on problems that don’t stay neatly inside one repository.</p></div>
       <div class="capability-grid">
         @for (capability of capabilities; track capability.eyebrow) {
           <article class="capability-card" data-reveal>
-            <p class="mono card-index">{{ capability.eyebrow }}</p>
-            <h3>{{ capability.title }}</h3>
-            <p>{{ capability.description }}</p>
-            <div class="tag-row">
-              @for (tool of capability.tools; track tool) { <span>{{ tool }}</span> }
-            </div>
+            <p class="mono card-index">{{ capability.eyebrow }}</p><h3>{{ capability.title }}</h3><p>{{ capability.description }}</p>
+            <div class="tag-row">@for (tool of capability.tools; track tool) { <span>{{ tool }}</span> }</div>
           </article>
         }
       </div>
@@ -102,36 +76,21 @@
 
     <section class="selected-work section-pad" id="work">
       <div class="section-heading section-heading-wide" data-reveal>
-        <div>
-          <p class="eyebrow">Selected work</p>
-          <h2>Evidence without exposing private systems.</h2>
-        </div>
+        <div><p class="eyebrow">Selected work</p><h2>Evidence without exposing private systems.</h2></div>
         <p>Employer work is intentionally generalized. Public projects can link to code; private work stays at the level of responsibilities, technical themes and safe outcomes.</p>
       </div>
-
       <div class="project-list">
         @for (project of projects; track project.title; let i = $index) {
           <article class="project-card" data-reveal>
             <div class="project-number mono">0{{ i + 1 }}</div>
             <div class="project-main">
-              <div class="project-media-slot" aria-label="Media placeholder">
-                <span class="mono">{{ project.mediaLabel }}</span>
-                <strong>Add approved visual later</strong>
-              </div>
-              <p class="project-label mono">{{ project.label }}</p>
-              <h3>{{ project.title }}</h3>
-              <p class="project-description">{{ project.description }}</p>
-              <ul class="project-highlights">
-                @for (highlight of project.highlights; track highlight) { <li>{{ highlight }}</li> }
-              </ul>
-              <div class="tag-row">
-                @for (tool of project.tools; track tool) { <span>{{ tool }}</span> }
-              </div>
+              <div class="project-media-slot" aria-label="Media placeholder"><span class="mono">{{ project.mediaLabel }}</span><strong>Add approved visual later</strong></div>
+              <p class="project-label mono">{{ project.label }}</p><h3>{{ project.title }}</h3><p class="project-description">{{ project.description }}</p>
+              <ul class="project-highlights">@for (highlight of project.highlights; track highlight) { <li>{{ highlight }}</li> }</ul>
+              <div class="tag-row">@for (tool of project.tools; track tool) { <span>{{ tool }}</span> }</div>
               <div class="project-buttons">
-                @if (project.link) {
-                  <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a>
-                }
-                <span class="button button-secondary button-disabled" aria-disabled="true" title="Add public-safe case study later">Case study ↗</span>
+                @if (project.link) { <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a> }
+                <span class="button button-secondary button-disabled" aria-disabled="true" title="Add a public-safe case study later">Case study ↗</span>
               </div>
             </div>
           </article>
@@ -140,66 +99,34 @@
     </section>
 
     <section class="experience section-pad" id="experience">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">Experience</p>
-        <h2>A path from application engineering to platform work.</h2>
-      </div>
-
+      <div class="section-heading" data-reveal><p class="eyebrow">Experience</p><h2>A path from application engineering to platform work.</h2></div>
       <div class="timeline">
         <article class="timeline-item featured" data-reveal>
-          <div class="timeline-meta">
-            <span class="timeline-year">2026</span>
-            <span>Atlanta, GA</span>
-          </div>
+          <div class="timeline-meta"><span class="timeline-year">2026</span><span>Atlanta, GA</span></div>
           <div class="timeline-content">
             <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering Intern</p></div><span>Jun 2026 — Aug 2026</span></div>
             <p>Contributed to developer-platform and reliability work involving cloud-native deployment automation, repeatable test environments, CI/CD, application troubleshooting and observability. Public details are intentionally limited to avoid exposing proprietary systems.</p>
-            <div class="experience-bullets">
-              <span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Observability</span>
-            </div>
+            <div class="experience-bullets"><span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Observability</span></div>
           </div>
         </article>
-
         <article class="timeline-item" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2025 — 2026</span><span>New Jersey</span></div>
-          <div class="timeline-content">
-            <div class="timeline-title-row"><div><h3>Community Dreams Foundation</h3><p>Software Engineer</p></div><span>Aug 2025 — Jun 2026</span></div>
-            <p>Developed and supported a web product with data workflows, search, user-facing features and an FAQ assistant while working with stakeholders to refine evolving product requirements.</p>
-          </div>
+          <div class="timeline-content"><div class="timeline-title-row"><div><h3>Community Dreams Foundation</h3><p>Software Engineer</p></div><span>Aug 2025 — Jun 2026</span></div><p>Developed and supported a web product with data workflows, search, user-facing features and an FAQ assistant while working with stakeholders to refine evolving product requirements.</p></div>
         </article>
-
         <article class="timeline-item" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2020 — 2023</span><span>India</span></div>
-          <div class="timeline-content">
-            <div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div>
-            <p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p>
-          </div>
+          <div class="timeline-content"><div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div><p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p></div>
         </article>
       </div>
     </section>
 
     <section class="stack section-pad" id="stack">
-      <div class="stack-intro" data-reveal>
-        <p class="eyebrow">Technical stack</p>
-        <h2>Broad enough to debug the system. Deep enough to own a layer.</h2>
-      </div>
-      <div class="stack-grid">
-        @for (group of skillGroups; track group.title) {
-          <article class="stack-group" data-reveal>
-            <h3>{{ group.title }}</h3>
-            <div class="stack-items">
-              @for (item of group.items; track item) { <span>{{ item }}</span> }
-            </div>
-          </article>
-        }
-      </div>
+      <div class="stack-intro" data-reveal><p class="eyebrow">Technical stack</p><h2>Broad enough to debug the system. Deep enough to own a layer.</h2></div>
+      <div class="stack-grid">@for (group of skillGroups; track group.title) { <article class="stack-group" data-reveal><h3>{{ group.title }}</h3><div class="stack-items">@for (item of group.items; track item) { <span>{{ item }}</span> }</div></article> }</div>
     </section>
 
     <section class="now section-pad" data-reveal>
-      <div>
-        <p class="eyebrow">Now</p>
-        <h2>Building toward stronger product + platform ownership.</h2>
-      </div>
+      <div><p class="eyebrow">Now</p><h2>Building toward stronger product + platform ownership.</h2></div>
       <div class="now-grid">
         <div><span class="mono">Building</span><p>Job-application tooling with human-approved automation and clear privacy boundaries.</p></div>
         <div><span class="mono">Deepening</span><p>Kubernetes, observability, CI/CD reliability, backend systems and production-oriented engineering.</p></div>
@@ -208,33 +135,22 @@
     </section>
 
     <section class="education section-pad" data-reveal>
-      <div>
-        <p class="eyebrow">Education</p>
-        <h2>New Jersey Institute of Technology</h2>
-        <p>Master of Science in Computer Science · 2025</p>
-      </div>
-      <div class="education-side">
-        <span class="mono">Graduate study</span>
-        <p>Computer science fundamentals, software systems and applied engineering work that supported the transition into U.S.-based software engineering.</p>
-      </div>
+      <div><p class="eyebrow">Education</p><h2>New Jersey Institute of Technology</h2><p>Master of Science in Computer Science · 2025</p></div>
+      <div class="education-side"><span class="mono">Graduate study</span><p>Computer science fundamentals, software systems and applied engineering work that supported the transition into U.S.-based software engineering.</p></div>
     </section>
 
     <section class="contact section-pad" id="contact" data-reveal>
-      <div class="contact-kicker mono">Have a hard engineering problem?</div>
-      <h2>Put me where software meets infrastructure.</h2>
+      <div class="contact-kicker mono">Have a hard engineering problem?</div><h2>Put me where software meets infrastructure.</h2>
       <p>I’m interested in teams building developer platforms, cloud-native systems, backend products, reliability tooling and practical AI automation.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a>
         <a class="button button-secondary" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">WhatsApp ↗</a>
-        <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
+        <span class="button button-secondary button-disabled" aria-disabled="true" title="Add Samuel_Sudeep_Ayyala_Resume.pdf to src/assets to enable">Resume ↓</span>
         <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
         <span class="button button-secondary button-disabled" aria-disabled="true" title="Add verified LinkedIn URL later">LinkedIn ↗</span>
       </div>
     </section>
   </main>
 
-  <footer class="footer section-pad">
-    <span>© {{ currentYear }} Samuel Sudeep Ayyala</span>
-    <span>Designed and built with Angular.</span>
-  </footer>
+  <footer class="footer section-pad"><span>© {{ currentYear }} Samuel Sudeep Ayyala</span><span>Designed and built with Angular.</span></footer>
 </div>

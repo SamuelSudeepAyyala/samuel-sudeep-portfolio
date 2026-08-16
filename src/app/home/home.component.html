@@ -176,14 +176,39 @@
               <div class="project-buttons">
                 @if (project.link) { <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a> }
               </div>
-              <details class="case-study-details">
-                <summary>More context</summary>
-                <div class="case-study-grid">
-                  <div><span class="mono">Context</span><p>{{ project.caseStudy.context }}</p></div>
-                  <div><span class="mono">Contribution</span><p>{{ project.caseStudy.contribution }}</p></div>
-                  <div><span class="mono">Takeaway</span><p>{{ project.caseStudy.takeaway }}</p></div>
+
+              <button class="case-study-trigger" type="button" [attr.popovertarget]="'project-context-' + i">
+                <span>More context</span><span aria-hidden="true">↗</span>
+              </button>
+
+              <div class="case-study-popover" popover [id]="'project-context-' + i">
+                <div class="case-study-modal" role="dialog" aria-modal="true" [attr.aria-labelledby]="'project-context-title-' + i">
+                  <div class="case-study-modal-head">
+                    <div>
+                      <span class="mono">{{ project.label }}</span>
+                      <h3 [id]="'project-context-title-' + i">{{ project.title }}</h3>
+                      <p>{{ project.description }}</p>
+                    </div>
+                    <button class="case-study-close" type="button" [attr.popovertarget]="'project-context-' + i" popovertargetaction="hide" aria-label="Close project context">×</button>
+                  </div>
+
+                  <div class="case-study-modal-highlights">
+                    <span class="mono">Highlights</span>
+                    <ul>@for (highlight of project.highlights; track highlight) { <li>{{ highlight }}</li> }</ul>
+                  </div>
+
+                  <div class="case-study-grid">
+                    <div><span class="mono">Context</span><p>{{ project.caseStudy.context }}</p></div>
+                    <div><span class="mono">Contribution</span><p>{{ project.caseStudy.contribution }}</p></div>
+                    <div><span class="mono">Takeaway</span><p>{{ project.caseStudy.takeaway }}</p></div>
+                  </div>
+
+                  <div class="case-study-modal-footer">
+                    <div class="tag-row">@for (tool of project.tools; track tool) { <span>{{ tool }}</span> }</div>
+                    @if (project.link) { <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a> }
+                  </div>
                 </div>
-              </details>
+              </div>
             </div>
           </article>
         }
@@ -211,11 +236,7 @@
         </article>
         <article class="timeline-item" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2020 — 2023</span><span>India</span></div>
-          <div class="timeline-content">
-            <div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div>
-            <p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p>
-            <div class="experience-bullets"><span>.NET</span><span>Angular</span><span>REST APIs</span><span>SQL Server</span><span>CI/CD</span><span>Linux</span><span>Burp Suite</span><span>Fortify</span></div>
-          </div>
+          <div class="timeline-content"><div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div><p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p><div class="experience-bullets"><span>.NET</span><span>Angular</span><span>REST APIs</span><span>SQL Server</span><span>CI/CD</span><span>Linux</span><span>Burp Suite</span><span>Fortify</span></div></div>
         </article>
       </div>
     </section>
@@ -228,13 +249,8 @@
       <div class="stack-grid rich-stack-grid">
         @for (group of skillGroups; track group.title) {
           <article class="stack-group rich-stack-card advanced-card" data-reveal>
-            <div class="stack-card-head">
-              <span class="stack-brand-mark" [style.--brand-color]="group.color">{{ group.mark }}</span>
-              <span class="stack-context mono">{{ group.context }}</span>
-            </div>
-            <h3>{{ group.title }}</h3>
-            <p>{{ group.description }}</p>
-            <div class="stack-items">@for (item of group.items; track item) { <span>{{ item }}</span> }</div>
+            <div class="stack-card-head"><span class="stack-brand-mark" [style.--brand-color]="group.color">{{ group.mark }}</span><span class="stack-context mono">{{ group.context }}</span></div>
+            <h3>{{ group.title }}</h3><p>{{ group.description }}</p><div class="stack-items">@for (item of group.items; track item) { <span>{{ item }}</span> }</div>
           </article>
         }
       </div>
@@ -242,11 +258,7 @@
 
     <section class="now section-pad" data-reveal>
       <div><p class="eyebrow">Now</p><h2>Building toward stronger product + platform ownership.</h2></div>
-      <div class="now-grid">
-        <div><span class="mono">Building</span><p>Job-application tooling with human-approved automation and clear privacy boundaries.</p></div>
-        <div><span class="mono">Deepening</span><p>Kubernetes, observability, CI/CD reliability, backend systems and production-oriented engineering.</p></div>
-        <div><span class="mono">Looking for</span><p>Software, platform or DevOps roles where application and infrastructure concerns overlap.</p></div>
-      </div>
+      <div class="now-grid"><div><span class="mono">Building</span><p>Job-application tooling with human-approved automation and clear privacy boundaries.</p></div><div><span class="mono">Deepening</span><p>Kubernetes, observability, CI/CD reliability, backend systems and production-oriented engineering.</p></div><div><span class="mono">Looking for</span><p>Software, platform or DevOps roles where application and infrastructure concerns overlap.</p></div></div>
     </section>
 
     <section class="education section-pad" data-reveal>
@@ -257,20 +269,11 @@
     <section class="contact section-pad" id="contact" data-reveal>
       <div class="contact-kicker mono">Open to engineering opportunities</div><h2>Software, platform and DevOps work where systems overlap.</h2>
       <p>I’m interested in teams building developer platforms, cloud-native systems, backend products, reliability tooling and practical AI automation.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a>
-        <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
-        <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a class="button button-secondary" href="https://www.linkedin.com/in/samuelsudeepayyala/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a class="button button-secondary" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">WhatsApp ↗</a>
-      </div>
+      <div class="hero-actions"><a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a><a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a><a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a><a class="button button-secondary" href="https://www.linkedin.com/in/samuelsudeepayyala/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button button-secondary" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">WhatsApp ↗</a></div>
     </section>
   </main>
 
   <button class="back-to-top" type="button" [class.visible]="showBackToTop" (click)="scrollToTop()" aria-label="Back to top">↑</button>
 
-  <footer class="footer section-pad">
-    <span>© {{ currentYear }} Samuel Sudeep Ayyala</span>
-    <span class="footer-links"><a href="https://github.com/SamuelSudeepAyyala/samuel-sudeep-portfolio" target="_blank" rel="noreferrer">View source ↗</a><span>Designed and built with Angular.</span></span>
-  </footer>
+  <footer class="footer section-pad"><span>© {{ currentYear }} Samuel Sudeep Ayyala</span><span class="footer-links"><a href="https://github.com/SamuelSudeepAyyala/samuel-sudeep-portfolio" target="_blank" rel="noreferrer">View source ↗</a><span>Designed and built with Angular.</span></span></footer>
 </div>

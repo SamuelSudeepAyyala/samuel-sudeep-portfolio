@@ -22,6 +22,21 @@
   <meta name="twitter:title" content="Samuel Sudeep Ayyala | Software, Platform & DevOps Engineer">
   <meta name="twitter:description" content="Software engineering, platform engineering, cloud-native systems, observability and practical AI automation.">
 
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('samuel-portfolio-theme');
+        const theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,6 +64,7 @@
     ]
   }
   </script>
+  <script src="theme.js" defer></script>
 </head>
 <body>
   <app-root></app-root>

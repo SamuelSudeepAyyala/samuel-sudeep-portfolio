@@ -25,14 +25,13 @@
     <section class="hero section-pad">
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">Software engineer · Platform / DevOps · Applied AI</p>
-        <h1>I build software that survives contact with <span>production.</span></h1>
-        <p class="hero-lede">I work across application code, cloud-native delivery systems and developer tooling—turning complex engineering workflows into reliable, observable and repeatable systems.</p>
+        <h1>I build software that works across <span>application and platform boundaries.</span></h1>
+        <p class="hero-lede">My experience spans .NET application development, web products, CI/CD, Kubernetes-based delivery, observability and production troubleshooting. I like work where the problem does not stop at one repository or one layer of the stack.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore selected work</a>
           <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
           <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a class="button button-secondary" href="https://www.linkedin.com/in/samuelsudeepayyala/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a class="button button-secondary" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">WhatsApp ↗</a>
         </div>
         <div class="availability"><span class="availability-dot"></span><span>Based in the United States · Open to software, platform and DevOps engineering roles</span></div>
       </div>
@@ -41,8 +40,8 @@
         <div class="portrait-frame">
           <div class="portrait-glow"></div>
           <img src="./assets/profile.jpg" alt="Samuel Sudeep Ayyala" />
-          <div class="floating-card floating-card-top"><span class="mono">currently building</span><strong>Automation with guardrails.</strong></div>
-          <div class="floating-card floating-card-bottom"><span class="mono">focus</span><strong>Platforms · Reliability · Product engineering</strong></div>
+          <div class="floating-card floating-card-top"><span class="mono">current focus</span><strong>Platform delivery + backend systems</strong></div>
+          <div class="floating-card floating-card-bottom"><span class="mono">working style</span><strong>Build · validate · observe · improve</strong></div>
         </div>
       </div>
     </section>
@@ -62,7 +61,7 @@
     </section>
 
     <section class="capabilities section-pad" id="capabilities">
-      <div class="section-heading" data-reveal><p class="eyebrow">How I work</p><h2>Engineering across boundaries.</h2><p>I’m strongest where software, infrastructure and operations meet. That makes me useful on problems that don’t stay neatly inside one repository.</p></div>
+      <div class="section-heading" data-reveal><p class="eyebrow">How I work</p><h2>Engineering across boundaries.</h2><p>I’m strongest where software, infrastructure and operations meet. That makes me useful on problems that do not stay neatly inside one repository.</p></div>
       <div class="capability-grid">
         @for (capability of capabilities; track capability.eyebrow) {
           <article class="capability-card" data-reveal>
@@ -74,24 +73,38 @@
     </section>
 
     <section class="selected-work section-pad" id="work">
-      <div class="section-heading section-heading-wide" data-reveal>
-        <div><p class="eyebrow">Selected work</p><h2>Evidence without exposing private systems.</h2></div>
-        <p>Employer work is intentionally generalized. Public projects can link to code; private work stays at the level of responsibilities, technical themes and safe outcomes.</p>
+      <div class="section-heading section-heading-wide compact-heading" data-reveal>
+        <div><p class="eyebrow">Selected work</p><h2>Recent engineering work and projects.</h2></div>
+        <p>Employer work is intentionally generalized. The emphasis here is on the kinds of problems I worked on, the layers involved, and the engineering habits that carried across them.</p>
       </div>
-      <div class="project-list">
+
+      <div class="work-snapshot" data-reveal>
+        @for (item of workSnapshot; track item.title) {
+          <article class="snapshot-card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+
+      <div class="project-list project-grid">
         @for (project of projects; track project.title; let i = $index) {
-          <article class="project-card" data-reveal>
-            <div class="project-number mono">0{{ i + 1 }}</div>
+          <article class="project-card dense-project" data-reveal>
+            <div class="project-topline">
+              <span class="project-number mono">0{{ i + 1 }}</span>
+              <span class="project-label mono">{{ project.label }}</span>
+              <span class="project-type">{{ project.mediaLabel }}</span>
+            </div>
             <div class="project-main">
-              <div class="project-media-slot" aria-label="Media placeholder"><span class="mono">{{ project.mediaLabel }}</span><strong>Add approved visual later</strong></div>
-              <p class="project-label mono">{{ project.label }}</p><h3>{{ project.title }}</h3><p class="project-description">{{ project.description }}</p>
+              <h3>{{ project.title }}</h3>
+              <p class="project-description">{{ project.description }}</p>
               <ul class="project-highlights">@for (highlight of project.highlights; track highlight) { <li>{{ highlight }}</li> }</ul>
               <div class="tag-row">@for (tool of project.tools; track tool) { <span>{{ tool }}</span> }</div>
               <div class="project-buttons">
                 @if (project.link) { <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a> }
               </div>
               <details class="case-study-details">
-                <summary>Read generalized case study</summary>
+                <summary>More context</summary>
                 <div class="case-study-grid">
                   <div><span class="mono">Context</span><p>{{ project.caseStudy.context }}</p></div>
                   <div><span class="mono">Contribution</span><p>{{ project.caseStudy.contribution }}</p></div>
@@ -105,30 +118,50 @@
     </section>
 
     <section class="experience section-pad" id="experience">
-      <div class="section-heading" data-reveal><p class="eyebrow">Experience</p><h2>A path from application engineering to platform work.</h2></div>
+      <div class="section-heading compact-heading" data-reveal><p class="eyebrow">Experience</p><h2>From application development into platform-focused engineering.</h2></div>
       <div class="timeline">
         <article class="timeline-item featured" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2026</span><span>Atlanta, GA</span></div>
           <div class="timeline-content">
             <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering Intern</p></div><span>Jun 2026 — Aug 2026</span></div>
             <p>Contributed to developer-platform and reliability work involving cloud-native deployment automation, repeatable test environments, CI/CD, application troubleshooting and observability. Public details are intentionally limited to avoid exposing proprietary systems.</p>
-            <div class="experience-bullets"><span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Observability</span></div>
+            <div class="experience-bullets"><span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Automated validation</span><span>Observability</span><span>.NET services</span></div>
           </div>
         </article>
         <article class="timeline-item" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2025 — 2026</span><span>New Jersey</span></div>
-          <div class="timeline-content"><div class="timeline-title-row"><div><h3>Community Dreams Foundation</h3><p>Software Engineer</p></div><span>Aug 2025 — Jun 2026</span></div><p>Developed and supported a web product with data workflows, search, user-facing features and an FAQ assistant while working with stakeholders to refine evolving product requirements.</p></div>
+          <div class="timeline-content">
+            <div class="timeline-title-row"><div><h3>Community Dreams Foundation</h3><p>Software Engineer</p></div><span>Aug 2025 — Jun 2026</span></div>
+            <p>Developed and supported a web product with data workflows, search, user-facing features and an FAQ assistant while working with stakeholders to refine evolving product requirements.</p>
+            <div class="experience-bullets"><span>Web application development</span><span>Data workflows</span><span>Search</span><span>FAQ assistant</span><span>Stakeholder iteration</span></div>
+          </div>
         </article>
         <article class="timeline-item" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2020 — 2023</span><span>India</span></div>
-          <div class="timeline-content"><div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div><p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p></div>
+          <div class="timeline-content">
+            <div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div>
+            <p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p>
+            <div class="experience-bullets"><span>.NET</span><span>Angular</span><span>REST APIs</span><span>SQL Server</span><span>CI/CD</span><span>Linux</span><span>Burp Suite</span><span>Fortify</span></div>
+          </div>
         </article>
       </div>
     </section>
 
     <section class="stack section-pad" id="stack">
-      <div class="stack-intro" data-reveal><p class="eyebrow">Technical stack</p><h2>Broad enough to debug the system. Deep enough to own a layer.</h2></div>
-      <div class="stack-grid">@for (group of skillGroups; track group.title) { <article class="stack-group" data-reveal><h3>{{ group.title }}</h3><div class="stack-items">@for (item of group.items; track item) { <span>{{ item }}</span> }</div></article> }</div>
+      <div class="stack-heading compact-heading" data-reveal>
+        <div><p class="eyebrow">Technical stack</p><h2>Tools I have actually used across work and projects.</h2></div>
+        <p>I do not treat this as a keyword wall. Each group below shows where the tools fit into the kind of engineering work I have been doing.</p>
+      </div>
+      <div class="stack-grid rich-stack-grid">
+        @for (group of skillGroups; track group.title) {
+          <article class="stack-group rich-stack-card" data-reveal>
+            <span class="stack-context mono">{{ group.context }}</span>
+            <h3>{{ group.title }}</h3>
+            <p>{{ group.description }}</p>
+            <div class="stack-items">@for (item of group.items; track item) { <span>{{ item }}</span> }</div>
+          </article>
+        }
+      </div>
     </section>
 
     <section class="now section-pad" data-reveal>
@@ -146,7 +179,7 @@
     </section>
 
     <section class="contact section-pad" id="contact" data-reveal>
-      <div class="contact-kicker mono">Have a hard engineering problem?</div><h2>Put me where software meets infrastructure.</h2>
+      <div class="contact-kicker mono">Open to engineering opportunities</div><h2>Software, platform and DevOps work where systems overlap.</h2>
       <p>I’m interested in teams building developer platforms, cloud-native systems, backend products, reliability tooling and practical AI automation.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a>

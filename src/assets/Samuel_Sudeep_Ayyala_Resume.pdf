@@ -1,0 +1,259 @@
+%PDF-1.4
+%ASCI ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/Contents 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 7 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+5 0 obj
+<<
+/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+>>
+endobj
+6 0 obj
+<<
+/Author (anonymous) /CreationDate (D:20260816005526+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20260816005526+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (untitled) /Trapped /False
+>>
+endobj
+7 0 obj
+<<
+/Count 1 /Kids [ 4 0 R ] /Type /Pages
+>>
+endobj
+8 0 obj
+<<
+/Length 9726
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+.058824 .090196 .164706 rg
+BT /F2 16.5 Tf 19.8 TL ET
+BT 1 0 0 1 39.6 761.76 Tm (SAMUEL SUDEEP AYYALA) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F2 8.1 Tf 9.72 TL ET
+BT 1 0 0 1 39.6 743.76 Tm (SOFTWARE ENGINEER | PLATFORM / DEVOPS | FULL-STACK SYSTEMS) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.3 Tf 8.76 TL ET
+BT 1 0 0 1 39.6 729.76 Tm (Atlanta, GA | ayyalasamuelsudeep@gmail.com | github.com/SamuelSudeepAyyala | linkedin.com/in/samuelsudeepayyala) Tj T* ET
+.796078 .835294 .882353 RG
+.5 w
+n 39.6 718.76 m 572.4 718.76 l S
+.058824 .090196 .164706 rg
+BT /F2 8.2 Tf 9.84 TL ET
+BT 1 0 0 1 39.6 704.76 Tm (PROFESSIONAL SUMMARY) Tj T* ET
+.796078 .835294 .882353 RG
+.5 w
+n 39.6 700.76 m 572.4 700.76 l S
+.058824 .090196 .164706 rg
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 39.6 690.76 Tm (Software engineer with 4+ years of combined experience across enterprise application development, full-stack product) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 39.6 681.76 Tm (work, CI/CD, cloud-native delivery, observability, and production troubleshooting. Recent work focused on developer-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 39.6 672.76 Tm (platform automation and repeatable test environments; personal projects explore practical AI-assisted workflows,) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.6 Tf 9.12 TL ET
+BT 1 0 0 1 39.6 663.76 Tm (monitoring, and secure full-stack application design.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 8.2 Tf 9.84 TL ET
+BT 1 0 0 1 39.6 650.76 Tm (TECHNICAL SKILLS) Tj T* ET
+.796078 .835294 .882353 RG
+.5 w
+n 39.6 646.76 m 572.4 646.76 l S
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 39.6 636.76 Tm (Languages & Backend:) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 124.0532 636.76 Tm (C#, .NET, Python, FastAPI, REST APIs, SQL, PostgreSQL, SQL Server) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 39.6 627.76 Tm (Frontend:) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 76.4328 627.76 Tm (Angular, React, Next.js, TypeScript, JavaScript, HTML5, CSS3) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 39.6 618.76 Tm (Platform & Delivery:) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 112.8782 618.76 Tm (Docker, Kubernetes, GitOps, Argo CD, Kustomize, GitHub Actions, Azure DevOps, Linux) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 39.6 609.76 Tm (Observability & Security:) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 130.2739 609.76 Tm (Prometheus, Grafana, Loki, Splunk, HashiCorp Vault, Burp Suite, Fortify) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 39.6 600.76 Tm (AI-Assisted Engineering:) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 130.2591 600.76 Tm (AI coding workflows, repository analysis, workflow automation, human-in-the-loop tooling) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 8.2 Tf 9.84 TL ET
+BT 1 0 0 1 39.6 587.76 Tm (PROFESSIONAL EXPERIENCE) Tj T* ET
+.796078 .835294 .882353 RG
+.5 w
+n 39.6 583.76 m 572.4 583.76 l S
+.058824 .090196 .164706 rg
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 39.6 573.76 Tm (Software Engineering Intern | Incident IQ | Atlanta, GA) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.35 Tf 8.82 TL ET
+BT 1 0 0 1 476.4 573.76 Tm (Jun 2026 - Aug 2026) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 563.26 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 563.26 Tm (Contributed to a developer-platform modernization effort that made isolated pull-request test environments more) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 554.46 Tm (repeatable for backend services using Kubernetes, GitOps, CI/CD, and automated validation.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 544.16 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 544.16 Tm (Worked across application and infrastructure boundaries to troubleshoot build, configuration, deployment,) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 535.36 Tm (authentication, and test failures, then documented reusable fixes and validation patterns.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 525.06 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 525.06 Tm (Improved health-check, smoke-test, end-to-end testing, and observability workflows to make short-lived) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 516.26 Tm (environments easier to validate and support.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 39.6 505.96 Tm (Software Engineer | Community Dreams Foundation | New Jersey) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.35 Tf 8.82 TL ET
+BT 1 0 0 1 469.4 505.96 Tm (Aug 2025 - Jun 2026) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 495.46 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 495.46 Tm (Developed and supported a web-based product with data workflows, search, user-facing features, and an FAQ) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 486.66 Tm (assistant.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 476.36 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 476.36 Tm (Worked with stakeholders to refine requirements, improve workflows, and turn evolving product needs into) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 467.56 Tm (maintainable application behavior.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 8 Tf 9.6 TL ET
+BT 1 0 0 1 39.6 457.26 Tm (Application Development Analyst | Accenture | Bengaluru, India) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.35 Tf 8.82 TL ET
+BT 1 0 0 1 467.4 457.26 Tm (Nov 2020 - Aug 2023) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 446.76 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 446.76 Tm (Developed and supported enterprise web applications using .NET, Angular, REST APIs, SQL Server, and deployment) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 437.96 Tm (pipelines.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 427.66 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 427.66 Tm (Automated and supported CI/CD releases across multiple environments while diagnosing application, integration,) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 418.86 Tm (Linux, and production issues with engineering and QA teams.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 44.6 408.56 Tm (-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.45 Tf 8.94 TL ET
+BT 1 0 0 1 55.6 408.56 Tm (Performed web-application security testing and vulnerability reporting using Burp Suite and Fortify.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 8.2 Tf 9.84 TL ET
+BT 1 0 0 1 39.6 397.26 Tm (SELECTED PROJECTS) Tj T* ET
+.796078 .835294 .882353 RG
+.5 w
+n 39.6 393.26 m 572.4 393.26 l S
+.058824 .090196 .164706 rg
+BT /F2 7.7 Tf 9.24 TL ET
+BT 1 0 0 1 39.6 383.26 Tm (Job Application Assistant) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.2 Tf 8.64 TL ET
+BT 1 0 0 1 192.6 383.26 Tm (| Next.js, FastAPI, PostgreSQL, Clerk) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.25 Tf 8.7 TL ET
+BT 1 0 0 1 46.6 374.26 Tm (Building an authenticated job-search workspace with user-approved automation, profile persistence, resume-evidence) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.25 Tf 8.7 TL ET
+BT 1 0 0 1 46.6 365.86 Tm (review, API isolation, and a browser-extension path.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.7 Tf 9.24 TL ET
+BT 1 0 0 1 39.6 355.96 Tm (AIOps / Observability Lab) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.2 Tf 8.64 TL ET
+BT 1 0 0 1 192.6 355.96 Tm (| Python, Prometheus, Grafana, Loki, Docker) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.25 Tf 8.7 TL ET
+BT 1 0 0 1 46.6 346.96 Tm (Built a containerized monitoring environment to explore metrics, logs, alerting, anomaly detection, and incident-) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.25 Tf 8.7 TL ET
+BT 1 0 0 1 46.6 338.56 Tm (response automation.) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F2 7.7 Tf 9.24 TL ET
+BT 1 0 0 1 39.6 328.66 Tm (Full-Stack Application Projects) Tj T* ET
+.278431 .333333 .411765 rg
+BT /F1 7.2 Tf 8.64 TL ET
+BT 1 0 0 1 192.6 328.66 Tm (| .NET, Angular, FastAPI, PostgreSQL) Tj T* ET
+.058824 .090196 .164706 rg
+BT /F1 7.25 Tf 8.7 TL ET
+BT 1 0 0 0 1 46.6 319.66 Tm (Built role-based web applications and API√à€›ô\ö[ô»]][ùXÿ][€ã\ú⁄\›[òŸK‘ïQ€‹öŸõ›‹À\›[ôÀ[ô
+Hà
+àUãåNçåLNMàåMçÃàô¬êï—åHÀåçHàç»UêïHHãçàÃLKåçàH
+€€ùZ[ô\ö^ôY]ô[‹Y[ùäHà
+àUãåNçåLNMàåMçÃàô¬êï—åàåààKéUêïHHŒKçàÃKåÕàH
+QP–US”äHà
+àUãçŒMåŒéÕLéMéåÕL»ë¬ãçH¬õàŒKçàéMÀåÕàHMÃãçéMÀåÕà¬ãåNçåLNMàåMçÃàô¬êï—åàÀç»àKåçUêïHHŒKçàéÀåÕàH
+X\›\àŸàÿ⁄Y[òŸK€€\]\àÿ⁄Y[òŸHô]»ô\úŸ^H[ú›]]HŸàX⁄õ€ŸﬁHX^HåçJHà
+àUãåNçåLNMàåMçÃàô¬êï—åHÀåÕHàéàUêïHHŒKçàçÕÀéàH
+òX⁄[‹àŸàX⁄õ€ŸﬁK€€\]\àÿ⁄Y[òŸH[ô[ô⁄[ôY\ö[ô»ÿ\ù[ûXH[ú›]]HŸàX⁄õ€ŸﬁH[ôÿ⁄Y[òŸ\»ù[àåå
+Hà
+àUàô[ô›ôX[Bô[ôÿöÇûôYÇåBåçMLÕHàååHàåLààååHàåÃåHàåLMàåNààå»àåLààùòZ[\Çèã“QñœNMôòÿLÿMNYYLŒYÃLLôNYòôNÕçŒèNMôòÿLÿMNYYLŒYÃLLôNYòôNÕçŒóBâHô\‹ùXàŸ[ô\ò]Yàÿ›[Y[ùKHYŸ\›
+‹[ú€›\òŸJBÇã“[ôõ»àÇã‘õ€›HÇã‘⁄^ôHBèèÇú›\ùôYÇåLçŒBâIQS—Ç

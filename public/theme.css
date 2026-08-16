@@ -1,4 +1,19 @@
 /* Theme switcher --------------------------------------------------------- */
+/* Global because the toggle is mounted by theme.js after Angular renders.
+ * Component-scoped .sr-only styles do not apply to DOM nodes created by the
+ * external script, so keep the accessible label visually hidden here. */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .header-actions {
   justify-self: end;
   display: flex;
@@ -7,14 +22,19 @@
 }
 
 .theme-toggle {
+  position: relative;
+  flex: 0 0 auto;
   width: 62px;
   height: 38px;
   padding: 0;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 999px;
   background: rgba(255,255,255,.055);
   color: inherit;
   cursor: pointer;
+  line-height: 1;
+  vertical-align: middle;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 

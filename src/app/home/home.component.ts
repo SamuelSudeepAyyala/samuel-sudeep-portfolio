@@ -1,89 +1,180 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { EmailService } from '../../services/email.service';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+
+interface Capability {
+  eyebrow: string;
+  title: string;
+  description: string;
+  tools: string[];
+}
+
+interface Project {
+  label: string;
+  title: string;
+  description: string;
+  highlights: string[];
+  tools: string[];
+  link?: string;
+  linkLabel?: string;
+  mediaLabel: string;
+  caseStudy: {
+    context: string;
+    contribution: string;
+    takeaway: string;
+  };
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.css', './home.extras.css'],
   standalone: true
 })
-export class HomeComponent implements OnInit {
-  version: string = "1.0.0";
-  menuOpen: boolean = false;
-  to_name: string = "Samuel Sudeep Ayyala";
+export class HomeComponent implements OnInit, OnDestroy {
+  menuOpen = false;
+  currentYear = new Date().getFullYear();
+  private observer?: IntersectionObserver;
 
-  constructor(private emailService: EmailService) { } 
+  readonly metrics = [
+    { value: 'App → Platform', label: 'Comfortable working across product code and delivery systems' },
+    { value: 'PR → Environment', label: 'Experience with automated, repeatable test and deployment workflows' },
+    { value: 'Signals → Action', label: 'Observability and troubleshooting with practical operational context' },
+    { value: 'AI + Review', label: 'Automation designed with human control and clear boundaries' }
+  ];
+
+  readonly capabilities: Capability[] = [
+    {
+      eyebrow: '01 / Platform engineering',
+      title: 'Make delivery repeatable instead of fragile.',
+      description: 'I work on deployment automation, test environments, configuration, health checks and observability so engineering teams can ship with fewer manual steps.',
+      tools: ['Kubernetes', 'Argo CD', 'GitOps', 'Docker', 'Vault', 'GitHub Actions', 'Azure DevOps']
+    },
+    {
+      eyebrow: '02 / Software engineering',
+      title: 'Trace problems across the stack.',
+      description: 'My background spans .NET services, APIs, data layers and modern web applications, which helps when a production issue crosses application and infrastructure boundaries.',
+      tools: ['.NET', 'C#', 'FastAPI', 'Python', 'Angular', 'Next.js', 'PostgreSQL']
+    },
+    {
+      eyebrow: '03 / Automation + AI',
+      title: 'Automate useful work, not judgment.',
+      description: 'I use AI-assisted workflows where they can reduce repetitive engineering effort while keeping approvals, traceability and testing in the loop.',
+      tools: ['AI workflows', 'Repository analysis', 'Browser extensions', 'Prometheus', 'Grafana']
+    }
+  ];
+
+  readonly projects: Project[] = [
+    {
+      label: 'Platform engineering / 2026',
+      title: 'Developer-platform environment automation',
+      description: 'Contributed to a platform modernization effort that made isolated pull-request environments more repeatable for backend services. Public details are intentionally generalized to avoid exposing employer-specific architecture or internal systems.',
+      highlights: [
+        'Coordinated application, deployment and test changes across multiple repositories',
+        'Added health, smoke and end-to-end validation into delivery workflows',
+        'Troubleshot build, configuration, deployment and authentication failures across layers'
+      ],
+      tools: ['.NET', 'Kubernetes', 'GitOps', 'Argo CD', 'Docker', 'Cypress', 'GitHub Actions'],
+      mediaLabel: 'Architecture visual slot',
+      caseStudy: {
+        context: 'The work involved improving how engineering changes could be validated in isolated environments before broader rollout.',
+        contribution: 'I worked across application code, deployment configuration and test automation, with an emphasis on repeatable patterns and practical troubleshooting.',
+        takeaway: 'The strongest lesson was that reliable developer platforms depend as much on clear validation and debugging paths as they do on automation itself.'
+      }
+    },
+    {
+      label: 'Product engineering / 2026',
+      title: 'Job Application Assistant',
+      description: 'A personal application workspace built around user-approved automation, authenticated profiles, isolated persistence, resume-evidence workflows and a browser-extension path.',
+      highlights: [
+        'Next.js dashboard + FastAPI API + PostgreSQL',
+        'Authentication and user-isolation tests',
+        'Shared contracts and phased implementation boundaries'
+      ],
+      tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3'],
+      mediaLabel: 'Product screenshot slot',
+      caseStudy: {
+        context: 'The goal is to reduce repetitive job-search work without turning applications into an unsupervised automation problem.',
+        contribution: 'I designed the product around authenticated user data, explicit review steps, private evidence storage and clear phase boundaries between tracking, resume support and browser-assisted workflows.',
+        takeaway: 'Automation is more useful when the user can see what data it used, approve changes and retain control over consequential actions.'
+      }
+    },
+    {
+      label: 'Observability / AIOps',
+      title: 'Intelligent observability lab',
+      description: 'A personal observability project combining metrics, logs, alerting and anomaly-detection experiments to explore how automation can improve signal quality without replacing operational judgment.',
+      highlights: [
+        'Metrics, dashboards, logs and alerting in a containerized environment',
+        'Incident-detection and notification experiments',
+        'Foundation for anomaly detection and response automation'
+      ],
+      tools: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Docker', 'Python'],
+      link: 'https://github.com/SamuelSudeepAyyala/AiOps',
+      linkLabel: 'View repository',
+      mediaLabel: 'Dashboard screenshot slot',
+      caseStudy: {
+        context: 'Monitoring stacks often produce more signals than a person can reasonably interpret at once.',
+        contribution: 'I built a local environment that combines metrics, logs and alerts, then used it to experiment with correlation and anomaly-oriented workflows.',
+        takeaway: 'The useful role for AIOps is to improve prioritization and context, while keeping final operational decisions observable and reviewable.'
+      }
+    },
+    {
+      label: 'Applied AI / product UX',
+      title: 'Domain FAQ assistant',
+      description: 'Built a lightweight conversational experience for a web product using curated knowledge, search and maintainable response logic. Employer and domain-specific implementation details are intentionally omitted.',
+      highlights: [
+        'Curated FAQ and search-oriented response flow',
+        'Fuzzy matching for common wording variations and typos',
+        'Responsive in-product conversation experience'
+      ],
+      tools: ['Angular', 'TypeScript', 'Search', 'JSON', 'UX'],
+      mediaLabel: 'Product visual slot',
+      caseStudy: {
+        context: 'The product needed a faster way for users to find answers to common questions without forcing every interaction through a full support flow.',
+        contribution: 'I focused on a small, maintainable assistant using curated content, search-oriented matching and straightforward UI behavior rather than an opaque autonomous system.',
+        takeaway: 'For narrow product questions, predictable retrieval and good UX can be more valuable than adding unnecessary model complexity.'
+      }
+    }
+  ];
+
+  readonly skillGroups = [
+    { title: 'Platform', items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'Vault', 'GitHub Actions', 'Azure DevOps', 'Linux'] },
+    { title: 'Backend', items: ['C#', '.NET', 'Python', 'FastAPI', 'REST APIs', 'PostgreSQL', 'SQL Server', 'Redis'] },
+    { title: 'Frontend', items: ['Angular', 'Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
+    { title: 'Observability + security', items: ['Prometheus', 'Grafana', 'Loki', 'Splunk', 'Burp Suite', 'Fortify'] }
+  ];
+
+  constructor(private readonly host: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
-    // Assign functions to window so they can be used in the template
-    (window as any).toggleMenu = this.toggleMenu;
-    (window as any).closeMenu = this.closeMenu;
-    (window as any).scrollToTop = this.scrollToTop;
-
-  }
-
-  showAlert() {
-    const alert = document.getElementById('custom-alert');
-    if (alert) {
-      alert.style.display = 'block';
-      setTimeout(() => {
-        alert.style.display = 'none';
-      }, 3000);
+    if (typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
     }
+
+    this.observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+    );
+
+    this.host.nativeElement.querySelectorAll<HTMLElement>('[data-reveal]').forEach(element => {
+      this.observer?.observe(element);
+    });
   }
 
-  
+  ngOnDestroy(): void {
+    this.observer?.disconnect();
+  }
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
 
-
-  onSubmit(event: any): void {
-    event.preventDefault();
-
-    const form = event.target;
-    const from_name = form.name.value;
-    const from_email = form.email.value;
-    const message = form.message.value;
-
-    console.log('Form submitted!', { from_name, from_email, message });
-    const formData = {
-      to_name: this.to_name,
-      from_name: from_name,
-      from_email: from_email,
-      message: message
-    };
-
-    this.emailService.sendEmail(formData)
-      .then(response => {
-        console.log('Email sent successfully:', response);
-        this.showAlert();
-        document.querySelector('form')?.reset();
-      })
-      .catch(error => {
-        console.error('Error sending email:', error);
-        alert('Sorry, something went wrong. Please try using the Lets Talk Button.');
-      });
-
-    form.reset();
-  }
-
-  // Close the menu when clicking a link
   closeMenu(): void {
-    const menu = document.getElementById("navbar-menu");
-    if (menu) {
-      menu.classList.remove("active");
-    }
+    this.menuOpen = false;
   }
-
-  // Scroll back to the top when clicking the logo
-  scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  openWhatsApp() {
-    window.open('https://wa.link/bk4p2s', '_blank');
-  }
-
-
 }

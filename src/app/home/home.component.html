@@ -1,372 +1,206 @@
-<div class="warning-marquee">
-  This site is under Construction. what ever you are watching is just a template of my portfolio. I am trying to build and integrate more in this.
-</div>
-<nav class="navbar">
-  <div class="navbar-container">
-    <div class="hamburger" (click)="toggleMenu()">☰</div>
-    <ul class="navbar-menu" [class.active]="menuOpen">
-      <li class="navbar-item"><a href=".hero" class="navbar-link">HOME</a></li>
-      <li class="navbar-item"><a href="#experience" class="navbar-link">EXPERIENCE</a></li>
-      <li class="navbar-item"><a href="#projects" class="navbar-link">PROJECTS</a></li>
-      <li class="navbar-item"><a href="#education" class="navbar-link">EDUCATION</a></li>
-      <li class="navbar-item"><a href="#contact" class="navbar-link">CONTACT</a></li>
-    </ul>
-    <div class="button-container">
-      <button class="cta-button" (click)="openWhatsApp()">LET'S TALK</button>
-    </div>
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand" href="#top" (click)="closeMenu()" aria-label="Samuel Sudeep Ayyala home">
+      <span class="brand-mark">SA</span>
+      <span class="brand-text">Samuel Sudeep</span>
+    </a>
 
-  </div>
-</nav>
-<section>
-<div class="hero">
-  <div class="hero-text">
-    <p class="highlight-name">SAMUEL SUDEEP AYYALA</p>
-    <p class="hero-roles">DevOps Engineer | Security Analyst | Full-Stack Application Developer</p>
-    <p class="hero-summary">
-      Results-oriented DevOps Engineer with three years of experience in Build, Test, and Release
-      management, specializing in security testing and penetration testing with Burp Suite. I focus on
-      risk assessment and vulnerability mitigation, contributing significant value as a Security Analyst.
-    </p>
-  </div>
-  <div class="hero-image">
-    <img src="./assets/profile.jpg" alt="Samuel Sudeep Ayyala profile pic">
-  </div>
-</div>
-</section>
-<!---Experience Section--->
-<section id="experience" class="experience-section">
-  <h2 class="section-title">Experience</h2>
+    <button class="menu-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation">
+      <span></span><span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
 
-  <div class="experience-card">
-    <h3 class="company">Accenture Private Limited</h3>
-    <p class="role">Application Development Analyst</p>
-    <p class="date">Nov 2020 - Aug 2023</p>
-    <ul>
-      <li>Designed and implemented new technology features using <strong>Azure DevOps</strong> with cross-functional teams.</li>
-      <li>Resolved <strong>.NET Framework</strong> and Front-End bugs while implementing new enhancements to improve user experience.</li>
-      <li>Proficient in <strong>Git</strong> and <strong>TFVC</strong> for version control, including branching strategies, conflict resolution, and collaboration through pull requests.</li>
-      <li>Developed and maintained <strong>CI/CD pipelines</strong>, ensuring efficient automation of software deployments.</li>
-      <li>Conducted penetration testing using <strong>Burp Suite</strong>, identifying security vulnerabilities and recommending solutions.</li>
-      <li>Created <strong>risk assessment reports</strong>, collaborated with development teams to mitigate risks, and enforced security best practices.</li>
-      <li>Coordinated software deployments, updates, and fixes while ensuring <strong>system stability and performance</strong>.</li>
-      <li>Monitored and troubleshot <strong>Linux CentOS servers</strong>, quickly resolving system errors to maintain uptime.</li>
-    </ul>
-    <div class="skills-container">
-      <span class="skill">Azure DevOps</span>
-      <span class="skill">.NET Framework</span>
-      <span class="skill">Axure RP prototyping</span>
-      <span class="skill">Linux CentOS Server Management</span>
-      <span class="skill">Azure Repos</span>
-      <span class="skill">Database Query Optimization</span>
-      <span class="skill">Penetration Testing</span>
-      <span class="skill">User Production Issue Management</span>
-      <span class="skill">Git version Control</span>
-      <span class="skill">Tensor Flow Version Control</span>
-      <span class="skill">CI/CD</span>
-      <span class="skill">Burp Suite</span>
-      <span class="skill">System Monitoring</span>
-      <span class="skill">Software Development Life Cycle (SDLC)</span>
-      <span class="skill">Microservices</span>
-      <span class="skill">Docker</span>
-      <span class="skill">Kubernetes</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Unit Testing</span>
-      <span class="skill">Jenkins</span>
-      <span class="skill">Automated Deployment</span>
-      <span class="skill">Cloud Security</span>
-    </div>
-  </div>
+    <nav id="primary-navigation" class="nav" [class.nav-open]="menuOpen" aria-label="Primary navigation">
+      <a href="#work" (click)="closeMenu()">Work</a>
+      <a href="#experience" (click)="closeMenu()">Experience</a>
+      <a href="#stack" (click)="closeMenu()">Stack</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
+    </nav>
 
-  <div class="experience-card">
-    <h3>Uthkarshini Edutech (Service4StartUp)</h3>
-    <p class="role">Web Developer Intern</p>
-    <p class="date">Mar 2018 - Jun 2018</p>
-    <ul>
-      <li>Developed user interfaces using modern <strong>JavaScript frameworks, HTML5, and CSS</strong>.</li>
-      <li>Enhanced website functionality by writing custom <strong>HTML, JavaScript, and CSS</strong>.</li>
-      <li>Worked on <strong>UI/UX improvements</strong>, ensuring better user engagement and accessibility.</li>
-      <li>Managed multiple tasks efficiently with minimal supervision, meeting strict deadlines.</li>
-      <li>Suggested and implemented <strong>feature improvements</strong> that enhanced application performance and usability.</li>
-    </ul>
-    <div class="skills-container">
-      <span class="skill">HTML5</span>
-      <span class="skill">CSS</span>
-      <span class="skill">JavaScript</span>
-      <span class="skill">Modern JavaScript Frameworks</span>
-      <span class="skill">Responsive Design</span>
-      <span class="skill">Debugging</span>
-      <span class="skill">Feature Improvements</span>
-      <span class="skill">Client Requirement Analysis</span>
-      <span class="skill">Bootstrap</span>
-      <span class="skill">React.js</span>
-      <span class="skill">Angular</span>
-      <span class="skill">REST APIs</span>
-      <span class="skill">JSON</span>
-      <span class="skill">Node.js</span>
-      <span class="skill">jQuery</span>
-      <span class="skill">Web Security</span>
-      <span class="skill">Cross-Browser Compatibility</span>
+    <a class="header-cta" href="mailto:ayyalasamuelsudeep@gmail.com">Let's talk</a>
+  </header>
 
-    </div>
-  </div>
-</section>
-<!----End Experience Section---->
-<!----Start Projects Section---->
-<section id="projects" class="projects-section">
-  <h2 class="section-title">Projects</h2>
-
-  <div class="project">
-    <h3 class="project-title">Regression and Classification Models for Apple Quality Dataset</h3>
-    <div class="project-description">
-      <strong>Description:</strong>
-      This project was designed to predict the quality of apples based on various physical and chemical features. We began by gathering data on apple size,
-      weight, sweetness, crunchiness, juiciness, ripeness, and acidity. After cleaning and preprocessing the dataset, including transforming the quality ratings
-      into binary labels, we used multiple regression and classification models to evaluate the apple quality. The models tested included Linear Regression,
-      Decision Tree, Random Forest for regression tasks, and Logistic Regression, Decision Tree, and Random Forest for classification tasks. After rigorous
-      evaluation using confusion matrices and ROC curves, the Random Forest models achieved high accuracy in predicting both quality and classification of apples,
-      providing valuable insights into product grading and marketability. This project demonstrated the ability to work with machine learning models to make
-      data-driven predictions that can help improve the agricultural industry.
-    </div>
-    <div class="project-key-insights">
-      <strong>Key Insights:</strong>
-      <ul>
-        <li>Random Forest performed best in regression with the lowest mean squared error (MSE).</li>
-        <li>In classification tasks, all models achieved an accuracy of 90%.</li>
-        <li>Feature importance analysis showed that size and ripeness were the most significant predictors of apple quality.</li>
-      </ul>
-    </div>
-    <div class="project-tools-used">
-      <strong>Tools/Technologies Used:</strong>
-      <ul>
-        <li>Python (scikit-learn, Pandas, Matplotlib)</li>
-        <li>Jupyter Notebooks</li>
-        <li>Random Forest, Logistic Regression, Decision Trees</li>
-        <li>Data Preprocessing and Exploratory Data Analysis (EDA)</li>
-      </ul>
-    </div>
-    <div class="skills-container">
-      <div class="skill">Machine Learning</div>
-      <div class="skill">Regression Models</div>
-      <div class="skill">Classification Models</div>
-      <div class="skill">Random Forest</div>
-      <div class="skill">Linear Regression</div>
-      <div class="skill">Decision Tree</div>
-      <div class="skill">Data Preprocessing</div>
-      <div class="skill">Exploratory Data Analysis (EDA)</div>
-      <div class="skill">Binary Classification</div>
-      <div class="skill">Model Evaluation</div>
-      <div class="skill">Confusion Matrices</div>
-      <div class="skill">ROC Curves</div>
-      <div class="skill">Agriculture Industry</div>
-    </div>
-  </div>
-
-  <div class="project">
-    <h3 class="project-title">Linux Client Environment Setup & CI/CD Maintenance</h3>
-    <div class="project-description">
-      <strong>Description:</strong>
-      In this project, I built and configured a Linux server environment from scratch, tailored to deploy .NET applications efficiently.
-      This involved setting up the system, including the installation of necessary dependencies and services. To enhance productivity and
-      ensure continuous integration, I implemented a fully automated CI/CD pipeline using Azure DevOps. This automated pipeline handles the
-      build, test, and deployment stages, ensuring that new changes are tested and deployed seamlessly. I also worked on optimizing the
-      system performance and monitoring system health in a Linux CentOS environment to detect and fix errors quickly. This project highlights
-      my ability to work with cross-platform environments and develop systems that automate and streamline software delivery.
-    </div>
-    <div class="project-key-insights">
-      <strong>Key Insights:</strong>
-      <ul>
-        <li>Automated CI/CD pipelines using Azure DevOps for efficient software deployment.</li>
-        <li>Increased productivity by reducing manual deployment steps and system errors.</li>
-        <li>Ensured cross-platform compatibility for successful application deployment in different environments.</li>
-      </ul>
-    </div>
-    <div class="project-tools-used">
-      <strong>Tools/Technologies Used:</strong>
-      <ul>
-        <li>Linux (CentOS)</li>
-        <li>Azure DevOps (Pipelines, GitHub Actions)</li>
-        <li>Docker, Kubernetes</li>
-        <li>.NET, CI/CD tools, Server Monitoring (Nagios)</li>
-      </ul>
-    </div>
-    <div class="skills-container">
-      <div class="skill">Linux</div>
-      <div class="skill">Linux Server Configuration</div>
-      <div class="skill">.NET Application Deployment</div>
-      <div class="skill">CI/CD Pipelines</div>
-      <div class="skill">Azure DevOps</div>
-      <div class="skill">Automation</div>
-      <div class="skill">Cross-Platform</div>
-      <div class="skill">System Performance</div>
-      <div class="skill">Continuous Integration</div>
-      <div class="skill">Continuous Deployment</div>
-      <div class="skill">Problem Solving</div>
-      <div class="skill">Linux CentOS</div>
-    </div>
-  </div>
-
-  <div class="project">
-    <h3 class="project-title">Web Scraping using R: Extracting and Analyzing Journal Article Data</h3>
-    <div class="project-description">
-      <strong>Description:</strong>
-      This project leverages web scraping techniques to extract valuable data from journal article websites for analysis. Using R,
-      I built a script that automates the extraction of academic articles from online repositories, focusing on gathering metadata
-      such as article titles, authors, publication dates, and abstracts. The data was cleaned and structured to make it suitable
-      for statistical analysis. The project aimed to uncover trends in academic publishing, such as the most frequently published
-      authors, popular research topics, and the distribution of articles across different fields. This project helped improve my
-      skills in data extraction, cleaning, and analysis using R, providing a powerful tool to analyze large datasets that are
-      otherwise inaccessible in raw form.
-    </div>
-    <div class="project-key-insights">
-      <strong>Key Insights:</strong>
-      <ul>
-        <li>Revealed rising interest in Data Science and Artificial Intelligence in academic research.</li>
-        <li>Developed a clean and structured dataset for trend analysis in academic literature.</li>
-        <li>Gained insights into the evolution of research topics over time.</li>
-      </ul>
-    </div>
-    <div class="project-tools-used">
-      <strong>Tools/Technologies Used:</strong>
-      <ul>
-        <li>R (rvest, ggplot2)</li>
-        <li>Web Scraping Libraries (BeautifulSoup, requests)</li>
-        <li>Data Cleaning and Exploratory Data Analysis (EDA)</li>
-      </ul>
-    </div>
-    <div class="skills-container">
-      <div class="skill">Web Scraping</div>
-      <div class="skill">R Programming</div>
-      <div class="skill">Data Extraction</div>
-      <div class="skill">Data Cleaning</div>
-      <div class="skill">Statistical Analysis</div>
-      <div class="skill">Academic Research</div>
-      <div class="skill">Metadata Extraction</div>
-      <div class="skill">Text Mining</div>
-      <div class="skill">Trend Analysis</div>
-      <div class="skill">Data Structuring</div>
-      <div class="skill">Online Repositories</div>
-    </div>
-  </div>
-
-  <div class="project">
-    <h3 class="project-title">Penetration Testing: Web Applications</h3>
-    <div class="project-description">
-      <strong>Description:</strong>
-      This project focused on identifying and addressing security vulnerabilities in web applications using penetration testing techniques.
-      Using Burp Suite, I conducted a thorough security audit on a web application to identify common vulnerabilities such as SQL injection,
-      cross-site scripting (XSS), and insecure authentication mechanisms. After identifying potential security flaws, I created a comprehensive
-      report detailing the discovered issues, their potential impact, and recommended mitigation strategies. This project demonstrated my
-      understanding of cybersecurity practices and the critical importance of securing web applications. It also helped me enhance my skills
-      in using security testing tools to conduct proactive assessments that protect systems from malicious attacks.
-    </div>
-    <div class="project-key-insights">
-      <strong>Key Insights:</strong>
-      <ul>
-        <li>Identified SQL Injection and XSS vulnerabilities, demonstrating effective ethical hacking skills.</li>
-        <li>Generated a comprehensive report with actionable recommendations for mitigating vulnerabilities.</li>
-        <li>Gained experience in real-world security testing and vulnerability assessment.</li>
-      </ul>
-    </div>
-    <div class="project-tools-used">
-      <strong>Tools/Technologies Used:</strong>
-      <ul>
-        <li>Burp Suite (Proxy, Scanner, Intruder)</li>
-        <li>OWASP ZAP</li>
-        <li>SQL Injection, Cross-Site Scripting (XSS)</li>
-        <li>Security Risk Analysis and Vulnerability Mitigation</li>
-      </ul>
-    </div>
-    <div class="skills-container">
-      <div class="skill">Penetration Testing</div>
-      <div class="skill">Burp Suite</div>
-      <div class="skill">Web Application Security</div>
-      <div class="skill">SQL Injection</div>
-      <div class="skill">Cross-Site Scripting (XSS)</div>
-      <div class="skill">Vulnerability Detection</div>
-      <div class="skill">Security Auditing</div>
-      <div class="skill">Exploit Detection</div>
-      <div class="skill">Security Reports</div>
-      <div class="skill">Mitigation Strategies</div>
-      <div class="skill">Cybersecurity</div>
-      <div class="skill">Security Vulnerabilities</div>
-    </div>
-  </div>
-
-  <div class="project">
-    <h3 class="project-title">Detect Plant Diseases using Drones - Machine Learning Classification</h3>
-    <div class="project-description">
-      <strong>Description:</strong>
-      This innovative project utilizes drone technology and machine learning to detect plant diseases in banana crops.
-      By capturing high-resolution images of plants, the system can analyze visual patterns indicative of disease.
-      The project used advanced image processing and machine learning classification algorithms to accurately identify
-      common diseases affecting banana plants. The algorithm was trained on a dataset of images featuring various plant
-      diseases, allowing it to recognize subtle visual cues that may not be visible to the naked eye. This technology
-      enables farmers to take timely action and apply treatment, potentially saving crops and improving yield. The project
-      highlighted the intersection of technology and agriculture, demonstrating the power of AI and image processing to solve real-world problems.
-    </div>
-    <div class="project-key-insights">
-      <strong>Key Insights:</strong>
-      <ul>
-        <li>Achieved 85% accuracy in detecting diseases using high-resolution images from drones.</li>
-        <li>Enabled farmers to take proactive steps to protect crops and increase yields.</li>
-        <li>Successfully applied machine learning for real-time disease detection in agriculture.</li>
-      </ul>
-    </div>
-    <div class="project-tools-used">
-      <strong>Tools/Technologies Used:</strong>
-      <ul>
-        <li>Python (OpenCV, scikit-learn, NumPy)</li>
-        <li>Machine Learning (Random Forest, SVM)</li>
-        <li>Drone Imaging Technology</li>
-        <li>Image Processing (edge detection, feature extraction)</li>
-      </ul>
-    </div>
-    <div class="skills-container">
-      <div class="skill">Machine Learning</div>
-      <div class="skill">Image Processing</div>
-      <div class="skill">Drone Technology</div>
-      <div class="skill">Plant Disease Detection</div>
-      <div class="skill">High-Resolution Images</div>
-      <div class="skill">Visual Cues</div>
-      <div class="skill">Classification Algorithms</div>
-      <div class="skill">Banana Crops</div>
-      <div class="skill">AI in Agriculture</div>
-      <div class="skill">Proactive Measures</div>
-      <div class="skill">Yield Optimization</div>
-    </div>
-  </div>
-</section>
-<!----End Projects Section---->
-<div id="custom-alert" class="custom-alert">
-  <div class="alert-content">
-    <strong>Samuel Says:</strong>
-    <p>Thank you for your message! We will get back to you soon.</p>
-  </div>
-</div>
-<!----Start Contact Section---->
-<section id="contact" class="contact-section">
-  <div class="contact-container">
-    <h2>Contact Me</h2>
-    <!-- Regular form with submit event binding -->
-    <form (submit)="onSubmit($event)">
-      <div class="input-container">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Software engineer · Platform / DevOps · Applied AI</p>
+        <h1>I build software that survives contact with <span>production.</span></h1>
+        <p class="hero-lede">
+          I work across application code, cloud-native delivery systems and developer tooling—turning complex engineering workflows into reliable, observable and repeatable systems.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore selected work</a>
+          <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+        <div class="availability">
+          <span class="availability-dot"></span>
+          <span>Based in the United States · Open to software, platform and DevOps engineering roles</span>
+        </div>
       </div>
-      <div class="input-container">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      </div>
-      <div class="input-container">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-      </div>
-      <button type="submit" class="submit-button">Send Message</button>
-    </form>
-  </div>
-</section>
-<!----End Contact Section---->
-<footer class="footer">
-  <p>© 2024 Samuel Sudeep. All rights reserved. | Version {{ version }}</p>
-</footer>
 
+      <div class="hero-visual" data-reveal>
+        <div class="portrait-frame">
+          <div class="portrait-glow"></div>
+          <img src="./assets/profile.jpg" alt="Samuel Sudeep Ayyala" />
+          <div class="floating-card floating-card-top">
+            <span class="mono">currently building</span>
+            <strong>Automation with guardrails.</strong>
+          </div>
+          <div class="floating-card floating-card-bottom">
+            <span class="mono">focus</span>
+            <strong>Platforms · Reliability · Product engineering</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics section-pad" aria-label="Selected engineering impact" data-reveal>
+      @for (metric of metrics; track metric.label) {
+        <article class="metric">
+          <strong>{{ metric.value }}</strong>
+          <span>{{ metric.label }}</span>
+        </article>
+      }
+    </section>
+
+    <section class="capabilities section-pad" id="capabilities">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">How I work</p>
+        <h2>Engineering across boundaries.</h2>
+        <p>I’m strongest where software, infrastructure and operations meet. That makes me useful on problems that don’t stay neatly inside one repository.</p>
+      </div>
+
+      <div class="capability-grid">
+        @for (capability of capabilities; track capability.eyebrow) {
+          <article class="capability-card" data-reveal>
+            <p class="mono card-index">{{ capability.eyebrow }}</p>
+            <h3>{{ capability.title }}</h3>
+            <p>{{ capability.description }}</p>
+            <div class="tag-row">
+              @for (tool of capability.tools; track tool) { <span>{{ tool }}</span> }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="selected-work section-pad" id="work">
+      <div class="section-heading section-heading-wide" data-reveal>
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Built around outcomes, not screenshots.</h2>
+        </div>
+        <p>The projects below represent the kind of engineering I want to keep doing: systems with real constraints, operational consequences and clear user value.</p>
+      </div>
+
+      <div class="project-list">
+        @for (project of projects; track project.title; let i = $index) {
+          <article class="project-card" data-reveal>
+            <div class="project-number mono">0{{ i + 1 }}</div>
+            <div class="project-main">
+              <p class="project-label mono">{{ project.label }}</p>
+              <h3>{{ project.title }}</h3>
+              <p class="project-description">{{ project.description }}</p>
+              <ul class="project-highlights">
+                @for (highlight of project.highlights; track highlight) { <li>{{ highlight }}</li> }
+              </ul>
+              <div class="tag-row">
+                @for (tool of project.tools; track tool) { <span>{{ tool }}</span> }
+              </div>
+            </div>
+            <div class="project-action">
+              @if (project.link) {
+                <a [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a>
+              } @else {
+                <span>Case study summary</span>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="experience section-pad" id="experience">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Experience</p>
+        <h2>A path from application engineering to platform ownership.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item featured" data-reveal>
+          <div class="timeline-meta">
+            <span class="timeline-year">2026</span>
+            <span>Atlanta, GA</span>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering / DevOps Intern</p></div><span>Jun 2026 — Aug 2026</span></div>
+            <p>Worked on developer-platform and reliability initiatives across Kubernetes, GitOps and .NET services. The core program moved backend modules toward isolated pull-request environments and required coordinating changes across application repositories, platform configuration and end-to-end testing.</p>
+            <div class="experience-bullets">
+              <span>25 modules converted</span><span>182 PRs authored</span><span>53 repositories contributed to</span><span>Observability + CI modernization</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item" data-reveal>
+          <div class="timeline-meta"><span class="timeline-year">2025 — 2026</span><span>United States</span></div>
+          <div class="timeline-content">
+            <div class="timeline-title-row"><div><h3>CDF</h3><p>Software / Application Engineering</p></div><span>2025 — Jun 2026</span></div>
+            <p>Continued building production-oriented software experience across application development, API work, deployment workflows and operational support before moving deeper into platform engineering.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" data-reveal>
+          <div class="timeline-meta"><span class="timeline-year">2020 — 2023</span><span>India</span></div>
+          <div class="timeline-content">
+            <div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div>
+            <p>Developed and supported enterprise applications across .NET, frontend fixes, CI/CD, Linux operations and application security. Worked with Azure DevOps, Git/TFVC, deployment pipelines and penetration-testing workflows.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="stack section-pad" id="stack">
+      <div class="stack-intro" data-reveal>
+        <p class="eyebrow">Technical stack</p>
+        <h2>Broad enough to debug the system. Deep enough to own a layer.</h2>
+      </div>
+      <div class="stack-grid">
+        @for (group of skillGroups; track group.title) {
+          <article class="stack-group" data-reveal>
+            <h3>{{ group.title }}</h3>
+            <div class="stack-items">
+              @for (item of group.items; track item) { <span>{{ item }}</span> }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="education section-pad" data-reveal>
+      <div>
+        <p class="eyebrow">Education</p>
+        <h2>New Jersey Institute of Technology</h2>
+        <p>Master of Science in Computer Science</p>
+      </div>
+      <div class="education-side">
+        <span class="mono">Graduate study</span>
+        <p>Computer science fundamentals, software systems and applied engineering work that supported the transition into U.S.-based software engineering.</p>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact" data-reveal>
+      <div class="contact-kicker mono">Have a hard engineering problem?</div>
+      <h2>Put me where software meets infrastructure.</h2>
+      <p>I’m interested in teams building developer platforms, cloud-native systems, backend products, reliability tooling and practical AI automation.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a>
+        <a class="button button-secondary" href="https://www.linkedin.com/in/samuel-sudeep-ayyala/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad">
+    <span>© {{ currentYear }} Samuel Sudeep Ayyala</span>
+    <span>Designed and built with Angular.</span>
+  </footer>
+</div>

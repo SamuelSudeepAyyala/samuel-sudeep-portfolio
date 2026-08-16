@@ -16,6 +16,11 @@ interface Project {
   link?: string;
   linkLabel?: string;
   mediaLabel: string;
+  caseStudy: {
+    context: string;
+    contribution: string;
+    takeaway: string;
+  };
 }
 
 @Component({
@@ -68,7 +73,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         'Troubleshot build, configuration, deployment and authentication failures across layers'
       ],
       tools: ['.NET', 'Kubernetes', 'GitOps', 'Argo CD', 'Docker', 'Cypress', 'GitHub Actions'],
-      mediaLabel: 'Architecture visual slot'
+      mediaLabel: 'Architecture visual slot',
+      caseStudy: {
+        context: 'The work involved improving how engineering changes could be validated in isolated environments before broader rollout.',
+        contribution: 'I worked across application code, deployment configuration and test automation, with an emphasis on repeatable patterns and practical troubleshooting.',
+        takeaway: 'The strongest lesson was that reliable developer platforms depend as much on clear validation and debugging paths as they do on automation itself.'
+      }
     },
     {
       label: 'Product engineering / 2026',
@@ -80,7 +90,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         'Shared contracts and phased implementation boundaries'
       ],
       tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3'],
-      mediaLabel: 'Product screenshot slot'
+      mediaLabel: 'Product screenshot slot',
+      caseStudy: {
+        context: 'The goal is to reduce repetitive job-search work without turning applications into an unsupervised automation problem.',
+        contribution: 'I designed the product around authenticated user data, explicit review steps, private evidence storage and clear phase boundaries between tracking, resume support and browser-assisted workflows.',
+        takeaway: 'Automation is more useful when the user can see what data it used, approve changes and retain control over consequential actions.'
+      }
     },
     {
       label: 'Observability / AIOps',
@@ -94,7 +109,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       tools: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Docker', 'Python'],
       link: 'https://github.com/SamuelSudeepAyyala/AiOps',
       linkLabel: 'View repository',
-      mediaLabel: 'Dashboard screenshot slot'
+      mediaLabel: 'Dashboard screenshot slot',
+      caseStudy: {
+        context: 'Monitoring stacks often produce more signals than a person can reasonably interpret at once.',
+        contribution: 'I built a local environment that combines metrics, logs and alerts, then used it to experiment with correlation and anomaly-oriented workflows.',
+        takeaway: 'The useful role for AIOps is to improve prioritization and context, while keeping final operational decisions observable and reviewable.'
+      }
     },
     {
       label: 'Applied AI / product UX',
@@ -106,7 +126,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         'Responsive in-product conversation experience'
       ],
       tools: ['Angular', 'TypeScript', 'Search', 'JSON', 'UX'],
-      mediaLabel: 'Product visual slot'
+      mediaLabel: 'Product visual slot',
+      caseStudy: {
+        context: 'The product needed a faster way for users to find answers to common questions without forcing every interaction through a full support flow.',
+        contribution: 'I focused on a small, maintainable assistant using curated content, search-oriented matching and straightforward UI behavior rather than an opaque autonomous system.',
+        takeaway: 'For narrow product questions, predictable retrieval and good UX can be more valuable than adding unnecessary model complexity.'
+      }
     }
   ];
 

@@ -18,14 +18,24 @@
     </button>
 
     <nav id="primary-navigation" class="nav" [class.nav-open]="menuOpen" aria-label="Primary navigation">
-      <a href="#about" (click)="closeMenu()" [class.active]="activeSection === 'about'">About</a>
-      <a href="#work" (click)="closeMenu()" [class.active]="activeSection === 'work'">Projects</a>
-      <a href="#experience" (click)="closeMenu()" [class.active]="activeSection === 'experience'">Experience</a>
-      <a href="#stack" (click)="closeMenu()" [class.active]="activeSection === 'stack'">Stack</a>
-      <a href="#contact" (click)="closeMenu()" [class.active]="activeSection === 'contact'">Contact</a>
+      <a href="#about" (click)="closeMenu()" [class.active]="activeSection === 'about'" [attr.aria-current]="activeSection === 'about' ? 'location' : null">About</a>
+      <a href="#work" (click)="closeMenu()" [class.active]="activeSection === 'work'" [attr.aria-current]="activeSection === 'work' ? 'location' : null">Projects</a>
+      <a href="#experience" (click)="closeMenu()" [class.active]="activeSection === 'experience'" [attr.aria-current]="activeSection === 'experience' ? 'location' : null">Experience</a>
+      <a href="#stack" (click)="closeMenu()" [class.active]="activeSection === 'stack'" [attr.aria-current]="activeSection === 'stack' ? 'location' : null">Stack</a>
+      <a href="#contact" (click)="closeMenu()" [class.active]="activeSection === 'contact'" [attr.aria-current]="activeSection === 'contact' ? 'location' : null">Contact</a>
     </nav>
 
-    <a class="header-cta" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">Let's talk</a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme" aria-pressed="false">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-icon theme-icon-sun">☀</span>
+          <span class="theme-icon theme-icon-moon">☾</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="sr-only theme-toggle-label">Toggle color theme</span>
+      </button>
+      <a class="header-cta" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">Let's talk</a>
+    </div>
   </header>
 
   <main id="main-content">
@@ -67,14 +77,14 @@
       <div class="tech-marquee-fade fade-right"></div>
       <div class="tech-marquee">
         <div class="tech-marquee-track">
-          @for (tech of techLogos; track tech.name) {
-            <div class="tech-logo-pill">
+          @for (tech of techLogos.slice(0, 10); track tech.name) {
+            <div class="tech-logo-pill" [attr.data-tech]="tech.name">
               <span class="tech-brand-mark" [style.--brand-color]="tech.color">{{ tech.mark }}</span>
               <span>{{ tech.name }}</span>
             </div>
           }
-          @for (tech of techLogos; track tech.name + '-duplicate') {
-            <div class="tech-logo-pill" aria-hidden="true">
+          @for (tech of techLogos.slice(0, 10); track tech.name + '-duplicate') {
+            <div class="tech-logo-pill" [attr.data-tech]="tech.name" aria-hidden="true">
               <span class="tech-brand-mark" [style.--brand-color]="tech.color">{{ tech.mark }}</span>
               <span>{{ tech.name }}</span>
             </div>
@@ -182,7 +192,7 @@
               </button>
 
               <div class="case-study-popover" popover [id]="'project-context-' + i">
-                <div class="case-study-modal" role="dialog" aria-modal="true" [attr.aria-labelledby]="'project-context-title-' + i">
+                <div class="case-study-modal" role="dialog" [attr.aria-labelledby]="'project-context-title-' + i">
                   <div class="case-study-modal-head">
                     <div>
                       <span class="mono">{{ project.label }}</span>
@@ -221,7 +231,7 @@
         <article class="timeline-item featured" data-reveal>
           <div class="timeline-meta"><span class="timeline-year">2026</span><span>Atlanta, GA</span></div>
           <div class="timeline-content">
-            <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering Intern</p></div><span>Jun 2026 — Aug 2026</span></div>
+            <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering Intern</p></div><span>Jun 2026 — Present</span></div>
             <p>Contributed to developer-platform and reliability work involving cloud-native deployment automation, repeatable test environments, CI/CD, application troubleshooting and observability. Public details are intentionally limited to avoid exposing proprietary systems.</p>
             <div class="experience-bullets"><span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Automated validation</span><span>Observability</span><span>.NET services</span></div>
           </div>
@@ -262,8 +272,19 @@
     </section>
 
     <section class="education section-pad" data-reveal>
-      <div><p class="eyebrow">Education</p><h2>New Jersey Institute of Technology</h2><p>Master of Science in Computer Science · 2025</p></div>
-      <div class="education-side"><span class="mono">Graduate study</span><p>Computer science fundamentals, software systems and applied engineering work that supported the transition into U.S.-based software engineering.</p></div>
+      <div class="education-main">
+        <p class="eyebrow">Education</p>
+        <div class="education-list">
+          <article class="education-entry">
+            <div><span class="mono">Graduate study</span><h2>New Jersey Institute of Technology</h2><p class="degree-meta">Master of Science in Computer Science · 2025</p></div>
+            <p class="education-detail">Computer science fundamentals, software systems and applied engineering work supporting software and platform-focused engineering.</p>
+          </article>
+          <article class="education-entry">
+            <div><span class="mono">Undergraduate study</span><h3>Karunya Institute of Technology and Sciences</h3><p class="degree-meta">Bachelor of Technology in Computer Science &amp; Engineering · 2020</p></div>
+            <p class="education-detail">Coimbatore, India · Foundation in computer science, software development, data structures, systems and engineering fundamentals.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="contact section-pad" id="contact" data-reveal>

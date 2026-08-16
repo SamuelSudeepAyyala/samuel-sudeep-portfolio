@@ -11,6 +11,7 @@
     </button>
 
     <nav id="primary-navigation" class="nav" [class.nav-open]="menuOpen" aria-label="Primary navigation">
+      <a href="#about" (click)="closeMenu()">About</a>
       <a href="#work" (click)="closeMenu()">Work</a>
       <a href="#experience" (click)="closeMenu()">Experience</a>
       <a href="#stack" (click)="closeMenu()">Stack</a>
@@ -30,8 +31,11 @@
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore selected work</a>
+          <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
           <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <span class="button button-secondary button-disabled" aria-disabled="true" title="Add verified LinkedIn URL later">LinkedIn ↗</span>
         </div>
+        <p class="asset-note">Resume and LinkedIn controls are wired; add the final file/URL when ready.</p>
         <div class="availability">
           <span class="availability-dot"></span>
           <span>Based in the United States · Open to software, platform and DevOps engineering roles</span>
@@ -54,13 +58,24 @@
       </div>
     </section>
 
-    <section class="metrics section-pad" aria-label="Selected engineering impact" data-reveal>
+    <section class="metrics section-pad" aria-label="Engineering focus" data-reveal>
       @for (metric of metrics; track metric.label) {
         <article class="metric">
           <strong>{{ metric.value }}</strong>
           <span>{{ metric.label }}</span>
         </article>
       }
+    </section>
+
+    <section class="about section-pad" id="about" data-reveal>
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Application engineering first. Platform thinking after.</h2>
+      </div>
+      <div class="about-copy">
+        <p>I started with enterprise application development and gradually moved closer to the systems that build, deploy, observe and support software in production.</p>
+        <p>That path made me most comfortable on problems that cross boundaries: a failing deployment that starts in application code, a test environment that needs better automation, or a product workflow that benefits from practical AI without removing human review.</p>
+      </div>
     </section>
 
     <section class="capabilities section-pad" id="capabilities">
@@ -88,9 +103,9 @@
       <div class="section-heading section-heading-wide" data-reveal>
         <div>
           <p class="eyebrow">Selected work</p>
-          <h2>Built around outcomes, not screenshots.</h2>
+          <h2>Evidence without exposing private systems.</h2>
         </div>
-        <p>The projects below represent the kind of engineering I want to keep doing: systems with real constraints, operational consequences and clear user value.</p>
+        <p>Employer work is intentionally generalized. Public projects can link to code; private work stays at the level of responsibilities, technical themes and safe outcomes.</p>
       </div>
 
       <div class="project-list">
@@ -98,6 +113,10 @@
           <article class="project-card" data-reveal>
             <div class="project-number mono">0{{ i + 1 }}</div>
             <div class="project-main">
+              <div class="project-media-slot" aria-label="Media placeholder">
+                <span class="mono">{{ project.mediaLabel }}</span>
+                <strong>Add approved visual later</strong>
+              </div>
               <p class="project-label mono">{{ project.label }}</p>
               <h3>{{ project.title }}</h3>
               <p class="project-description">{{ project.description }}</p>
@@ -107,13 +126,12 @@
               <div class="tag-row">
                 @for (tool of project.tools; track tool) { <span>{{ tool }}</span> }
               </div>
-            </div>
-            <div class="project-action">
-              @if (project.link) {
-                <a [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a>
-              } @else {
-                <span>Case study summary</span>
-              }
+              <div class="project-buttons">
+                @if (project.link) {
+                  <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a>
+                }
+                <span class="button button-secondary button-disabled" aria-disabled="true" title="Add public-safe case study later">Case study ↗</span>
+              </div>
             </div>
           </article>
         }
@@ -123,7 +141,7 @@
     <section class="experience section-pad" id="experience">
       <div class="section-heading" data-reveal>
         <p class="eyebrow">Experience</p>
-        <h2>A path from application engineering to platform ownership.</h2>
+        <h2>A path from application engineering to platform work.</h2>
       </div>
 
       <div class="timeline">
@@ -134,18 +152,18 @@
           </div>
           <div class="timeline-content">
             <div class="timeline-title-row"><div><h3>Incident IQ</h3><p>Software Engineering Intern</p></div><span>Jun 2026 — Aug 2026</span></div>
-            <p>Worked on developer-platform and reliability initiatives across Kubernetes, GitOps and .NET services. The core program moved backend modules toward isolated pull-request environments and required coordinating changes across application repositories, platform configuration and end-to-end testing.</p>
+            <p>Contributed to developer-platform and reliability work involving cloud-native deployment automation, repeatable test environments, CI/CD, application troubleshooting and observability. Public details are intentionally limited to avoid exposing proprietary systems.</p>
             <div class="experience-bullets">
-              <span>25 modules converted</span><span>182 PRs authored</span><span>53 repositories contributed to</span><span>Observability + CI modernization</span>
+              <span>Platform automation</span><span>Cloud-native delivery</span><span>Cross-repository troubleshooting</span><span>Observability</span>
             </div>
           </div>
         </article>
 
         <article class="timeline-item" data-reveal>
-          <div class="timeline-meta"><span class="timeline-year">2025 — 2026</span><span>United States</span></div>
+          <div class="timeline-meta"><span class="timeline-year">2025 — 2026</span><span>New Jersey</span></div>
           <div class="timeline-content">
             <div class="timeline-title-row"><div><h3>Community Dreams Foundation</h3><p>Software Engineer</p></div><span>Aug 2025 — Jun 2026</span></div>
-            <p>Built production-oriented software experience across application development, API work, deployment workflows and operational support before moving deeper into platform engineering.</p>
+            <p>Developed and supported a web product with data workflows, search, user-facing features and an FAQ assistant while working with stakeholders to refine evolving product requirements.</p>
           </div>
         </article>
 
@@ -153,7 +171,7 @@
           <div class="timeline-meta"><span class="timeline-year">2020 — 2023</span><span>India</span></div>
           <div class="timeline-content">
             <div class="timeline-title-row"><div><h3>Accenture</h3><p>Application Development Analyst</p></div><span>Nov 2020 — Aug 2023</span></div>
-            <p>Developed and supported enterprise applications across .NET, frontend fixes, CI/CD, Linux operations and application security. Worked with Azure DevOps, Git/TFVC, deployment pipelines and penetration-testing workflows.</p>
+            <p>Developed and supported enterprise applications across .NET, frontend work, REST APIs, SQL, CI/CD, Linux operations and application-security testing.</p>
           </div>
         </article>
       </div>
@@ -176,6 +194,18 @@
       </div>
     </section>
 
+    <section class="now section-pad" data-reveal>
+      <div>
+        <p class="eyebrow">Now</p>
+        <h2>Building toward stronger product + platform ownership.</h2>
+      </div>
+      <div class="now-grid">
+        <div><span class="mono">Building</span><p>Job-application tooling with human-approved automation and clear privacy boundaries.</p></div>
+        <div><span class="mono">Deepening</span><p>Kubernetes, observability, CI/CD reliability, backend systems and production-oriented engineering.</p></div>
+        <div><span class="mono">Looking for</span><p>Software, platform or DevOps roles where application and infrastructure concerns overlap.</p></div>
+      </div>
+    </section>
+
     <section class="education section-pad" data-reveal>
       <div>
         <p class="eyebrow">Education</p>
@@ -194,7 +224,9 @@
       <p>I’m interested in teams building developer platforms, cloud-native systems, backend products, reliability tooling and practical AI automation.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="mailto:ayyalasamuelsudeep@gmail.com">Email me</a>
+        <a class="button button-secondary" href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf" download>Resume ↓</a>
         <a class="button button-secondary" href="https://github.com/SamuelSudeepAyyala" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <span class="button button-secondary button-disabled" aria-disabled="true" title="Add verified LinkedIn URL later">LinkedIn ↗</span>
       </div>
     </section>
   </main>

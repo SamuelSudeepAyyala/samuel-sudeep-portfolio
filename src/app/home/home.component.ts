@@ -7,6 +7,11 @@ interface Capability {
   tools: string[];
 }
 
+interface TechLogo {
+  name: string;
+  iconPath: string;
+}
+
 interface Project {
   label: string;
   title: string;
@@ -39,6 +44,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     { value: 'PR → Environment', label: 'Experience with automated, repeatable test and deployment workflows' },
     { value: 'Signals → Action', label: 'Observability and troubleshooting with practical operational context' },
     { value: 'AI + Review', label: 'Automation designed with human control and clear boundaries' }
+  ];
+
+  readonly techLogos: TechLogo[] = [
+    { name: 'C#', iconPath: './assets/tech/csharp.svg' },
+    { name: '.NET', iconPath: './assets/tech/dotnet.svg' },
+    { name: 'Python', iconPath: './assets/tech/python.svg' },
+    { name: 'TypeScript', iconPath: './assets/tech/typescript.svg' },
+    { name: 'Angular', iconPath: './assets/tech/angular.svg' },
+    { name: 'React', iconPath: './assets/tech/react.svg' },
+    { name: 'Next.js', iconPath: './assets/tech/nextjs.svg' },
+    { name: 'FastAPI', iconPath: './assets/tech/fastapi.svg' },
+    { name: 'GitHub Actions', iconPath: './assets/tech/githubactions.svg' },
+    { name: 'Grafana', iconPath: './assets/tech/grafana.svg' }
   ];
 
   readonly capabilities: Capability[] = [

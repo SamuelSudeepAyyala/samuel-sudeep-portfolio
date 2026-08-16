@@ -90,8 +90,15 @@
               <div class="tag-row">@for (tool of project.tools; track tool) { <span>{{ tool }}</span> }</div>
               <div class="project-buttons">
                 @if (project.link) { <a class="button button-secondary" [href]="project.link" target="_blank" rel="noreferrer">{{ project.linkLabel }} ↗</a> }
-                <span class="button button-secondary button-disabled" aria-disabled="true" title="Add a public-safe case study later">Case study ↗</span>
               </div>
+              <details class="case-study-details">
+                <summary>Read generalized case study</summary>
+                <div class="case-study-grid">
+                  <div><span class="mono">Context</span><p>{{ project.caseStudy.context }}</p></div>
+                  <div><span class="mono">Contribution</span><p>{{ project.caseStudy.contribution }}</p></div>
+                  <div><span class="mono">Takeaway</span><p>{{ project.caseStudy.takeaway }}</p></div>
+                </div>
+              </details>
             </div>
           </article>
         }

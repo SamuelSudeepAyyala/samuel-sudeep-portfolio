@@ -91,9 +91,43 @@
     return true;
   };
 
-  if (!mountToggle()) {
+  const mountEducationHistory = () => {
+    const education = document.querySelector('.education');
+    if (!education) return false;
+    if (education.querySelector('.education-list')) return true;
+
+    education.innerHTML = `
+      <div class="education-main">
+        <p class="eyebrow">Education</p>
+        <div class="education-list">
+          <article class="education-entry">
+            <div>
+              <span class="mono">Graduate study</span>
+              <h2>New Jersey Institute of Technology</h2>
+              <p class="degree-meta">Master of Science in Computer Science · 2025</p>
+            </div>
+            <p class="education-detail">Computer science fundamentals, software systems and applied engineering work supporting software and platform-focused engineering.</p>
+          </article>
+          <article class="education-entry">
+            <div>
+              <span class="mono">Undergraduate study</span>
+              <h3>Karunya Institute of Technology and Sciences</h3>
+              <p class="degree-meta">Bachelor of Technology in Computer Science &amp; Engineering · 2020</p>
+            </div>
+            <p class="education-detail">Coimbatore, India · Foundation in computer science, software development, data structures, systems and engineering fundamentals.</p>
+          </article>
+        </div>
+      </div>
+    `;
+
+    return true;
+  };
+
+  const mountEnhancements = () => mountToggle() && mountEducationHistory();
+
+  if (!mountEnhancements()) {
     const observer = new MutationObserver(() => {
-      if (mountToggle()) observer.disconnect();
+      if (mountToggle() && mountEducationHistory()) observer.disconnect();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }

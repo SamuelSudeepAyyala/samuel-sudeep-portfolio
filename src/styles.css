@@ -113,6 +113,19 @@ a {
   background-image: url('./assets/tech/python.svg') !important;
 }
 
+/* Project cards should size independently. Opening "More context" on one card
+ * must not stretch the neighboring card to the same grid-row height. */
+.project-grid {
+  align-items: start !important;
+}
+
+.project-card.dense-project,
+.dense-project {
+  height: auto !important;
+  min-height: 0;
+  align-self: start;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tech-marquee-track {
     animation: none !important;

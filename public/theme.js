@@ -123,11 +123,28 @@
     return true;
   };
 
-  const mountEnhancements = () => mountToggle() && mountEducationHistory();
+  const syncCurrentExperience = () => {
+    const titles = document.querySelectorAll('.timeline-title-row h3');
+    for (const title of titles) {
+      if (title.textContent?.trim() !== 'Incident IQ') continue;
+      const row = title.closest('.timeline-title-row');
+      const date = row?.querySelector(':scope > span:last-child');
+      if (date) date.textContent = 'Jun 2026 — Present';
+      return true;
+    }
+    return false;
+  };
+
+  const mountEnhancements = () => {
+    const toggleReady = mountToggle();
+    const educationReady = mountEducationHistory();
+    const experienceReady = syncCurrentExperience();
+    return toggleReady && educationReady && experienceReady;
+  };
 
   if (!mountEnhancements()) {
     const observer = new MutationObserver(() => {
-      if (mountToggle() && mountEducationHistory()) observer.disconnect();
+      if (mountEnhancements()) observer.disconnect();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }

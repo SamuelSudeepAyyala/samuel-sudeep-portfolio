@@ -21,7 +21,7 @@ interface Project {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.css', './home.extras.css'],
   standalone: true
 })
 export class HomeComponent implements OnInit, OnDestroy {

@@ -1,0 +1,88 @@
+/* Final E2E regression guardrails ---------------------------------------------
+ * Loaded after all existing theme/component refinement layers. Keep this file
+ * limited to verified cross-cutting fixes that should win the cascade.
+ */
+
+/* Technology marks are keyed by data, not DOM position. The extra selector
+ * weight intentionally beats legacy nth-child rules until those can be removed
+ * without risking unrelated global styling. */
+body app-home .tech-marquee-track > .tech-logo-pill {
+  display: flex !important;
+}
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="C#"] .tech-brand-mark { background-image: url('./assets/tech/csharp.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech=".NET"] .tech-brand-mark { background-image: url('./assets/tech/dotnet.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="Python"] .tech-brand-mark { background-image: url('./assets/tech/python.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="TypeScript"] .tech-brand-mark { background-image: url('./assets/tech/typescript.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="Angular"] .tech-brand-mark { background-image: url('./assets/tech/angular.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="React"] .tech-brand-mark { background-image: url('./assets/tech/react.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="Next.js"] .tech-brand-mark {
+  background-color: rgba(255, 255, 255, .94) !important;
+  background-image: url('./assets/tech/nextjs.svg') !important;
+}
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="FastAPI"] .tech-brand-mark { background-image: url('./assets/tech/fastapi.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="GitHub Actions"] .tech-brand-mark { background-image: url('./assets/tech/githubactions.svg') !important; }
+body app-home .tech-marquee-track .tech-logo-pill[data-tech="Grafana"] .tech-brand-mark { background-image: url('./assets/tech/grafana.svg') !important; }
+
+/* Readable metadata floor: recurring contextual labels were dropping below
+ * a practical size on high-DPI/light-theme displays. */
+.recruiter-grid .mono,
+.rich-stack-card .stack-context,
+.now-grid .mono,
+.education-entry .mono,
+.project-label,
+.project-number,
+.case-study-modal-head .mono,
+.case-study-modal-highlights > .mono,
+.case-study-grid .mono {
+  font-size: clamp(.70rem, .16vw + .67rem, .76rem) !important;
+  line-height: 1.45 !important;
+  letter-spacing: .11em !important;
+}
+
+/* Keep small supporting text comfortably readable without flattening the
+ * hierarchy of the design. */
+.project-type,
+.tag-row span,
+.experience-bullets span,
+.stack-items span,
+.visual-caption span {
+  line-height: 1.4;
+}
+
+/* Compact actions should still meet the same practical touch target as the
+ * rest of the portfolio controls. */
+.project-card.dense-project .project-buttons .button {
+  min-height: 44px !important;
+}
+
+.case-study-close {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Respect explicit reduced-motion preferences for both CSS anchor scrolling
+ * and the JS back-to-top helper. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .recruiter-grid .mono,
+  .rich-stack-card .stack-context,
+  .now-grid .mono,
+  .education-entry .mono,
+  .project-label,
+  .project-number {
+    font-size: .70rem !important;
+  }
+}

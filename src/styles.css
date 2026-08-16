@@ -28,21 +28,11 @@ a {
   color: #ffffff;
 }
 
-/*
- * Content visibility is never allowed to depend on IntersectionObserver.
- * Earlier scroll-reveal styles set repeated Angular @for cards to opacity: 0
- * before every generated card was registered with the observer. That could
- * leave whole project/stack grids invisible while still occupying layout space.
- * Keep structural content visible by default; the portfolio still uses its
- * ambient, marquee, pipeline, chart, hover and micro-interaction animations.
- */
 [data-reveal] {
   opacity: 1 !important;
   transform: none !important;
 }
 
-/* Real locally-served technology logos. The component keeps compact text
- * fallbacks in its data model, but the visual presentation uses SVG assets. */
 .tech-brand-mark,
 .stack-brand-mark {
   color: transparent !important;
@@ -53,68 +43,29 @@ a {
   background-size: 68% 68% !important;
 }
 
-/* The current data source contains 18 historical marquee entries. The first
- * ten have locally-vendored brand artwork; hide the older text-only tail in
- * both halves of the seamless loop. */
 .tech-marquee-track > .tech-logo-pill:nth-child(n + 11):nth-child(-n + 18),
 .tech-marquee-track > .tech-logo-pill:nth-child(n + 29):nth-child(-n + 36) {
   display: none !important;
 }
 
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 1) .tech-brand-mark {
-  background-image: url('./assets/tech/csharp.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 2) .tech-brand-mark {
-  background-image: url('./assets/tech/dotnet.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 3) .tech-brand-mark {
-  background-image: url('./assets/tech/python.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 4) .tech-brand-mark {
-  background-image: url('./assets/tech/typescript.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 5) .tech-brand-mark {
-  background-image: url('./assets/tech/angular.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 6) .tech-brand-mark {
-  background-image: url('./assets/tech/react.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 7) .tech-brand-mark {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  background-image: url('./assets/tech/nextjs.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 8) .tech-brand-mark {
-  background-image: url('./assets/tech/fastapi.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 9) .tech-brand-mark {
-  background-image: url('./assets/tech/githubactions.svg') !important;
-}
-.tech-marquee-track > .tech-logo-pill:nth-child(18n + 10) .tech-brand-mark {
-  background-image: url('./assets/tech/grafana.svg') !important;
-}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 1) .tech-brand-mark { background-image: url('./assets/tech/csharp.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 2) .tech-brand-mark { background-image: url('./assets/tech/dotnet.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 3) .tech-brand-mark { background-image: url('./assets/tech/python.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 4) .tech-brand-mark { background-image: url('./assets/tech/typescript.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 5) .tech-brand-mark { background-image: url('./assets/tech/angular.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 6) .tech-brand-mark { background-image: url('./assets/tech/react.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 7) .tech-brand-mark { background-color: rgba(255, 255, 255, 0.9) !important; background-image: url('./assets/tech/nextjs.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 8) .tech-brand-mark { background-image: url('./assets/tech/fastapi.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 9) .tech-brand-mark { background-image: url('./assets/tech/githubactions.svg') !important; }
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 10) .tech-brand-mark { background-image: url('./assets/tech/grafana.svg') !important; }
 
-/* Replace category initials in the detailed stack cards as well. */
-.rich-stack-grid > .rich-stack-card:nth-child(1) .stack-brand-mark {
-  background-image: url('./assets/tech/githubactions.svg') !important;
-}
-.rich-stack-grid > .rich-stack-card:nth-child(2) .stack-brand-mark {
-  background-image: url('./assets/tech/dotnet.svg') !important;
-}
-.rich-stack-grid > .rich-stack-card:nth-child(3) .stack-brand-mark {
-  background-image: url('./assets/tech/angular.svg') !important;
-}
-.rich-stack-grid > .rich-stack-card:nth-child(4) .stack-brand-mark {
-  background-image: url('./assets/tech/grafana.svg') !important;
-}
-.rich-stack-grid > .rich-stack-card:nth-child(5) .stack-brand-mark {
-  background-image: url('./assets/tech/csharp.svg') !important;
-}
-.rich-stack-grid > .rich-stack-card:nth-child(6) .stack-brand-mark {
-  background-image: url('./assets/tech/python.svg') !important;
-}
+.rich-stack-grid > .rich-stack-card:nth-child(1) .stack-brand-mark { background-image: url('./assets/tech/githubactions.svg') !important; }
+.rich-stack-grid > .rich-stack-card:nth-child(2) .stack-brand-mark { background-image: url('./assets/tech/dotnet.svg') !important; }
+.rich-stack-grid > .rich-stack-card:nth-child(3) .stack-brand-mark { background-image: url('./assets/tech/angular.svg') !important; }
+.rich-stack-grid > .rich-stack-card:nth-child(4) .stack-brand-mark { background-image: url('./assets/tech/grafana.svg') !important; }
+.rich-stack-grid > .rich-stack-card:nth-child(5) .stack-brand-mark { background-image: url('./assets/tech/csharp.svg') !important; }
+.rich-stack-grid > .rich-stack-card:nth-child(6) .stack-brand-mark { background-image: url('./assets/tech/python.svg') !important; }
 
-/* Project cards size independently; expanded content must never stretch the
- * neighboring grid card. */
 .project-grid {
   align-items: start !important;
 }
@@ -124,182 +75,248 @@ a {
   align-self: start !important;
 }
 
-/* Project context modal ---------------------------------------------------
- * Keep the existing semantic <details> trigger, but when it opens, move it
- * out of the project-card layout and present it as a focused modal overlay.
- */
-body:has(.case-study-details[open]) {
-  overflow: hidden;
-}
-
-.case-study-details[open] {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 1000 !important;
-  margin: 0 !important;
-  padding: clamp(22px, 5vw, 56px) !important;
-  display: grid !important;
-  place-items: center !important;
-  overflow-y: auto !important;
-  border: 0 !important;
-  background: rgba(3, 8, 18, 0.76) !important;
-  backdrop-filter: blur(14px) saturate(0.8);
-  -webkit-backdrop-filter: blur(14px) saturate(0.8);
-}
-
-.case-study-details[open]::before {
-  content: "Project context";
-  position: absolute;
-  top: max(38px, 6vh);
-  left: 50%;
-  z-index: 2;
-  width: min(calc(100% - 80px), 930px);
-  transform: translateX(-50%);
-  color: #f7f9ff;
-  font-size: clamp(1.55rem, 3vw, 2.35rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-}
-
-.case-study-details[open]::after {
-  content: "Context, contribution and takeaway";
-  position: absolute;
-  top: calc(max(38px, 6vh) + 52px);
-  left: 50%;
-  z-index: 2;
-  width: min(calc(100% - 80px), 930px);
-  transform: translateX(-50%);
-  color: #93a0b6;
+/* Native project context popover. It enters the browser top layer, so it is
+ * never clipped by project-card overflow or grid layout. */
+.case-study-trigger {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px 2px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #c6cfdd;
+  cursor: pointer;
   font-size: 0.82rem;
-  pointer-events: none;
+  font-weight: 760;
+  text-align: left;
 }
 
-.case-study-details[open] > summary {
-  position: fixed !important;
-  top: max(28px, 4vh) !important;
-  right: max(28px, 4vw) !important;
-  z-index: 4 !important;
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  display: grid !important;
-  place-items: center !important;
-  overflow: hidden !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  border-radius: 14px !important;
-  background: rgba(17, 27, 47, 0.94) !important;
-  color: transparent !important;
-  cursor: pointer !important;
-  list-style: none !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28) !important;
+.case-study-trigger:hover,
+.case-study-trigger:focus-visible {
+  color: #ffffff;
 }
 
-.case-study-details[open] > summary::-webkit-details-marker {
-  display: none;
+.case-study-trigger span:last-child {
+  color: #8da8ff;
+  transition: transform 160ms ease;
 }
 
-.case-study-details[open] > summary::after {
-  content: "×";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #f5f7fb;
-  font-size: 1.65rem;
-  font-weight: 300;
-  line-height: 1;
+.case-study-trigger:hover span:last-child {
+  transform: translate(2px, -2px);
 }
 
-.case-study-details[open] > summary:hover,
-.case-study-details[open] > summary:focus-visible {
-  border-color: rgba(141, 168, 255, 0.55) !important;
-  background: rgba(30, 45, 74, 0.98) !important;
+.case-study-popover {
+  inset: auto;
+  width: min(1080px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100vh - 40px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: inherit;
 }
 
-.case-study-details[open] .case-study-grid {
-  position: relative !important;
-  z-index: 3 !important;
-  width: min(100%, 980px) !important;
-  margin: clamp(90px, 13vh, 130px) auto 24px !important;
-  padding: clamp(18px, 3vw, 30px) !important;
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 24px !important;
+.case-study-popover::backdrop {
+  background: rgba(3, 8, 18, 0.78);
+  backdrop-filter: blur(14px) saturate(0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(0.82);
+}
+
+.case-study-popover:popover-open {
+  display: block;
+  animation: projectModalIn 180ms ease-out;
+}
+
+.case-study-modal {
+  position: relative;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 26px;
   background:
-    radial-gradient(circle at 80% 0%, rgba(124, 156, 255, 0.12), transparent 34%),
-    linear-gradient(150deg, rgba(20, 32, 55, 0.99), rgba(10, 18, 32, 0.99)) !important;
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.52) !important;
+    radial-gradient(circle at 88% 0%, rgba(124, 156, 255, 0.14), transparent 32%),
+    linear-gradient(155deg, rgba(18, 29, 50, 0.99), rgba(8, 15, 28, 0.99));
+  box-shadow: 0 36px 120px rgba(0, 0, 0, 0.58);
 }
 
-.case-study-details[open] .case-study-grid > div {
-  min-height: 220px !important;
-  padding: 24px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 17px !important;
-  background: rgba(255, 255, 255, 0.025) !important;
+.case-study-modal-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: start;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.case-study-details[open] .case-study-grid .mono {
-  margin-bottom: 18px !important;
+.case-study-modal-head .mono,
+.case-study-modal-highlights > .mono,
+.case-study-grid .mono {
   color: #67e8c7 !important;
   font-size: 0.66rem !important;
   letter-spacing: 0.15em !important;
 }
 
-.case-study-details[open] .case-study-grid p {
-  margin: 0 !important;
+.case-study-modal h3 {
+  margin: 10px 0 14px !important;
+  color: #f7f9ff !important;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.05em !important;
+}
+
+.case-study-modal-head p {
+  max-width: 780px;
+  margin: 0;
+  color: #aeb9ca;
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+.case-study-close {
+  position: sticky;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(17, 27, 47, 0.95);
+  color: #f5f7fb;
+  cursor: pointer;
+  font-size: 1.55rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.case-study-close:hover,
+.case-study-close:focus-visible {
+  border-color: rgba(141, 168, 255, 0.6);
+  background: rgba(31, 46, 76, 0.98);
+}
+
+.case-study-modal-highlights {
+  padding: 26px 0 4px;
+}
+
+.case-study-modal-highlights ul {
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+  list-style: none;
+}
+
+.case-study-modal-highlights li {
+  position: relative;
+  padding-left: 18px;
+  color: #c2ccda;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.case-study-modal-highlights li::before {
+  content: "↳";
+  position: absolute;
+  left: 0;
+  color: #8da8ff;
+}
+
+.case-study-popover .case-study-grid {
+  margin: 26px 0 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.case-study-popover .case-study-grid > div {
+  min-height: 200px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.case-study-popover .case-study-grid p {
+  margin: 16px 0 0 !important;
   color: #c0cad9 !important;
-  font-size: clamp(0.9rem, 1.35vw, 1rem) !important;
-  line-height: 1.75 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.72 !important;
+}
+
+.case-study-modal-footer {
+  margin-top: 26px;
+  padding-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.case-study-modal-footer .tag-row {
+  margin: 0;
+}
+
+@keyframes projectModalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (max-width: 760px) {
-  .case-study-details[open] {
-    padding: 20px !important;
-    align-items: start !important;
+  .case-study-popover {
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
   }
 
-  .case-study-details[open]::before,
-  .case-study-details[open]::after {
-    left: 24px;
-    width: calc(100% - 94px);
-    transform: none;
+  .case-study-modal {
+    max-height: calc(100vh - 20px);
+    padding: 22px;
+    border-radius: 20px;
   }
 
-  .case-study-details[open]::before {
-    top: 30px;
-    font-size: 1.45rem;
+  .case-study-modal-head {
+    gap: 16px;
   }
 
-  .case-study-details[open]::after {
-    top: 72px;
+  .case-study-modal h3 {
+    font-size: clamp(1.65rem, 8vw, 2.3rem) !important;
   }
 
-  .case-study-details[open] > summary {
-    top: 22px !important;
-    right: 20px !important;
-  }
-
-  .case-study-details[open] .case-study-grid {
-    margin-top: 106px !important;
-    padding: 14px !important;
+  .case-study-modal-highlights ul,
+  .case-study-popover .case-study-grid {
     grid-template-columns: 1fr !important;
-    border-radius: 20px !important;
   }
 
-  .case-study-details[open] .case-study-grid > div {
-    min-height: 0 !important;
-    padding: 20px !important;
+  .case-study-popover .case-study-grid > div {
+    min-height: 0;
+  }
+
+  .case-study-modal-footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .tech-marquee-track {
     animation: none !important;
+  }
+
+  .case-study-popover:popover-open {
+    animation: none;
   }
 }

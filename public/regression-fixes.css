@@ -3,6 +3,22 @@
  * limited to verified cross-cutting fixes that should win the cascade.
  */
 
+/* Technology marks are keyed by data, not DOM position. This prevents a label
+ * reorder from silently attaching the wrong SVG to a technology. */
+.tech-marquee-track .tech-logo-pill[data-tech="C#"] .tech-brand-mark { background-image: url('./assets/tech/csharp.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech=".NET"] .tech-brand-mark { background-image: url('./assets/tech/dotnet.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="Python"] .tech-brand-mark { background-image: url('./assets/tech/python.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="TypeScript"] .tech-brand-mark { background-image: url('./assets/tech/typescript.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="Angular"] .tech-brand-mark { background-image: url('./assets/tech/angular.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="React"] .tech-brand-mark { background-image: url('./assets/tech/react.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="Next.js"] .tech-brand-mark {
+  background-color: rgba(255, 255, 255, .94) !important;
+  background-image: url('./assets/tech/nextjs.svg') !important;
+}
+.tech-marquee-track .tech-logo-pill[data-tech="FastAPI"] .tech-brand-mark { background-image: url('./assets/tech/fastapi.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="GitHub Actions"] .tech-brand-mark { background-image: url('./assets/tech/githubactions.svg') !important; }
+.tech-marquee-track .tech-logo-pill[data-tech="Grafana"] .tech-brand-mark { background-image: url('./assets/tech/grafana.svg') !important; }
+
 /* Readable metadata floor: recurring contextual labels were dropping below
  * a practical size on high-DPI/light-theme displays. */
 .recruiter-grid .mono,

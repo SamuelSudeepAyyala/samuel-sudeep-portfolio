@@ -1,0 +1,457 @@
+/* End-to-end portfolio QA + visual refinement pass -----------------------
+ * Loaded after the base component and theme styles. This file intentionally
+ * contains only cross-cutting refinements and bug fixes found during the
+ * desktop/mobile + dark/light audit.
+ */
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition app-home,
+html.theme-transition .site-shell,
+html.theme-transition .site-header,
+html.theme-transition .advanced-card,
+html.theme-transition .metric,
+html.theme-transition .timeline-item,
+html.theme-transition .project-visual,
+html.theme-transition .button,
+html.theme-transition .tech-logo-pill,
+html.theme-transition .floating-card {
+  transition:
+    background-color 260ms ease,
+    background 260ms ease,
+    border-color 260ms ease,
+    color 180ms ease,
+    box-shadow 260ms ease !important;
+}
+
+/* Make anchor navigation land cleanly below the sticky header. */
+#about,
+#work,
+#experience,
+#stack,
+#contact,
+#capabilities {
+  scroll-margin-top: 104px;
+}
+
+/* Header / navigation ---------------------------------------------------- */
+.site-header {
+  overflow: visible;
+}
+
+.header-actions {
+  min-width: 0;
+}
+
+.theme-toggle:focus-visible,
+.menu-button:focus-visible,
+.header-cta:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.menu-button span:not(.sr-only) {
+  transform-origin: center;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.menu-button[aria-expanded="true"] span:not(.sr-only):first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] span:not(.sr-only):nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.nav a,
+.footer a,
+.project-buttons a,
+.hero-actions a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Card language --------------------------------------------------------- */
+.capability-card,
+.snapshot-card,
+.project-card.dense-project,
+.recruiter-grid article,
+.timeline-item,
+.stack-group.rich-stack-card,
+.now-grid > div {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.capability-card:hover,
+.snapshot-card:hover,
+.project-card.dense-project:hover,
+.recruiter-grid article:hover,
+.stack-group.rich-stack-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--line)) !important;
+  box-shadow: 0 20px 48px rgba(2, 8, 20, 0.16);
+}
+
+.project-card.dense-project:focus-within,
+.capability-card:focus-within,
+.stack-group.rich-stack-card:focus-within {
+  border-color: color-mix(in srgb, var(--accent-2) 42%, var(--line)) !important;
+}
+
+/* The metrics band had a dark hard-coded translucent background in the
+ * component layer. Keep it theme-aware and visually separate from cards. */
+.metrics {
+  border-color: var(--line) !important;
+  background: color-mix(in srgb, var(--surface) 72%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.metric strong {
+  text-wrap: balance;
+}
+
+/* Hero ------------------------------------------------------------------ */
+.hero h1 {
+  text-wrap: balance;
+}
+
+.hero-lede,
+.section-heading > p,
+.about-copy p,
+.contact > p {
+  text-wrap: pretty;
+}
+
+.portrait-frame {
+  transform-origin: center;
+}
+
+/* Give the light theme a purpose-built headline gradient. The base gradient
+ * begins with white, which becomes washed out on a pale page. */
+html[data-theme="light"] app-home .hero h1 span {
+  background: linear-gradient(100deg, #24385f 4%, #526fe8 52%, #078b75 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+}
+
+html[data-theme="light"] app-home .portrait-frame {
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(226,234,248,.78)) !important;
+  border-color: rgba(59,78,110,.14) !important;
+  box-shadow: 0 34px 80px rgba(61,79,109,.16) !important;
+}
+
+html[data-theme="light"] app-home .portrait-ring {
+  border-color: rgba(81,110,232,.20) !important;
+}
+
+html[data-theme="light"] app-home .ring-two {
+  border-color: rgba(7,139,117,.17) !important;
+}
+
+/* Technology marquee ---------------------------------------------------- */
+.tech-marquee-wrap {
+  overflow: hidden;
+}
+
+.tech-logo-pill {
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.tech-logo-pill:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--line));
+  box-shadow: 0 10px 24px rgba(2,8,20,.10);
+}
+
+.tech-marquee:hover .tech-marquee-track,
+.tech-marquee:focus-within .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+html[data-theme="light"] app-home .fade-left {
+  background: linear-gradient(90deg, #f4f7fb 18%, rgba(244,247,251,0)) !important;
+}
+
+html[data-theme="light"] app-home .fade-right {
+  background: linear-gradient(270deg, #f4f7fb 18%, rgba(244,247,251,0)) !important;
+}
+
+html[data-theme="light"] app-home .tech-logo-pill {
+  box-shadow: 0 8px 22px rgba(63,82,113,.055);
+}
+
+/* Project cards --------------------------------------------------------- */
+.project-topline {
+  min-height: 28px;
+}
+
+.project-type {
+  white-space: nowrap;
+}
+
+.project-highlights li {
+  text-wrap: pretty;
+}
+
+.case-study-trigger {
+  min-height: 44px;
+  border-radius: 9px;
+  transition: color 180ms ease, background 180ms ease, padding 180ms ease;
+}
+
+.case-study-trigger:hover,
+.case-study-trigger:focus-visible {
+  padding-inline: 8px;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  outline: none;
+}
+
+.case-study-popover {
+  overscroll-behavior: contain;
+}
+
+.case-study-modal {
+  scrollbar-color: color-mix(in srgb, var(--accent) 35%, transparent) transparent;
+}
+
+.case-study-modal-footer .button {
+  flex: 0 0 auto;
+}
+
+html[data-theme="light"] .case-study-popover .case-study-grid > div:hover {
+  border-color: rgba(81,110,232,.25) !important;
+  background: linear-gradient(145deg, #ffffff, #f3f6ff) !important;
+}
+
+/* Light-theme surfaces that were still inheriting dark component rules. */
+html[data-theme="light"] app-home .metrics {
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(28,44,68,.11) !important;
+  box-shadow: 0 14px 36px rgba(53,71,99,.06), inset 0 1px 0 #fff !important;
+}
+
+html[data-theme="light"] app-home .metric {
+  border-color: rgba(28,44,68,.10) !important;
+}
+
+html[data-theme="light"] app-home .capability-card:hover,
+html[data-theme="light"] app-home .snapshot-card:hover,
+html[data-theme="light"] app-home .project-card.dense-project:hover,
+html[data-theme="light"] app-home .recruiter-grid article:hover,
+html[data-theme="light"] app-home .stack-group.rich-stack-card:hover {
+  background:
+    radial-gradient(circle at 92% 0%, rgba(81,110,232,.09), transparent 38%),
+    linear-gradient(155deg, rgba(255,255,255,.98), rgba(242,246,253,.97)) !important;
+  border-color: rgba(81,110,232,.22) !important;
+  box-shadow: 0 20px 48px rgba(52,70,97,.10) !important;
+}
+
+html[data-theme="light"] app-home .timeline-item.featured {
+  background: linear-gradient(120deg, rgba(81,110,232,.075), rgba(255,255,255,.92)) !important;
+  border-color: rgba(81,110,232,.20) !important;
+}
+
+html[data-theme="light"] app-home .timeline-meta,
+html[data-theme="light"] app-home .timeline-title-row > span,
+html[data-theme="light"] app-home .footer {
+  color: #66758a !important;
+}
+
+html[data-theme="light"] app-home .project-number {
+  color: #718098 !important;
+}
+
+/* The mobile nav was explicitly dark in the component stylesheet. */
+html[data-theme="light"] app-home .nav {
+  color: #26344a;
+}
+
+/* Contact section gets a gentle accent halo instead of reading as a plain
+ * white rectangle in light mode. */
+html[data-theme="light"] app-home .contact {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(81,110,232,.10), transparent 42%),
+    linear-gradient(155deg, rgba(255,255,255,.96), rgba(241,245,252,.94)) !important;
+  border-color: rgba(81,110,232,.13) !important;
+}
+
+html[data-theme="light"] app-home .education {
+  background: linear-gradient(155deg, rgba(255,255,255,.90), rgba(244,247,252,.88)) !important;
+}
+
+/* Link / button consistency --------------------------------------------- */
+.button,
+.header-cta,
+.footer-links a,
+.case-study-trigger,
+.theme-toggle,
+.menu-button {
+  touch-action: manipulation;
+}
+
+.button:focus-visible,
+.footer-links a:focus-visible,
+.case-study-trigger:focus-visible,
+.case-study-close:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Tablet header: theme injection adds a third in-flow child. Reserve a
+ * column for it so the controls never wrap into a second header row. */
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+  }
+
+  .nav {
+    justify-self: end;
+  }
+
+  .header-actions {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    gap: 8px !important;
+  }
+
+  .menu-button {
+    grid-column: 2;
+  }
+
+  .header-actions {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    background: rgba(8, 11, 16, 0.97) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  html[data-theme="light"] app-home .nav {
+    background: rgba(255,255,255,.97) !important;
+    border-color: rgba(28,44,68,.12) !important;
+    box-shadow: 0 18px 42px rgba(47,65,91,.14) !important;
+  }
+
+  html[data-theme="light"] app-home .nav a {
+    color: #33435b !important;
+  }
+
+  html[data-theme="light"] app-home .menu-button {
+    background: rgba(255,255,255,.82) !important;
+    border-color: rgba(28,44,68,.13) !important;
+    color: #33435b !important;
+  }
+
+  .project-card.dense-project {
+    border-radius: 18px;
+  }
+
+  .project-visual {
+    margin: -24px -24px 20px;
+  }
+
+  .project-topline {
+    align-items: flex-start;
+  }
+
+  .project-type {
+    margin-left: 0;
+  }
+
+  .case-study-modal-footer .tag-row {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    min-height: 46px;
+  }
+
+  .contact .hero-actions {
+    gap: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .metrics {
+    grid-template-columns: 1fr !important;
+  }
+
+  .metric,
+  .metric:first-child,
+  .metric:nth-child(3),
+  .metric:nth-child(odd) {
+    padding: 17px 16px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .metric:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .floating-card {
+    width: min(220px, 72%);
+    padding: 11px 12px;
+  }
+
+  .floating-card-top { left: -2%; }
+  .floating-card-bottom { right: -2%; }
+
+  .case-study-popover {
+    width: calc(100vw - 14px) !important;
+  }
+
+  .case-study-modal {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+}
+
+@media (hover: none) {
+  .capability-card:hover,
+  .snapshot-card:hover,
+  .project-card.dense-project:hover,
+  .recruiter-grid article:hover,
+  .stack-group.rich-stack-card:hover,
+  .tech-logo-pill:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  .menu-button span:not(.sr-only),
+  .tech-logo-pill {
+    transition: none !important;
+  }
+
+  .tech-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

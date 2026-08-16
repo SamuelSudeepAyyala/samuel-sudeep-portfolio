@@ -1,16 +1,43 @@
 (() => {
   const STORAGE_KEY = 'samuel-portfolio-theme';
   const root = document.documentElement;
+  const media = window.matchMedia('(prefers-color-scheme: light)');
 
-  const getPreferredTheme = () => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'light' || saved === 'dark') return saved;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  const safeStorage = {
+    get() {
+      try {
+        return localStorage.getItem(STORAGE_KEY);
+      } catch {
+        return null;
+      }
+    },
+    set(value) {
+      try {
+        localStorage.setItem(STORAGE_KEY, value);
+      } catch {
+        // Theme switching should still work for this session when storage is blocked.
+      }
+    }
   };
 
-  const applyTheme = (theme) => {
+  const getPreferredTheme = () => {
+    const saved = safeStorage.get();
+    if (saved === 'light' || saved === 'dark') return saved;
+    return media.matches ? 'light' : 'dark';
+  };
+
+  let transitionTimer = 0;
+
+  const applyTheme = (theme, animate = false) => {
+    if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      root.classList.add('theme-transition');
+      window.clearTimeout(transitionTimer);
+      transitionTimer = window.setTimeout(() => root.classList.remove('theme-transition'), 320);
+    }
+
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
+
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f7fb' : '#07090d');
 
@@ -48,15 +75,16 @@
 
     button.addEventListener('click', () => {
       const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-      localStorage.setItem(STORAGE_KEY, next);
-      applyTheme(next);
+      safeStorage.set(next);
+      applyTheme(next, true);
     });
 
     if (cta) {
       cta.replaceWith(actions);
       actions.append(button, cta);
     } else {
-      header.append(button);
+      header.append(actions);
+      actions.append(button);
     }
 
     applyTheme(root.dataset.theme || getPreferredTheme());
@@ -70,9 +98,15 @@
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }
 
-  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (event) => {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      applyTheme(event.matches ? 'light' : 'dark');
+  const onSystemThemeChange = (event) => {
+    if (!safeStorage.get()) {
+      applyTheme(event.matches ? 'light' : 'dark', true);
     }
-  });
+  };
+
+  if (typeof media.addEventListener === 'function') {
+    media.addEventListener('change', onSystemThemeChange);
+  } else if (typeof media.addListener === 'function') {
+    media.addListener(onSystemThemeChange);
+  }
 })();

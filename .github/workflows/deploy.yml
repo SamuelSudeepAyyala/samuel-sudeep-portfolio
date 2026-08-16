@@ -39,6 +39,7 @@ jobs:
       - name: Verify required public files
         run: |
           test -f dist/samuel-sudeep-portfolio/index.html
+          test -f dist/samuel-sudeep-portfolio/favicon.svg
           test -f dist/samuel-sudeep-portfolio/robots.txt
           test -f dist/samuel-sudeep-portfolio/sitemap.xml
           test -f dist/samuel-sudeep-portfolio/site.webmanifest
@@ -49,6 +50,7 @@ jobs:
           test -f dist/samuel-sudeep-portfolio/assets/profile.jpg
           test -f dist/samuel-sudeep-portfolio/assets/Samuel_Sudeep_Ayyala_Resume.pdf
           test -f dist/samuel-sudeep-portfolio/assets/tech/dotnet.svg
+          grep -q 'favicon.svg' dist/samuel-sudeep-portfolio/index.html
           grep -q 'theme.css' dist/samuel-sudeep-portfolio/index.html
           grep -q 'theme-polish.css' dist/samuel-sudeep-portfolio/index.html
           grep -q 'audit-polish.css' dist/samuel-sudeep-portfolio/index.html

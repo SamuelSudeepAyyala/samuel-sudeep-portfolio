@@ -49,6 +49,19 @@ body app-home .tech-marquee-track .tech-logo-pill[data-tech="Grafana"] .tech-bra
   line-height: 1.4;
 }
 
+/* Compact actions should still meet the same practical touch target as the
+ * rest of the portfolio controls. */
+.project-card.dense-project .project-buttons .button {
+  min-height: 44px !important;
+}
+
+.case-study-close {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px;
+  min-height: 44px;
+}
+
 /* Respect explicit reduced-motion preferences for both CSS anchor scrolling
  * and the JS back-to-top helper. */
 @media (prefers-reduced-motion: reduce) {

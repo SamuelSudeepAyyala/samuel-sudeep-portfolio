@@ -36,26 +36,34 @@ jobs:
       - name: Build production portfolio
         run: npm run build -- --configuration production --base-href=/samuel-sudeep-portfolio/
 
-      - name: Verify required public files
+      - name: Verify required public files and visual assets
         run: |
-          test -f dist/samuel-sudeep-portfolio/index.html
-          test -f dist/samuel-sudeep-portfolio/favicon.svg
-          test -f dist/samuel-sudeep-portfolio/robots.txt
-          test -f dist/samuel-sudeep-portfolio/sitemap.xml
-          test -f dist/samuel-sudeep-portfolio/site.webmanifest
-          test -f dist/samuel-sudeep-portfolio/theme.css
-          test -f dist/samuel-sudeep-portfolio/theme-polish.css
-          test -f dist/samuel-sudeep-portfolio/audit-polish.css
-          test -f dist/samuel-sudeep-portfolio/theme.js
-          test -f dist/samuel-sudeep-portfolio/assets/profile.jpg
-          test -f dist/samuel-sudeep-portfolio/assets/Samuel_Sudeep_Ayyala_Resume.pdf
-          test -f dist/samuel-sudeep-portfolio/assets/tech/dotnet.svg
-          grep -q 'favicon.svg' dist/samuel-sudeep-portfolio/index.html
-          grep -q 'theme.css' dist/samuel-sudeep-portfolio/index.html
-          grep -q 'theme-polish.css' dist/samuel-sudeep-portfolio/index.html
-          grep -q 'audit-polish.css' dist/samuel-sudeep-portfolio/index.html
-          grep -q 'theme.js' dist/samuel-sudeep-portfolio/index.html
-          grep -q 'site.webmanifest' dist/samuel-sudeep-portfolio/index.html
+          set -euo pipefail
+          ROOT=dist/samuel-sudeep-portfolio
+
+          test -f "$ROOT/index.html"
+          test -f "$ROOT/favicon.svg"
+          test ! -f "$ROOT/favicon.ico"
+          test -f "$ROOT/robots.txt"
+          test -f "$ROOT/sitemap.xml"
+          test -f "$ROOT/site.webmanifest"
+
+          for file in theme.css theme-polish.css audit-polish.css now-polish.css project-tabs.css experience-polish.css regression-fixes.css theme.js; do
+            test -f "$ROOT/$file"
+            grep -q "$file" "$ROOT/index.html"
+          done
+
+          test -f "$ROOT/assets/profile.jpg"
+          test -f "$ROOT/assets/Samuel_Sudeep_Ayyala_Resume.pdf"
+
+          for icon in angular csharp dotnet fastapi githubactions grafana nextjs python react typescript; do
+            test -f "$ROOT/assets/tech/$icon.svg"
+          done
+
+          grep -q 'favicon.svg' "$ROOT/index.html"
+          grep -q 'site.webmanifest' "$ROOT/index.html"
+          grep -q '"icons"' "$ROOT/site.webmanifest"
+          grep -q 'favicon.svg' "$ROOT/site.webmanifest"
 
       - name: Upload production build
         uses: actions/upload-artifact@v4

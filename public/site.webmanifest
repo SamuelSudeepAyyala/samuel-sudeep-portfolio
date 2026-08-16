@@ -1,0 +1,9 @@
+{
+  "name": "Samuel Sudeep Ayyala Portfolio",
+  "short_name": "Samuel Sudeep",
+  "start_url": "/samuel-sudeep-portfolio/",
+  "display": "standalone",
+  "background_color": "#07090d",
+  "theme_color": "#07090d",
+  "description": "Software engineering, platform engineering, cloud-native systems and practical AI-assisted workflows."
+}

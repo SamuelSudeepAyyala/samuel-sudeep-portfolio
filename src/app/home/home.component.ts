@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 interface Capability {
   eyebrow: string;
@@ -42,13 +42,15 @@ interface TechLogo {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', './home.extras.css', './home.final.css'],
+  styleUrls: ['./home.component.css', './home.extras.css', './home.final.css', './home.polish.css'],
   standalone: true
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent {
   menuOpen = false;
   currentYear = new Date().getFullYear();
-  private observer?: IntersectionObserver;
+  scrollProgress = 0;
+  showBackToTop = false;
+  activeSection = 'top';
 
   readonly metrics = [
     { value: 'App → Platform', label: 'Comfortable working across product code and delivery systems' },
@@ -196,33 +198,32 @@ export class HomeComponent implements OnInit, OnDestroy {
     { title: 'AI-assisted engineering', description: 'Coding agents and AI workflows used for repository analysis, implementation support and repetitive engineering tasks with human review.', context: 'Current development workflow', mark: 'AI', color: '#8DA8FF', items: ['Claude Code', 'Claude Skills', 'Codex', 'MCP', 'Repository analysis', 'Workflow automation', 'Human-in-the-loop review'] }
   ];
 
-  constructor(private readonly host: ElementRef<HTMLElement>) {}
-
-  ngOnInit(): void {
-    if (typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
       return;
     }
 
-    this.observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            this.observer?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
-    );
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    this.scrollProgress = Math.min(100, Math.max(0, (scrollTop / scrollable) * 100));
+    this.showBackToTop = scrollTop > 700;
 
-    this.host.nativeElement.querySelectorAll<HTMLElement>('[data-reveal]').forEach((element, index) => {
-      element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
-      this.observer?.observe(element);
-    });
+    const sectionIds = ['about', 'work', 'experience', 'stack', 'contact'];
+    let current = 'top';
+    for (const id of sectionIds) {
+      const element = document.getElementById(id);
+      if (element && element.getBoundingClientRect().top <= 170) {
+        current = id;
+      }
+    }
+    this.activeSection = current;
   }
 
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
+  scrollToTop(): void {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   toggleMenu(): void {

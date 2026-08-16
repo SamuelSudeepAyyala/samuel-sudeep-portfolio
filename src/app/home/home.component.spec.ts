@@ -38,6 +38,22 @@ describe('HomeComponent', () => {
     expect(getComputedStyle(stackCard!).opacity).not.toBe('0');
   });
 
+  it('renders one top-layer project context popover per project', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const triggers = Array.from(element.querySelectorAll<HTMLButtonElement>('.case-study-trigger'));
+    const popovers = Array.from(element.querySelectorAll<HTMLElement>('.case-study-popover'));
+
+    expect(triggers.length).toBe(component.projects.length);
+    expect(popovers.length).toBe(component.projects.length);
+    expect(element.querySelectorAll('.case-study-details').length).toBe(0);
+
+    const ids = popovers.map((popover) => popover.id);
+    expect(new Set(ids).size).toBe(component.projects.length);
+    triggers.forEach((trigger) => {
+      expect(ids).toContain(trigger.getAttribute('popovertarget') || '');
+    });
+  });
+
   it('renders recruiter quick facts without adding sensitive employer detail', () => {
     const element = fixture.nativeElement as HTMLElement;
     const cards = element.querySelectorAll('.recruiter-grid article');
@@ -52,5 +68,13 @@ describe('HomeComponent', () => {
     expect(element.querySelector('.scroll-progress')).not.toBeNull();
     expect(element.querySelector('.back-to-top')).not.toBeNull();
     expect(element.querySelector('a[href*="samuel-sudeep-portfolio"]')).not.toBeNull();
+  });
+
+  it('keeps primary portfolio links and resume actions present', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    expect(element.querySelector('a[href="./assets/Samuel_Sudeep_Ayyala_Resume.pdf"]')).not.toBeNull();
+    expect(element.querySelector('a[href="https://github.com/SamuelSudeepAyyala"]')).not.toBeNull();
+    expect(element.querySelector('a[href="https://www.linkedin.com/in/samuelsudeepayyala/"]')).not.toBeNull();
+    expect(element.querySelector('a[href="mailto:ayyalasamuelsudeep@gmail.com"]')).not.toBeNull();
   });
 });

@@ -37,4 +37,20 @@ describe('HomeComponent', () => {
     expect(getComputedStyle(project!).opacity).not.toBe('0');
     expect(getComputedStyle(stackCard!).opacity).not.toBe('0');
   });
+
+  it('renders recruiter quick facts without adding sensitive employer detail', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const cards = element.querySelectorAll('.recruiter-grid article');
+    expect(cards.length).toBe(4);
+    expect(element.textContent).toContain('M.S. Computer Science');
+    expect(element.textContent).toContain('Software + Platform');
+  });
+
+  it('includes keyboard and long-page navigation helpers', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    expect(element.querySelector('.skip-link')).not.toBeNull();
+    expect(element.querySelector('.scroll-progress')).not.toBeNull();
+    expect(element.querySelector('.back-to-top')).not.toBeNull();
+    expect(element.querySelector('a[href*="samuel-sudeep-portfolio"]')).not.toBeNull();
+  });
 });

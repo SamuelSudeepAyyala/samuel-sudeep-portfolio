@@ -1,4 +1,7 @@
 <div class="site-shell">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"><span [style.width.%]="scrollProgress"></span></div>
+
   <div class="ambient-orb orb-one" aria-hidden="true"></div>
   <div class="ambient-orb orb-two" aria-hidden="true"></div>
   <div class="ambient-orb orb-three" aria-hidden="true"></div>
@@ -15,18 +18,18 @@
     </button>
 
     <nav id="primary-navigation" class="nav" [class.nav-open]="menuOpen" aria-label="Primary navigation">
-      <a href="#about" (click)="closeMenu()">About</a>
-      <a href="#work" (click)="closeMenu()">Projects</a>
-      <a href="#experience" (click)="closeMenu()">Experience</a>
-      <a href="#stack" (click)="closeMenu()">Stack</a>
-      <a href="#contact" (click)="closeMenu()">Contact</a>
+      <a href="#about" (click)="closeMenu()" [class.active]="activeSection === 'about'">About</a>
+      <a href="#work" (click)="closeMenu()" [class.active]="activeSection === 'work'">Projects</a>
+      <a href="#experience" (click)="closeMenu()" [class.active]="activeSection === 'experience'">Experience</a>
+      <a href="#stack" (click)="closeMenu()" [class.active]="activeSection === 'stack'">Stack</a>
+      <a href="#contact" (click)="closeMenu()" [class.active]="activeSection === 'contact'">Contact</a>
     </nav>
 
     <a class="header-cta" href="https://wa.link/bk4p2s" target="_blank" rel="noreferrer">Let's talk</a>
   </header>
 
-  <main id="top">
-    <section class="hero section-pad">
+  <main id="main-content">
+    <section class="hero section-pad" id="top">
       <div class="hero-copy" data-reveal>
         <div class="hero-signal"><span></span> Building across software + platform systems</div>
         <p class="eyebrow">Software engineer · Platform / DevOps · Applied AI</p>
@@ -85,6 +88,19 @@
       <div class="about-copy">
         <p>I started with enterprise application development and gradually moved closer to the systems that build, deploy, observe and support software in production.</p>
         <p>That path made me most comfortable on problems that cross boundaries: a failing deployment that starts in application code, a test environment that needs better automation, or a product workflow that benefits from practical AI without removing human review.</p>
+      </div>
+    </section>
+
+    <section class="recruiter-snapshot section-pad" aria-label="Recruiter snapshot">
+      <div class="snapshot-heading">
+        <p class="eyebrow">Quick snapshot</p>
+        <h2>Useful context in 20 seconds.</h2>
+      </div>
+      <div class="recruiter-grid">
+        <article><span class="mono">Location</span><strong>Atlanta, Georgia</strong><p>U.S.-based and focused on engineering opportunities.</p></article>
+        <article><span class="mono">Education</span><strong>M.S. Computer Science</strong><p>New Jersey Institute of Technology · 2025.</p></article>
+        <article><span class="mono">Focus</span><strong>Software + Platform</strong><p>Backend systems, CI/CD, cloud-native delivery and observability.</p></article>
+        <article><span class="mono">Working range</span><strong>App → Delivery → Runtime</strong><p>Comfortable tracing issues across code, pipelines, environments and signals.</p></article>
       </div>
     </section>
 
@@ -251,5 +267,10 @@
     </section>
   </main>
 
-  <footer class="footer section-pad"><span>© {{ currentYear }} Samuel Sudeep Ayyala</span><span>Designed and built with Angular.</span></footer>
+  <button class="back-to-top" type="button" [class.visible]="showBackToTop" (click)="scrollToTop()" aria-label="Back to top">↑</button>
+
+  <footer class="footer section-pad">
+    <span>© {{ currentYear }} Samuel Sudeep Ayyala</span>
+    <span class="footer-links"><a href="https://github.com/SamuelSudeepAyyala/samuel-sudeep-portfolio" target="_blank" rel="noreferrer">View source ↗</a><span>Designed and built with Angular.</span></span>
+  </footer>
 </div>

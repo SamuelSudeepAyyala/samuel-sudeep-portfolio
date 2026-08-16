@@ -1,0 +1,188 @@
+/* Light-theme accent refinement -----------------------------------------
+ * The initial light theme intentionally preserved a few dark controls for
+ * contrast. This pass replaces those near-black surfaces with the portfolio's
+ * indigo/teal accent system so light mode feels designed rather than inverted.
+ */
+
+html[data-theme="light"] app-home .header-cta,
+html[data-theme="light"] app-home .button-primary,
+html[data-theme="light"] app-home .back-to-top {
+  background: linear-gradient(135deg, #536fe8, #4661d8) !important;
+  border-color: rgba(63, 84, 190, .28) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 28px rgba(70, 97, 216, .22) !important;
+}
+
+html[data-theme="light"] app-home .header-cta:hover,
+html[data-theme="light"] app-home .button-primary:hover,
+html[data-theme="light"] app-home .back-to-top:hover {
+  background: linear-gradient(135deg, #4562df, #354fc5) !important;
+  box-shadow: 0 14px 34px rgba(70, 97, 216, .28) !important;
+}
+
+/* Brand / stack icon containers should be tinted, not dark slabs. */
+html[data-theme="light"] app-home .stack-brand-mark,
+html[data-theme="light"] app-home .tech-brand-mark {
+  border-color: rgba(81, 110, 232, .20) !important;
+  background-color: #f7f9ff !important;
+  background-blend-mode: normal !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .72),
+    0 8px 20px rgba(67, 89, 142, .10) !important;
+}
+
+/* Next.js artwork itself is black, so give it a clean white badge instead of
+ * allowing its surrounding treatment to read as a black UI element. */
+html[data-theme="light"] app-home .tech-marquee-track > .tech-logo-pill:nth-child(18n + 7) .tech-brand-mark {
+  background-color: #ffffff !important;
+  border-color: rgba(27, 43, 66, .14) !important;
+}
+
+/* Hero helper cards retain the glass look but move to cool light surfaces. */
+html[data-theme="light"] app-home .floating-card,
+html[data-theme="light"] app-home .hero-signal,
+html[data-theme="light"] app-home .availability {
+  background: rgba(255, 255, 255, .76) !important;
+  border-color: rgba(38, 59, 89, .12) !important;
+  color: #34445c !important;
+  box-shadow: 0 14px 36px rgba(49, 68, 96, .10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+html[data-theme="light"] app-home .floating-card strong {
+  color: #1d2a41 !important;
+}
+
+/* Give secondary buttons a subtle accent edge instead of flat gray. */
+html[data-theme="light"] app-home .button-secondary {
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(244,247,253,.92)) !important;
+  border-color: rgba(81,110,232,.20) !important;
+  color: #34445c !important;
+  box-shadow: 0 6px 18px rgba(58,78,112,.06) !important;
+}
+
+html[data-theme="light"] app-home .button-secondary:hover {
+  border-color: rgba(81,110,232,.38) !important;
+  color: #405bd0 !important;
+  background: #f7f9ff !important;
+}
+
+/* Chips become lightly accented rather than neutral gray pills. */
+html[data-theme="light"] app-home .tag-row span,
+html[data-theme="light"] app-home .experience-bullets span,
+html[data-theme="light"] app-home .stack-items span,
+html[data-theme="light"] app-home .project-type {
+  background: rgba(81,110,232,.055) !important;
+  border-color: rgba(81,110,232,.14) !important;
+  color: #42526a !important;
+}
+
+html[data-theme="light"] app-home .tag-row span:hover,
+html[data-theme="light"] app-home .stack-items span:hover {
+  background: rgba(81,110,232,.10) !important;
+  border-color: rgba(81,110,232,.26) !important;
+}
+
+/* Project illustrations: remove remaining dark miniature UI pieces. */
+html[data-theme="light"] app-home .assistant-window,
+html[data-theme="light"] app-home .pipeline-node,
+html[data-theme="light"] app-home .search-line {
+  background: rgba(255,255,255,.90) !important;
+  border-color: rgba(81,110,232,.15) !important;
+  color: #263852 !important;
+}
+
+html[data-theme="light"] app-home .window-bar {
+  background: rgba(81,110,232,.045) !important;
+}
+
+html[data-theme="light"] app-home .window-bar span {
+  background: rgba(67,84,112,.42) !important;
+}
+
+html[data-theme="light"] app-home .mini-sidebar {
+  background: rgba(237,242,252,.72) !important;
+  border-right-color: rgba(45,63,91,.09) !important;
+}
+
+html[data-theme="light"] app-home .mini-content .mini-title {
+  background: rgba(35,50,74,.66) !important;
+}
+
+html[data-theme="light"] app-home .mini-content > span,
+html[data-theme="light"] app-home .mini-sidebar b {
+  background: rgba(81,110,232,.22) !important;
+}
+
+html[data-theme="light"] app-home .review-chip {
+  color: #087a69 !important;
+  background: rgba(7,139,117,.07) !important;
+  border-color: rgba(7,139,117,.18) !important;
+}
+
+/* Conversation illustration bubbles. */
+html[data-theme="light"] app-home .bubble-left {
+  background: rgba(255,255,255,.86) !important;
+  color: #42526a !important;
+  border-color: rgba(38,59,89,.11) !important;
+}
+
+html[data-theme="light"] app-home .bubble-right {
+  background: rgba(7,139,117,.08) !important;
+  color: #086f61 !important;
+  border-color: rgba(7,139,117,.17) !important;
+}
+
+/* Light-mode modal accents. */
+html[data-theme="light"] .case-study-close {
+  background: #f7f9ff !important;
+  color: #405bd0 !important;
+  border-color: rgba(81,110,232,.18) !important;
+  box-shadow: 0 8px 22px rgba(58,78,112,.08) !important;
+}
+
+html[data-theme="light"] .case-study-popover .case-study-grid > div {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.92), rgba(246,249,255,.88)) !important;
+  border-color: rgba(81,110,232,.12) !important;
+}
+
+html[data-theme="light"] .case-study-modal-head .mono,
+html[data-theme="light"] .case-study-modal-highlights > .mono,
+html[data-theme="light"] .case-study-grid .mono {
+  color: #087a69 !important;
+}
+
+/* Scrollbar uses accent rather than dark gray. */
+html[data-theme="light"] .case-study-modal::-webkit-scrollbar-thumb {
+  background: rgba(81,110,232,.34) !important;
+  background-clip: padding-box !important;
+}
+
+/* Keep charts / flow lines vivid enough on pale surfaces. */
+html[data-theme="light"] app-home .pipeline-visual i {
+  background: linear-gradient(90deg, #536fe8, #0a9d84) !important;
+}
+
+html[data-theme="light"] app-home .chart-visual span {
+  background: linear-gradient(to top, rgba(7,139,117,.42), rgba(81,110,232,.86)) !important;
+}
+
+/* Accent the active navigation state instead of making it near-black. */
+html[data-theme="light"] app-home .nav a.active,
+html[data-theme="light"] app-home .nav a:hover {
+  color: #405bd0 !important;
+}
+
+html[data-theme="light"] app-home .nav a.active::after {
+  background: linear-gradient(90deg, #536fe8, #0a9d84) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme="light"] app-home .header-cta,
+  html[data-theme="light"] app-home .button-primary,
+  html[data-theme="light"] app-home .button-secondary {
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease !important;
+  }
+}

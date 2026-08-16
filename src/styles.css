@@ -40,3 +40,81 @@ a {
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* Real locally-served technology logos. The component keeps compact text
+ * fallbacks in its data model, but the visual presentation uses SVG assets. */
+.tech-brand-mark,
+.stack-brand-mark {
+  color: transparent !important;
+  font-size: 0 !important;
+  text-shadow: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 68% 68% !important;
+}
+
+/* The current data source contains 18 historical marquee entries. The first
+ * ten have locally-vendored brand artwork; hide the older text-only tail in
+ * both halves of the seamless loop. */
+.tech-marquee-track > .tech-logo-pill:nth-child(n + 11):nth-child(-n + 18),
+.tech-marquee-track > .tech-logo-pill:nth-child(n + 29):nth-child(-n + 36) {
+  display: none !important;
+}
+
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 1) .tech-brand-mark {
+  background-image: url('./assets/tech/csharp.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 2) .tech-brand-mark {
+  background-image: url('./assets/tech/dotnet.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 3) .tech-brand-mark {
+  background-image: url('./assets/tech/python.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 4) .tech-brand-mark {
+  background-image: url('./assets/tech/typescript.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 5) .tech-brand-mark {
+  background-image: url('./assets/tech/angular.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 6) .tech-brand-mark {
+  background-image: url('./assets/tech/react.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 7) .tech-brand-mark {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-image: url('./assets/tech/nextjs.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 8) .tech-brand-mark {
+  background-image: url('./assets/tech/fastapi.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 9) .tech-brand-mark {
+  background-image: url('./assets/tech/githubactions.svg') !important;
+}
+.tech-marquee-track > .tech-logo-pill:nth-child(18n + 10) .tech-brand-mark {
+  background-image: url('./assets/tech/grafana.svg') !important;
+}
+
+/* Replace category initials in the detailed stack cards as well. */
+.rich-stack-grid > .rich-stack-card:nth-child(1) .stack-brand-mark {
+  background-image: url('./assets/tech/githubactions.svg') !important;
+}
+.rich-stack-grid > .rich-stack-card:nth-child(2) .stack-brand-mark {
+  background-image: url('./assets/tech/dotnet.svg') !important;
+}
+.rich-stack-grid > .rich-stack-card:nth-child(3) .stack-brand-mark {
+  background-image: url('./assets/tech/angular.svg') !important;
+}
+.rich-stack-grid > .rich-stack-card:nth-child(4) .stack-brand-mark {
+  background-image: url('./assets/tech/grafana.svg') !important;
+}
+.rich-stack-grid > .rich-stack-card:nth-child(5) .stack-brand-mark {
+  background-image: url('./assets/tech/csharp.svg') !important;
+}
+.rich-stack-grid > .rich-stack-card:nth-child(6) .stack-brand-mark {
+  background-image: url('./assets/tech/python.svg') !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-track {
+    animation: none !important;
+  }
+}

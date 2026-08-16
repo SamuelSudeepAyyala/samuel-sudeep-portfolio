@@ -23,6 +23,13 @@ interface Project {
   };
 }
 
+interface SkillGroup {
+  title: string;
+  description: string;
+  context: string;
+  items: string[];
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,6 +46,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     { value: 'PR → Environment', label: 'Experience with automated, repeatable test and deployment workflows' },
     { value: 'Signals → Action', label: 'Observability and troubleshooting with practical operational context' },
     { value: 'AI + Review', label: 'Automation designed with human control and clear boundaries' }
+  ];
+
+  readonly workSnapshot = [
+    {
+      title: 'Platform delivery',
+      description: 'Pull-request environments, CI/CD, GitOps, deployment configuration, health checks and release validation.'
+    },
+    {
+      title: 'Application engineering',
+      description: '.NET services, REST APIs, SQL-backed workflows, Angular/React interfaces and production debugging.'
+    },
+    {
+      title: 'Observability',
+      description: 'Metrics, logs, dashboards, alerting and practical troubleshooting using Prometheus, Grafana, Loki and Splunk.'
+    },
+    {
+      title: 'Applied automation',
+      description: 'AI-assisted development and workflow automation with explicit review steps, tests and user control.'
+    }
   ];
 
   readonly capabilities: Capability[] = [
@@ -70,10 +96,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       highlights: [
         'Coordinated application, deployment and test changes across multiple repositories',
         'Added health, smoke and end-to-end validation into delivery workflows',
-        'Troubleshot build, configuration, deployment and authentication failures across layers'
+        'Troubleshot build, configuration, deployment and authentication failures across layers',
+        'Worked with GitOps-style configuration and cloud-native application delivery patterns'
       ],
       tools: ['.NET', 'Kubernetes', 'GitOps', 'Argo CD', 'Docker', 'Cypress', 'GitHub Actions'],
-      mediaLabel: 'Architecture visual slot',
+      mediaLabel: 'Platform delivery',
       caseStudy: {
         context: 'The work involved improving how engineering changes could be validated in isolated environments before broader rollout.',
         contribution: 'I worked across application code, deployment configuration and test automation, with an emphasis on repeatable patterns and practical troubleshooting.',
@@ -85,12 +112,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: 'Job Application Assistant',
       description: 'A personal application workspace built around user-approved automation, authenticated profiles, isolated persistence, resume-evidence workflows and a browser-extension path.',
       highlights: [
-        'Next.js dashboard + FastAPI API + PostgreSQL',
-        'Authentication and user-isolation tests',
-        'Shared contracts and phased implementation boundaries'
+        'Next.js dashboard with a FastAPI service layer and PostgreSQL persistence',
+        'Authentication and user-isolation tests around private profile data',
+        'Shared frontend/backend contracts and phased implementation boundaries',
+        'Resume evidence review designed around explicit approval instead of silent rewriting'
       ],
       tools: ['Next.js', 'FastAPI', 'PostgreSQL', 'Clerk', 'TypeScript', 'Python', 'Manifest V3'],
-      mediaLabel: 'Product screenshot slot',
+      mediaLabel: 'Full-stack product',
       caseStudy: {
         context: 'The goal is to reduce repetitive job-search work without turning applications into an unsupervised automation problem.',
         contribution: 'I designed the product around authenticated user data, explicit review steps, private evidence storage and clear phase boundaries between tracking, resume support and browser-assisted workflows.',
@@ -104,12 +132,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       highlights: [
         'Metrics, dashboards, logs and alerting in a containerized environment',
         'Incident-detection and notification experiments',
-        'Foundation for anomaly detection and response automation'
+        'Prometheus/Grafana/Loki stack used for hands-on systems troubleshooting',
+        'Foundation for anomaly detection and response automation experiments'
       ],
       tools: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Docker', 'Python'],
       link: 'https://github.com/SamuelSudeepAyyala/AiOps',
       linkLabel: 'View repository',
-      mediaLabel: 'Dashboard screenshot slot',
+      mediaLabel: 'Observability systems',
       caseStudy: {
         context: 'Monitoring stacks often produce more signals than a person can reasonably interpret at once.',
         contribution: 'I built a local environment that combines metrics, logs and alerts, then used it to experiment with correlation and anomaly-oriented workflows.',
@@ -123,10 +152,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       highlights: [
         'Curated FAQ and search-oriented response flow',
         'Fuzzy matching for common wording variations and typos',
-        'Responsive in-product conversation experience'
+        'Responsive in-product conversation experience',
+        'Simple maintainable retrieval approach instead of unnecessary model complexity'
       ],
       tools: ['Angular', 'TypeScript', 'Search', 'JSON', 'UX'],
-      mediaLabel: 'Product visual slot',
+      mediaLabel: 'Applied product UX',
       caseStudy: {
         context: 'The product needed a faster way for users to find answers to common questions without forcing every interaction through a full support flow.',
         contribution: 'I focused on a small, maintainable assistant using curated content, search-oriented matching and straightforward UI behavior rather than an opaque autonomous system.',
@@ -135,11 +165,43 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
-  readonly skillGroups = [
-    { title: 'Platform', items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'Vault', 'GitHub Actions', 'Azure DevOps', 'Linux'] },
-    { title: 'Backend', items: ['C#', '.NET', 'Python', 'FastAPI', 'REST APIs', 'PostgreSQL', 'SQL Server', 'Redis'] },
-    { title: 'Frontend', items: ['Angular', 'Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-    { title: 'Observability + security', items: ['Prometheus', 'Grafana', 'Loki', 'Splunk', 'Burp Suite', 'Fortify'] }
+  readonly skillGroups: SkillGroup[] = [
+    {
+      title: 'Platform & cloud-native delivery',
+      description: 'The layer I have been spending the most time in recently: deployment automation, environment configuration and release validation.',
+      context: 'Used in professional and hands-on platform work',
+      items: ['Kubernetes', 'Docker', 'Argo CD', 'Kustomize', 'GitOps', 'HashiCorp Vault', 'GitHub Actions', 'Azure DevOps', 'Linux']
+    },
+    {
+      title: 'Backend & APIs',
+      description: 'Application services, REST integrations, data access and debugging across both .NET and Python-based stacks.',
+      context: 'Professional experience + current product work',
+      items: ['C#', '.NET', 'ASP.NET Core', 'Python', 'FastAPI', 'REST APIs', 'Entity Framework', 'PostgreSQL', 'SQL Server', 'Redis']
+    },
+    {
+      title: 'Frontend & product UI',
+      description: 'Building and supporting web interfaces with a focus on practical workflows rather than purely visual frontend work.',
+      context: 'Enterprise applications + personal products',
+      items: ['Angular', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI']
+    },
+    {
+      title: 'Observability & reliability',
+      description: 'Tools I use to understand what a system is doing after deployment and to reduce time spent guessing during failures.',
+      context: 'Platform work + observability labs',
+      items: ['Prometheus', 'Grafana', 'Loki', 'Alertmanager', 'Splunk', 'Health checks', 'Smoke tests', 'Cypress']
+    },
+    {
+      title: 'Security & application quality',
+      description: 'Application-security testing and quality controls that complement development and release engineering.',
+      context: 'Professional application support and testing',
+      items: ['Burp Suite', 'Fortify', 'Web security testing', 'Vulnerability analysis', 'Authentication debugging', 'Automated tests']
+    },
+    {
+      title: 'AI-assisted engineering',
+      description: 'Using modern coding agents and AI workflows for repository analysis, implementation support and repetitive engineering tasks while retaining human review.',
+      context: 'Current development workflow',
+      items: ['Claude Code', 'Claude Skills', 'Codex', 'MCP', 'Repository analysis', 'Workflow automation', 'Human-in-the-loop review']
+    }
   ];
 
   constructor(private readonly host: ElementRef<HTMLElement>) {}
@@ -158,7 +220,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
     );
 
     this.host.nativeElement.querySelectorAll<HTMLElement>('[data-reveal]').forEach(element => {
